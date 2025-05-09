@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uco_to_udo_recon"
+version = "0.1.0"
+description = "Tool for reconciling UCO and UDO financial data"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Proprietary"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: Microsoft :: Windows",
+]
+dependencies = [
+    "openpyxl==3.0.10",
+    "Pillow==8.4.0",
+    "pywin32==302",
+    "PyQt6==6.2.2",
+    "pythoncom==1.0",
+    "tk==0.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "ruff>=0.0.253",
+    "mypy>=1.0.0",
+]
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.pytest]
+testpaths = ["tests"]
+python_files = "test_*.py"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "W", "I"]
+ignore = []
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+[project.scripts]
+uco-to-udo-recon = "src.uco_to_udo_recon.main:main"

@@ -4,3 +4,5 @@ inputs/
 *.log
 log/*.txt
 *.bat
+
+**/.claude/settings.local.json
