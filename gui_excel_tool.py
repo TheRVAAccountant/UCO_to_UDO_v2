@@ -15,6 +15,7 @@ from PyQt6.QtGui import QIcon
 from find_table_range import find_table_range
 from openpyxl import load_workbook
 from openpyxl.utils.exceptions import InvalidFileException
+from background_worker import BackgroundWorker
 
 def copy_cell_style(source_cell, target_cell):
     """Copies the style from source cell to target cell."""
@@ -149,15 +150,25 @@ class MainWindow(tk.Tk):
 
         # Configure row and column weights
         self.grid_columnconfigure(1, weight=1)
-        for i in range(7):
+        for i in range(8):  # Added one more row for cancel button
             self.grid_rowconfigure(i, weight=0)
         self.grid_rowconfigure(4, weight=1)  # Make the log text area expandable
+
+        # Initialize the background worker
+        self.background_worker = BackgroundWorker(
+            update_progress_callback=self.update_progress,
+            complete_callback=self.on_task_complete,
+            error_callback=self.on_task_error
+        )
 
         self.apply_forest_dark_theme()
         self.initUI()
 
         icon_path = "diamond_icon.ico"
         self.iconbitmap(icon_path)
+
+        # Bind the window close event
+        self.protocol("WM_DELETE_WINDOW", self.on_closing)
 
     def apply_forest_dark_theme(self):
         script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -201,8 +212,23 @@ class MainWindow(tk.Tk):
         self.progress_bar = ttk.Progressbar(self, orient="horizontal", length=580, mode="determinate")
         self.progress_bar.grid(row=5, column=0, columnspan=3, padx=5, pady=5, sticky="ew")
 
+        # Button frame with Start and Cancel buttons
+        button_frame = ttk.Frame(self)
+        button_frame.grid(row=6, column=0, columnspan=3, padx=5, pady=5, sticky="ew")
+        button_frame.columnconfigure(0, weight=1)
+        button_frame.columnconfigure(1, weight=1)
+
         # Start Button
-        ttk.Button(self, text="Start", command=self.start_operations).grid(row=6, column=0, columnspan=3, padx=5, pady=5)
+        self.start_button = ttk.Button(button_frame, text="Start", command=self.start_operations)
+        self.start_button.grid(row=0, column=0, padx=5, pady=5, sticky="e")
+
+        # Cancel Button
+        self.cancel_button = ttk.Button(button_frame, text="Cancel", command=self.cancel_operations, state="disabled")
+        self.cancel_button.grid(row=0, column=1, padx=5, pady=5, sticky="w")
+
+        # Status label
+        self.status_label = ttk.Label(self, text="Ready")
+        self.status_label.grid(row=7, column=0, columnspan=3, padx=5, pady=5, sticky="w")
 
         # Configure grid
         self.grid_columnconfigure(1, weight=1)
@@ -218,6 +244,7 @@ class MainWindow(tk.Tk):
             entry_widget.insert(0, filename)
 
     def start_operations(self):
+        """Start the main operations in a background thread with proper state management."""
         component_name = self.component_name_combo.get()
         target_file = self.target_file_edit.get()
         trial_balance_file = self.trial_balance_edit.get()
@@ -227,58 +254,131 @@ class MainWindow(tk.Tk):
             messagebox.showerror("Error", "Please select all required files and component name.")
             return
 
+        # Reset UI
         self.progress_bar['value'] = 0
         self.update_idletasks()
+        self.status_label.config(text="Processing...")
 
+        # Disable start button, enable cancel button
+        self.start_button.config(state="disabled")
+        self.cancel_button.config(state="normal")
+
+        # Start background worker
+        self.logger.info("Operation started...")
         try:
-            self.logger.info("Operation started...")
+            self.background_worker.run_task(
+                self.run_processing_task,
+                component_name=component_name,
+                target_file=target_file,
+                trial_balance_file=trial_balance_file,
+                uco_to_udo_file=uco_to_udo_file
+            )
+        except Exception as e:
+            self.logger.error(f"Failed to start background worker: {e}", exc_info=True)
+            self.on_task_error(e)
+
+    def run_processing_task(self, component_name, target_file, trial_balance_file, uco_to_udo_file, cancel_event):
+        """Main processing task to run in background."""
+        try:
+            # Check for cancellation
+            if cancel_event.is_set():
+                self.logger.info("Operation cancelled during startup.")
+                return None
 
             # Create copy of target file
             new_target_file = create_copy_of_target_file(target_file, self.logger)
-            ensure_file_handle_release(new_target_file, self.logger)  # Add this line
+            ensure_file_handle_release(new_target_file, self.logger)
+
+            # Check for cancellation after file copy
+            if cancel_event.is_set():
+                self.logger.info("Operation cancelled after file copy.")
+                return None
 
             # Copy DO TB sheet
             if not copy_and_rename_sheet(trial_balance_file, f"{component_name} Total", new_target_file, "DO TB", self.logger, insert_index=3):
                 self.logger.error(f"Failed to copy sheet '{component_name} Total'.")
-                return
-            ensure_file_handle_release(new_target_file, self.logger)  # Add this line
+                raise ValueError(f"Sheet '{component_name} Total' not found in Trial Balance file.")
+            ensure_file_handle_release(new_target_file, self.logger)
+
+            # Check for cancellation after first sheet copy
+            if cancel_event.is_set():
+                self.logger.info("Operation cancelled after DO TB sheet copy.")
+                return None
 
             # Copy DO UCO to UDO sheet
             if not copy_and_rename_sheet(uco_to_udo_file, "UCO to UDO", new_target_file, "DO UCO to UDO", self.logger, insert_index=4):
                 self.logger.error("Failed to copy 'UCO to UDO' sheet.")
-                return
-            ensure_file_handle_release(new_target_file, self.logger)  # Add this line
-            
+                raise ValueError("Sheet 'UCO to UDO' not found in UCO to UDO TIER file.")
+            ensure_file_handle_release(new_target_file, self.logger)
+
             # Update progress
-            self.update_progress(10)
-            self.update_idletasks()
+            self.background_worker.update_progress(10)
 
-            # Perform the main operation
-            self.after(100, lambda: self.perform_main_operation(new_target_file, component_name))
+            # Check for cancellation before main processing
+            if cancel_event.is_set():
+                self.logger.info("Operation cancelled before main processing.")
+                return None
 
-        except Exception as e:
-            self.logger.error(f"Error during operation: {e}", exc_info=True)
-            messagebox.showerror("Error", f"An error occurred: {str(e)}")
-
-    def perform_main_operation(self, new_target_file, component_name):
-        try:
+            # Perform the main operation with cancellation support
             find_table_range(
                 new_target_file,
                 component_name,
                 self.logger,
-                self.update_progress
+                self.background_worker.update_progress,
+                cancel_event
             )
 
-            self.progress_bar['value'] = 100
-            self.update_idletasks()
             self.logger.info("Operations completed successfully.")
-            messagebox.showinfo("Complete", "Operations completed successfully!")
+            return new_target_file  # Return the path to the created file
 
         except Exception as e:
             self.logger.error(f"Error during operation: {e}", exc_info=True)
-            messagebox.showerror("Error", f"An error occurred: {str(e)}")
+            raise
+
+    def cancel_operations(self):
+        """Cancel the ongoing operation."""
+        if self.background_worker.is_running():
+            if messagebox.askyesno("Cancel Operation", "Are you sure you want to cancel the current operation?"):
+                self.logger.info("User requested operation cancellation.")
+                self.background_worker.cancel()
+                self.status_label.config(text="Cancelling...")
+
+    def on_task_complete(self, result):
+        """Handle successful completion of the background task."""
+        self.progress_bar['value'] = 100
+        self.status_label.config(text="Complete")
+        self.start_button.config(state="normal")
+        self.cancel_button.config(state="disabled")
+
+        if result:  # If we have a valid result (file path)
+            self.logger.info(f"Operation completed successfully. Output file: {result}")
+            messagebox.showinfo("Complete", f"Operations completed successfully!\nOutput file: {os.path.basename(result)}")
+
+    def on_task_error(self, error):
+        """Handle errors from the background task."""
+        self.progress_bar['value'] = 0
+        self.status_label.config(text="Error")
+        self.start_button.config(state="normal")
+        self.cancel_button.config(state="disabled")
+
+        error_message = str(error)
+        self.logger.error(f"Error during operation: {error_message}")
+        messagebox.showerror("Error", f"An error occurred:\n{error_message}")
+
+    def on_closing(self):
+        """Handle window closing event with cleanup."""
+        if self.background_worker.is_running():
+            if messagebox.askyesno("Cancel Operation",
+                               "An operation is still running. Are you sure you want to exit?"):
+                self.logger.info("Closing application while operation is running.")
+                self.background_worker.cancel()
+                self.destroy()
+        else:
+            self.logger.info("Application closed normally.")
+            self.destroy()
 
     def setup_logging(self):
+        """Set up logging with file and text handlers."""
         logger = logging.getLogger("MainLogger")
         logger.setLevel(logging.DEBUG)
 
@@ -302,6 +402,12 @@ class MainWindow(tk.Tk):
         return logger
 
     def update_progress(self, value):
+        """Update the progress bar value with thread safety."""
+        # Use after() to update from the main thread
+        self.after(0, lambda: self._safe_update_progress(value))
+
+    def _safe_update_progress(self, value):
+        """Thread-safe progress bar update."""
         self.progress_bar['value'] = value
         self.update_idletasks()
     

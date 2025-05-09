@@ -77,7 +77,8 @@ def copy_and_rename_sheet(
     target_path: str, 
     new_sheet_name: str, 
     logger: logging.Logger, 
-    insert_index: Optional[int] = None
+    insert_index: Optional[int] = None,
+    cancellation_check: Optional[Callable[[], bool]] = None
 ) -> bool:
     """
     Copies a sheet from source workbook to target workbook and renames it.
@@ -89,11 +90,17 @@ def copy_and_rename_sheet(
         new_sheet_name: New name for the copied sheet
         logger: Logger instance for tracking operations
         insert_index: Optional index position to insert the sheet
+        cancellation_check: Optional function to check if operation should be cancelled
         
     Returns:
         bool: True if successful, False otherwise
     """
     try:
+        # Check for cancellation
+        if cancellation_check and cancellation_check():
+            logger.info(f"Sheet copying cancelled for '{source_sheet_name}'.")
+            return False
+            
         logger.info(f"Loading source workbook: {source_path}")
         source_wb = load_workbook(source_path, data_only=False)  # data_only=False to preserve formulas
         if source_sheet_name not in source_wb.sheetnames:
@@ -110,7 +117,14 @@ def copy_and_rename_sheet(
         else:
             target_sheet = target_wb.create_sheet(new_sheet_name)
 
+        row_count = 0
         for row in source_sheet.iter_rows():
+            # Check for cancellation periodically in large sheets
+            row_count += 1
+            if cancellation_check and cancellation_check() and row_count % 50 == 0:
+                logger.info(f"Sheet copying cancelled during row processing for '{source_sheet_name}'.")
+                return False
+                
             for cell in row:
                 target_cell = target_sheet.cell(row=cell.row, column=cell.column, value=cell.value)
 
@@ -127,6 +141,11 @@ def copy_and_rename_sheet(
                     target_cell.protection = cell.protection.copy()
                     target_cell.alignment = cell.alignment.copy()
 
+        # Check for cancellation before copying dimensions
+        if cancellation_check and cancellation_check():
+            logger.info(f"Sheet copying cancelled before copying dimensions for '{source_sheet_name}'.")
+            return False
+            
         # Copy column dimensions
         for key, value in source_sheet.column_dimensions.items():
             target_sheet.column_dimensions[key].width = value.width
@@ -156,8 +175,9 @@ def copy_and_rename_sheet(
 def recalculate_workbook_in_excel(
     file_path: str, 
     logger: logging.Logger, 
-    progress_callback: Callable[[int], None], 
-    retries: int = 3
+    progress_callback: Callable[[int, Optional[str]], None], 
+    retries: int = 3,
+    cancellation_check: Optional[Callable[[], bool]] = None
 ) -> None:
     """
     Recalculate the workbook using Excel application via COM automation.
@@ -165,8 +185,9 @@ def recalculate_workbook_in_excel(
     Args:
         file_path: Path to the Excel file
         logger: Logger instance for tracking operations
-        progress_callback: Callback function to update progress
+        progress_callback: Callback function to update progress (value, message)
         retries: Number of retry attempts (default: 3)
+        cancellation_check: Optional function to check if operation should be cancelled
         
     Raises:
         Exception: If recalculation fails after retries
@@ -177,6 +198,11 @@ def recalculate_workbook_in_excel(
     attempt = 0
     success = False
     try:
+        # Check for cancellation
+        if cancellation_check and cancellation_check():
+            logger.info("Workbook recalculation cancelled before starting.")
+            return
+            
         # Initialize COM library with STA threading model
         pythoncom.CoInitializeEx(pythoncom.COINIT_APARTMENTTHREADED)
         
@@ -188,9 +214,15 @@ def recalculate_workbook_in_excel(
         excel.AlertBeforeOverwriting = False
 
         while attempt < retries and not success:
+            # Check for cancellation before each attempt
+            if cancellation_check and cancellation_check():
+                logger.info(f"Workbook recalculation cancelled before attempt {attempt+1}.")
+                return
+                
             try:
                 attempt += 1
                 logger.info(f"Attempt {attempt}: Opening Excel to recalculate and save the workbook: {file_path}")
+                progress_callback(5 * attempt, f"Recalculating workbook (attempt {attempt})")
                 
                 # Open the workbook with appropriate parameters
                 wb = excel.Workbooks.Open(
@@ -204,13 +236,25 @@ def recalculate_workbook_in_excel(
                 # Recalculate all open workbooks
                 excel.CalculateFullRebuild()
 
-                # Wait for calculations to complete
+                # Wait for calculations to complete, with periodic cancellation checks
+                check_counter = 0
                 while excel.CalculationState != constants.xlDone:
                     time.sleep(0.5)  # Wait half a second before checking again
+                    check_counter += 1
+                    
+                    # Check for cancellation every few loops
+                    if cancellation_check and cancellation_check() and check_counter % 4 == 0:
+                        logger.info("Workbook recalculation cancelled during calculation.")
+                        return
 
+                # Check for cancellation before saving
+                if cancellation_check and cancellation_check():
+                    logger.info("Workbook recalculation cancelled before saving.")
+                    return
+                    
                 wb.Save()
                 logger.info("Workbook recalculated and saved successfully in Excel.")
-                progress_callback(25)
+                progress_callback(25, "Workbook recalculated successfully")
                 success = True
             except Exception as e:
                 logger.error(f"Attempt {attempt}: An error occurred while recalculating the workbook in Excel: {e}", exc_info=True)

@@ -112,7 +112,8 @@ def find_component_sheet(
     tab_name: Optional[str], 
     tier_component_name: Optional[str], 
     trading_partner_number: Optional[Union[str, int]],
-    logger: logging.Logger
+    logger: logging.Logger,
+    cancellation_check: Optional[Callable[[], bool]] = None
 ) -> Optional[Worksheet]:
     """
     Find the component sheet using multiple fallback strategies with comprehensive component mappings.
@@ -123,11 +124,17 @@ def find_component_sheet(
         tier_component_name: The TIER component name (e.g., 'FEM', 'CBP')
         trading_partner_number: The trading partner number
         logger: Logger instance for tracking operations
+        cancellation_check: Optional function to check if operation should be cancelled
     
     Returns:
         Worksheet object or None if not found
     """
     try:
+        # Check for cancellation
+        if cancellation_check and cancellation_check():
+            logger.info("Component sheet search cancelled.")
+            return None
+            
         # Complete component mappings based on the Excel sheet
         component_mappings = {
             "CBP": ["CBP", "CBP-7005"],
@@ -195,6 +202,11 @@ def find_component_sheet(
 
         # Search through all patterns
         for sheet_name in workbook.sheetnames:
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("Component sheet search cancelled.")
+                return None
+                
             # Skip certain sheet names
             if sheet_name in skip_sheets:
                 continue
@@ -243,7 +255,8 @@ def process_certification_sheet(
     target_wb: Workbook, 
     data_wb: Workbook, 
     logger: logging.Logger, 
-    progress_callback: Callable[[int], None]
+    progress_callback: Callable[[int, Optional[str]], None],
+    cancellation_check: Optional[Callable[[], bool]] = None
 ) -> Tuple[Optional[List[Any]], Optional[List[Dict[str, Any]]]]:
     """
     Process the Certification sheet and extract necessary information for comparison.
@@ -252,20 +265,32 @@ def process_certification_sheet(
         target_wb: The target workbook with formulas preserved
         data_wb: The data workbook with calculated values
         logger: Logger instance for tracking operations
-        progress_callback: Callback function to update progress
+        progress_callback: Callback function to update progress (value, message)
+        cancellation_check: Optional function to check if operation should be cancelled
         
     Returns:
         Tuple containing the table range and row data, or (None, None) if processing fails
     """
     try:
+        # Check for cancellation
+        if cancellation_check and cancellation_check():
+            logger.info("Certification sheet processing cancelled.")
+            return None, None
+            
         # Access the sheets from both workbooks
         sheet = target_wb["Certification"]
         data_sheet = data_wb["Certification"]
         logger.info("Processing 'Certification' sheet.")
+        progress_callback(10, "Processing Certification sheet")
 
         # Find 'Trading Partner Number' cell in the target workbook
         trading_partner_cell = None
         for row in sheet.iter_rows(max_col=1, max_row=sheet.max_row):
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("Certification sheet processing cancelled.")
+                return None, None
+                
             if row[0].value == "Trading Partner Number":
                 trading_partner_cell = row[0]
                 break
@@ -277,6 +302,11 @@ def process_certification_sheet(
         # Find 'Total ' cell in the target workbook
         total_cell = None
         for row in sheet.iter_rows(max_col=1, max_row=sheet.max_row):
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("Certification sheet processing cancelled.")
+                return None, None
+                
             if row[0].value == "Total ":
                 total_cell = row[0]
                 break
@@ -284,6 +314,8 @@ def process_certification_sheet(
         if not total_cell:
             logger.error("'Total ' cell not found in 'Certification' sheet.")
             return None, None
+
+        progress_callback(20, "Extracting certification data")
 
         # Access the calculated total from data_sheet
         data_total_cell = data_sheet.cell(row=total_cell.row, column=4)
@@ -300,9 +332,16 @@ def process_certification_sheet(
         headers = [cell.value for cell in sheet[trading_partner_cell.row][0:8]]
         logger.info(f"Certification Table Headers: {headers}")
 
+        progress_callback(30, "Preparing row data")
+
         # Extract detailed row data
         row_data = []
         for target_row, data_row in zip(table_range[1:], data_table_range[1:]):  # Skip header row
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("Certification sheet processing cancelled.")
+                return None, None
+                
             trading_partner_number = data_row[0].value
             tier_component_name = data_row[1].value
             tab_name = data_row[6].value
@@ -317,10 +356,12 @@ def process_certification_sheet(
                     'row': target_row  # Use the row from the target workbook for modifications
                 })
 
-        # Call process_do_tb_sheet with the appropriate parameters
-        process_do_tb_sheet(target_wb, data_wb, certification_total, sheet, total_cell, logger, progress_callback)
+        progress_callback(40, "Processing DO TB sheet")
 
-        progress_callback(50)
+        # Call process_do_tb_sheet with the appropriate parameters
+        process_do_tb_sheet(target_wb, data_wb, certification_total, sheet, total_cell, logger, progress_callback, cancellation_check)
+
+        progress_callback(50, "Certification sheet processing complete")
         return table_range, row_data
 
     except Exception as e:
@@ -335,7 +376,8 @@ def process_do_tb_sheet(
     certification_sheet: Worksheet, 
     total_cell: Cell, 
     logger: logging.Logger, 
-    progress_callback: Callable[[int], None]
+    progress_callback: Callable[[int, Optional[str]], None],
+    cancellation_check: Optional[Callable[[], bool]] = None
 ) -> None:
     """
     Process the DO TB sheet.
@@ -347,13 +389,20 @@ def process_do_tb_sheet(
         certification_sheet: The certification worksheet
         total_cell: The total cell in the certification sheet
         logger: Logger instance for tracking operations
-        progress_callback: Callback function to update progress
+        progress_callback: Callback function to update progress (value, message)
+        cancellation_check: Optional function to check if operation should be cancelled
     """
     try:
+        # Check for cancellation
+        if cancellation_check and cancellation_check():
+            logger.info("DO TB sheet processing cancelled.")
+            return
+            
         # Access the sheets from both workbooks
         sheet = target_wb["DO TB"]
         data_sheet = data_wb["DO TB"]
         logger.info("Processing 'DO TB' sheet.")
+        progress_callback(55, "Processing DO TB sheet")
 
         values_to_find = ["422100", "422200"]
         found_values = {}
@@ -364,7 +413,14 @@ def process_do_tb_sheet(
         border_style = Border(top=Side(border_style="thin"), bottom=Side(border_style="double"))
 
         logger.info("Searching for '422100' and '422200' in Column C of the 'DO TB' sheet.")
+        progress_callback(60, "Searching for account codes")
+        
         for row in sheet.iter_rows(min_row=1, max_row=sheet.max_row, min_col=3, max_col=3):
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("DO TB sheet processing cancelled.")
+                return
+                
             cell = row[0]
             cell_value = str(cell.value).strip()
             if cell_value in values_to_find and cell_value not in found_values:
@@ -400,6 +456,8 @@ def process_do_tb_sheet(
             logger.error("One or both of '422100' or '422200' were not found in Column C.")
             return
 
+        progress_callback(65, "Calculating summations")
+
         # Determine the rows where '422100' and '422200' were found
         row_422100 = first_occurrences["422100"]
         row_422200 = first_occurrences["422200"]
@@ -433,7 +491,7 @@ def process_do_tb_sheet(
             add_x_mark(certification_sheet, total_cell.row + 1, 4)
             logger.info(f"Sums do not match. X marks added.")
 
-        progress_callback(75)
+        progress_callback(75, "DO TB sheet processing complete")
     except Exception as e:
         logger.error(f"An error occurred while processing the 'DO TB' sheet: {e}", exc_info=True)
 
@@ -443,7 +501,8 @@ def process_uco_to_udo_sheet(
     data_wb: Workbook, 
     component_name: str, 
     logger: logging.Logger, 
-    progress_callback: Callable[[int], None]
+    progress_callback: Callable[[int, Optional[str]], None],
+    cancellation_check: Optional[Callable[[], bool]] = None
 ) -> Optional[List[Any]]:
     """
     Process the UCO to UDO sheet.
@@ -453,20 +512,32 @@ def process_uco_to_udo_sheet(
         data_wb: The data workbook with calculated values
         component_name: The selected component name
         logger: Logger instance for tracking operations
-        progress_callback: Callback function to update progress
+        progress_callback: Callback function to update progress (value, message)
+        cancellation_check: Optional function to check if operation should be cancelled
         
     Returns:
         The table range if successful, None otherwise
     """
     try:
+        # Check for cancellation
+        if cancellation_check and cancellation_check():
+            logger.info("UCO to UDO sheet processing cancelled.")
+            return None
+            
         # Access the sheets from both workbooks
         sheet = target_wb["DO UCO to UDO"]
         data_sheet = data_wb["DO UCO to UDO"]
         logger.info("Processing 'DO UCO to UDO' sheet.")
+        progress_callback(80, "Processing UCO to UDO sheet")
 
         # Find 'Component' cell in the target workbook
         component_cell = None
         for row in sheet.iter_rows(max_col=1, max_row=sheet.max_row):
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("UCO to UDO sheet processing cancelled.")
+                return None
+                
             if row[0].value == "Component":
                 component_cell = row[0]
                 break
@@ -478,6 +549,11 @@ def process_uco_to_udo_sheet(
         # Find '{component_name} Total' cell in the target workbook
         total_component_cell = None
         for row in sheet.iter_rows(max_col=1, max_row=sheet.max_row):
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("UCO to UDO sheet processing cancelled.")
+                return None
+                
             if row[0].value == f"{component_name} Total":
                 total_component_cell = row[0]
                 break
@@ -485,6 +561,8 @@ def process_uco_to_udo_sheet(
         if not total_component_cell:
             logger.error(f"'{component_name} Total' cell not found in 'DO UCO to UDO' sheet.")
             return None
+
+        progress_callback(85, "Adding tickmarks")
 
         # Add 'Tickmark' to the target workbook's sheet
         tickmark_cell = sheet.cell(row=component_cell.row, column=14, value="Tickmark")
@@ -497,8 +575,15 @@ def process_uco_to_udo_sheet(
         headers = [cell.value for cell in sheet[table_start_row][0:14]]  # Columns 1 to 14
         logger.info(f"DO UCO to UDO Table Headers: {headers}")
 
+        progress_callback(90, "Processing component totals")
+
         # Process the relevant totals and convert them using safe_convert_to_decimal
         for target_row in sheet.iter_rows(min_row=table_start_row, max_row=table_end_row):
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("UCO to UDO sheet processing cancelled.")
+                return None
+                
             row_num = target_row[0].row
             data_row_cells = data_sheet[row_num]
 
@@ -510,7 +595,7 @@ def process_uco_to_udo_sheet(
 
             logger.info(f"Row {row_num} - UCO Total: {uco_component_total_unfilled}, Trading Partner Total: {uco_trading_partner_total}, Difference: {uco_difference}")
 
-        progress_callback(60)
+        progress_callback(95, "UCO to UDO sheet processing complete")
         return table_range
 
     except Exception as e:
@@ -522,7 +607,8 @@ def find_table_range(
     new_target_file: str, 
     component_name: str, 
     logger: logging.Logger, 
-    progress_callback: Callable[[int], None]
+    progress_callback: Callable[[int, Optional[str]], None],
+    cancellation_check: Optional[Callable[[], bool]] = None
 ) -> None:
     """
     Main function to find table ranges, process sheets, and call comparison functions.
@@ -531,32 +617,66 @@ def find_table_range(
         new_target_file: Path to the target Excel file
         component_name: The selected component name
         logger: Logger instance for tracking operations
-        progress_callback: Callback function to update progress
+        progress_callback: Callback function to update progress (value, message)
+        cancellation_check: Optional function to check if operation should be cancelled
     """
     try:
+        # Check for cancellation
+        if cancellation_check and cancellation_check():
+            logger.info("Table range processing cancelled.")
+            return
+            
         # Recalculate the workbook using Excel and refresh any external links or queries.
-        recalculate_workbook_in_excel(new_target_file, logger, progress_callback)
+        progress_callback(5, "Recalculating workbook in Excel")
+        recalculate_workbook_in_excel(new_target_file, logger, 
+                                     lambda val: progress_callback(val, "Recalculating workbook"),
+                                     cancellation_check=cancellation_check)
         
+        # Check for cancellation after recalculation
+        if cancellation_check and cancellation_check():
+            logger.info("Table range processing cancelled after recalculation.")
+            return
+            
         # Ensure a short delay to allow Excel to release the file
         time.sleep(1)
 
         # Load the workbook twice
+        progress_callback(30, "Loading workbooks")
         logger.info(f"Loading workbook with data_only=False: {new_target_file}")
         target_wb = load_workbook(new_target_file, data_only=False)  # Preserves formulas
         
         logger.info(f"Loading workbook with data_only=True: {new_target_file}")
         data_wb = load_workbook(new_target_file, data_only=True)     # Accesses calculated values
 
+        # Check for cancellation after loading
+        if cancellation_check and cancellation_check():
+            logger.info("Table range processing cancelled after loading workbooks.")
+            return
+
         # Process Certification sheet
-        certification_range, certification_row_data = process_certification_sheet(target_wb, data_wb, logger, progress_callback)
+        certification_range, certification_row_data = process_certification_sheet(
+            target_wb, data_wb, logger, progress_callback, cancellation_check
+        )
         if certification_range is None or certification_row_data is None:
             logger.error("Failed to process Certification sheet. Aborting operation.")
             return
         
+        # Check for cancellation after processing certification sheet
+        if cancellation_check and cancellation_check():
+            logger.info("Table range processing cancelled after processing certification sheet.")
+            return
+        
         # Process UCO to UDO sheet
-        uco_to_udo_range = process_uco_to_udo_sheet(target_wb, data_wb, component_name, logger, progress_callback)
+        uco_to_udo_range = process_uco_to_udo_sheet(
+            target_wb, data_wb, component_name, logger, progress_callback, cancellation_check
+        )
         if uco_to_udo_range is None:
             logger.error("Failed to process UCO to UDO sheet. Aborting operation.")
+            return
+            
+        # Check for cancellation after processing UCO to UDO sheet
+        if cancellation_check and cancellation_check():
+            logger.info("Table range processing cancelled after processing UCO to UDO sheet.")
             return
 
         # Import here to avoid circular imports
@@ -571,15 +691,22 @@ def find_table_range(
                 data_wb,
                 logger,
                 progress_callback,
-                new_target_file
+                new_target_file,
+                cancellation_check
             )
 
+        # Check for cancellation after comparison
+        if cancellation_check and cancellation_check():
+            logger.info("Table range processing cancelled after comparison.")
+            return
+
         # Save the final workbook
+        progress_callback(98, "Saving workbook")
         target_wb.save(new_target_file)
         logger.info(f"Workbook saved with updated tables and tickmark columns.")
 
         # Update progress after completion
-        progress_callback(100)
+        progress_callback(100, "Process completed successfully")
 
         # Open the Excel file to show results to the user
         open_excel_file(new_target_file, logger)

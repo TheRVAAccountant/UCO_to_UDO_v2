@@ -18,10 +18,11 @@ from pathlib import Path
 import webbrowser
 
 from src.uco_to_udo_recon.core.excel_operations import (
-    copy_and_rename_sheet, create_copy_of_target_file
+    copy_and_rename_sheet, create_copy_of_target_file, recalculate_workbook_in_excel
 )
 from src.uco_to_udo_recon.core.reconciliation import find_table_range
 from src.uco_to_udo_recon.utils.file_utils import ensure_file_handle_release, open_excel_file
+from src.uco_to_udo_recon.modules.background_worker import BackgroundWorker, ProgressTracker
 
 
 class TextHandler(logging.Handler):
@@ -62,6 +63,11 @@ class TextHandler(logging.Handler):
         elif record.levelno >= logging.DEBUG:
             tag = "debug"
             
+        # Schedule update on main thread to avoid threading issues
+        self.text_widget.after(0, self._update_text_widget, msg, tag)
+    
+    def _update_text_widget(self, msg: str, tag: Optional[str]) -> None:
+        """Update text widget on the main thread."""
         self.text_widget.insert(tk.END, msg + '\n', tag)
         self.text_widget.see(tk.END)
         self.text_widget.update_idletasks()
@@ -499,13 +505,12 @@ class MainWindow(tk.Tk):
         # Status variables
         self.processing = False
         self.last_result_file = None
+        self.current_task_id = None
+        self.operation_detail = ""
 
         # Configure root grid
         self.columnconfigure(0, weight=1)
         self.rowconfigure(1, weight=1)  # Content frame
-
-        # Apply theme
-        self.apply_theme(self.settings.get('theme', 'dark'))
 
         # Initialize UI components
         self.create_menu()
@@ -519,6 +524,26 @@ class MainWindow(tk.Tk):
         # Configure log text tags for different levels
         self.configure_log_colors()
 
+        # Initialize background worker
+        self.worker = BackgroundWorker(
+            on_progress=self.update_progress_from_worker,
+            on_complete=self.on_task_complete,
+            on_message=self.on_worker_message,
+            logger=self.logger
+        )
+        
+        # Start the worker thread
+        self.worker.start()
+
+        # Add protocol for window closing
+        self.protocol("WM_DELETE_WINDOW", self.on_close)
+
+        # Set up progress tracker
+        self.progress_tracker = None
+
+        # Apply theme
+        self.apply_theme(self.settings.get('theme', 'dark'))
+
         # Load icon
         try:
             script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -527,6 +552,74 @@ class MainWindow(tk.Tk):
             self.iconbitmap(icon_path)
         except Exception as e:
             self.logger.warning(f"Could not load icon: {e}")
+
+    def on_close(self) -> None:
+        """Handle window closing event."""
+        if self.processing:
+            if messagebox.askyesno(
+                "Operation in Progress",
+                "An operation is currently running. Closing the application will cancel it.\n\nAre you sure you want to exit?"
+            ):
+                if self.current_task_id:
+                    self.worker.cancel_task(self.current_task_id)
+                self.worker.stop()
+                self.destroy()
+        else:
+            self.worker.stop()
+            self.save_settings()
+            self.destroy()
+
+    def update_progress_from_worker(self, value: int, message: Optional[str] = None) -> None:
+        """Update progress from worker thread."""
+        # Schedule UI update on the main thread
+        self.after(0, lambda: self.update_progress(value, message))
+
+    def on_worker_message(self, message: str, level: str = "info") -> None:
+        """Handle messages from worker thread."""
+        # Log the message with appropriate level
+        log_method = getattr(self.logger, level.lower(), self.logger.info)
+        log_method(message)
+
+    def on_task_complete(self, success: bool, result: Any, error: Optional[Exception]) -> None:
+        """Handle task completion from worker thread."""
+        self.after(0, lambda: self._handle_task_completion(success, result, error))
+
+    def _handle_task_completion(self, success: bool, result: Any, error: Optional[Exception]) -> None:
+        """Process task completion and update UI accordingly."""
+        self.processing = False
+        self.current_task_id = None
+
+        # Reset the UI state
+        self.start_button.config(state=tk.NORMAL)
+        self.cancel_button.config(state=tk.DISABLED)  # Disable cancel button
+        self.progress_bar['value'] = 100 if success else 0
+
+        if success:
+            self.update_status("Ready - Last operation completed successfully")
+
+            if isinstance(result, str) and os.path.exists(result):
+                self.last_result_file = result
+                # Show completed message
+                messagebox.showinfo(
+                    "Complete",
+                    f"Reconciliation completed successfully!\n\n" +
+                    f"Output file: {os.path.basename(result)}"
+                )
+
+                # Open Excel file if auto-open is enabled
+                if self.settings.get('auto_open_results', True):
+                    self.logger.info("Auto-opening result file...")
+                    open_excel_file(result, self.logger)
+        else:
+            self.update_status("Error: Operation failed")
+
+            if error:
+                error_message = str(error)
+                self.logger.error(f"Error during operation: {error_message}")
+                messagebox.showerror(
+                    "Error",
+                    f"An error occurred during the operation:\n\n{error_message}"
+                )
 
     def configure_log_colors(self) -> None:
         """Configure log text colors based on current theme."""
@@ -1226,23 +1319,33 @@ Undelivered Orders (UDO) across multiple Excel files.
         actions_frame.grid(row=1, column=0, sticky="ew", padx=5, pady=0)
         actions_frame.columnconfigure(0, weight=1)
         actions_frame.columnconfigure(1, weight=1)
-        
+        actions_frame.columnconfigure(2, weight=1)
+
         # Start button
         self.start_button = ttk.Button(
-            actions_frame, 
-            text="Start Reconciliation", 
+            actions_frame,
+            text="Start Reconciliation",
             command=self.start_operations,
             style="Large.TButton"
         )
         self.start_button.grid(row=0, column=0, sticky="e", padx=5, pady=10)
-        
+
+        # Cancel button (initially disabled)
+        self.cancel_button = ttk.Button(
+            actions_frame,
+            text="Cancel",
+            command=self.cancel_operation,
+            state=tk.DISABLED
+        )
+        self.cancel_button.grid(row=0, column=1, padx=5, pady=10)
+
         # Reset button
         self.reset_button = ttk.Button(
-            actions_frame, 
-            text="Reset", 
+            actions_frame,
+            text="Reset",
             command=self.new_session
         )
-        self.reset_button.grid(row=0, column=1, sticky="w", padx=5, pady=10)
+        self.reset_button.grid(row=0, column=2, sticky="w", padx=5, pady=10)
         
         # Result actions frame (initially hidden)
         self.result_actions_frame = ttk.Frame(content_frame)
@@ -1495,8 +1598,8 @@ Undelivered Orders (UDO) across multiple Excel files.
 
     def start_operations(self) -> None:
         """
-        Start the reconciliation operations.
-        
+        Start the reconciliation operations using the background worker.
+
         Returns:
             None
         """
@@ -1507,7 +1610,7 @@ Undelivered Orders (UDO) across multiple Excel files.
                 "An operation is already in progress. Please wait for it to complete."
             )
             return
-            
+
         component_name = self.component_name_combo.get()
         target_file = self.target_file_frame.get_file_path()
         trial_balance_file = self.trial_balance_frame.get_file_path()
@@ -1517,7 +1620,7 @@ Undelivered Orders (UDO) across multiple Excel files.
         if not all([component_name, target_file, trial_balance_file, uco_to_udo_file]):
             messagebox.showerror("Error", "Please select all required files and component name.")
             return
-            
+
         # Check if files exist
         missing_files = []
         if not os.path.exists(target_file):
@@ -1526,15 +1629,15 @@ Undelivered Orders (UDO) across multiple Excel files.
             missing_files.append("Trial Balance File")
         if not os.path.exists(uco_to_udo_file):
             missing_files.append("UCO to UDO TIER File")
-            
+
         if missing_files:
             messagebox.showerror(
                 "Files Not Found",
-                f"The following files could not be found:\n\n" + 
+                f"The following files could not be found:\n\n" +
                 "\n".join(missing_files)
             )
             return
-            
+
         # Make sure files are Excel files
         invalid_files = []
         for file_path, file_type in [
@@ -1544,129 +1647,153 @@ Undelivered Orders (UDO) across multiple Excel files.
         ]:
             if not file_path.lower().endswith('.xlsx'):
                 invalid_files.append(f"{file_type} (must be .xlsx)")
-                
+
         if invalid_files:
             messagebox.showerror(
                 "Invalid Files",
-                f"The following files have invalid formats:\n\n" + 
+                f"The following files have invalid formats:\n\n" +
                 "\n".join(invalid_files)
             )
             return
 
-        # Reset progress
+        # Reset progress and UI state
         self.progress_bar['value'] = 0
         self.progress_label.config(text="")
         self.update_idletasks()
-        
+
         # Set as processing
         self.processing = True
         self.update_status("Processing...")
         self.start_button.config(state=tk.DISABLED)
-        
+        self.cancel_button.config(state=tk.NORMAL)  # Enable cancel button
+
         # Update recent files
         self.update_recent_files('reconciliation', target_file)
         self.update_recent_files('trial_balance', trial_balance_file)
         self.update_recent_files('uco_to_udo', uco_to_udo_file)
 
-        try:
-            self.logger.info(f"Operation started with component: {component_name}")
-            self.logger.info(f"UCO to UDO Reconciliation File: {os.path.basename(target_file)}")
-            self.logger.info(f"Trial Balance File: {os.path.basename(trial_balance_file)}")
-            self.logger.info(f"UCO to UDO TIER File: {os.path.basename(uco_to_udo_file)}")
+        # Log start of operation
+        self.logger.info(f"Operation started with component: {component_name}")
+        self.logger.info(f"UCO to UDO Reconciliation File: {os.path.basename(target_file)}")
+        self.logger.info(f"Trial Balance File: {os.path.basename(trial_balance_file)}")
+        self.logger.info(f"UCO to UDO TIER File: {os.path.basename(uco_to_udo_file)}")
 
-            # Create copy of target file
-            self.logger.info("Creating working copy of reconciliation file...")
-            self.update_progress(5, "Creating copy of target file")
-            new_target_file = create_copy_of_target_file(target_file, self.logger)
-            ensure_file_handle_release(new_target_file, self.logger)
+        # Set up progress tracker for the multistage operation
+        stages = [
+            ("Prepare working copy", 5),
+            ("Copy Trial Balance sheet", 10),
+            ("Copy UCO to UDO sheet", 10),
+            ("Process reconciliation", 75)
+        ]
+        self.progress_tracker = ProgressTracker(stages, self.update_progress)
 
-            # Copy DO TB sheet
-            self.logger.info(f"Copying '{component_name} Total' sheet from Trial Balance file...")
-            self.update_progress(10, "Copying Trial Balance sheet")
-            if not copy_and_rename_sheet(trial_balance_file, f"{component_name} Total", new_target_file, "DO TB", self.logger, insert_index=3):
-                self.logger.error(f"Failed to copy sheet '{component_name} Total'.")
-                self.processing = False
-                self.start_button.config(state=tk.NORMAL)
-                self.update_status("Error: Failed to copy Trial Balance sheet")
-                return
-            ensure_file_handle_release(new_target_file, self.logger)
+        # Define the multi-stage operation as a function
+        def process_operation(progress_callback=None, cancellation_check=None) -> str:
+            """
+            Execute the multi-stage reconciliation process in the background.
 
-            # Copy DO UCO to UDO sheet
-            self.logger.info("Copying 'UCO to UDO' sheet from TIER file...")
-            self.update_progress(15, "Copying UCO to UDO sheet")
-            if not copy_and_rename_sheet(uco_to_udo_file, "UCO to UDO", new_target_file, "DO UCO to UDO", self.logger, insert_index=4):
-                self.logger.error("Failed to copy 'UCO to UDO' sheet.")
-                self.processing = False
-                self.start_button.config(state=tk.NORMAL)
-                self.update_status("Error: Failed to copy UCO to UDO sheet")
-                return
-            ensure_file_handle_release(new_target_file, self.logger)
-            
-            # Store the result file path
-            self.last_result_file = new_target_file
-            
-            # Perform the main operation
-            self.update_progress(20, "Starting reconciliation process")
-            self.after(100, lambda: self.perform_main_operation(new_target_file, component_name))
+            Args:
+                progress_callback: Optional callback for progress updates
+                cancellation_check: Optional function to check if operation was cancelled
 
-        except Exception as e:
-            self.logger.error(f"Error during operation: {e}", exc_info=True)
-            messagebox.showerror("Error", f"An error occurred: {str(e)}")
-            self.processing = False
-            self.start_button.config(state=tk.NORMAL)
-            self.update_status("Error: Operation failed")
+            Returns:
+                str: Path to the result file
+            """
+            try:
+                # STAGE 1: Create copy of target file
+                self.progress_tracker.update(0, "Creating working copy of reconciliation file...")
+                new_target_file = create_copy_of_target_file(target_file, self.logger)
+                ensure_file_handle_release(new_target_file, self.logger)
+                self.progress_tracker.update(100, "Created working copy")
+                self.progress_tracker.next_stage()
 
-    def perform_main_operation(self, new_target_file: str, component_name: str) -> None:
+                if cancellation_check and cancellation_check():
+                    return "Operation canceled"
+
+                # STAGE 2: Copy DO TB sheet
+                self.progress_tracker.update(0, f"Copying '{component_name} Total' sheet from Trial Balance file...")
+                if not copy_and_rename_sheet(trial_balance_file, f"{component_name} Total", new_target_file, "DO TB", self.logger, insert_index=3):
+                    raise Exception(f"Failed to copy sheet '{component_name} Total'.")
+                ensure_file_handle_release(new_target_file, self.logger)
+                self.progress_tracker.update(100, "Trial Balance sheet copied")
+                self.progress_tracker.next_stage()
+
+                if cancellation_check and cancellation_check():
+                    return "Operation canceled"
+
+                # STAGE 3: Copy DO UCO to UDO sheet
+                self.progress_tracker.update(0, "Copying 'UCO to UDO' sheet from TIER file...")
+                if not copy_and_rename_sheet(uco_to_udo_file, "UCO to UDO", new_target_file, "DO UCO to UDO", self.logger, insert_index=4):
+                    raise Exception("Failed to copy 'UCO to UDO' sheet.")
+                ensure_file_handle_release(new_target_file, self.logger)
+                self.progress_tracker.update(100, "UCO to UDO sheet copied")
+                self.progress_tracker.next_stage()
+
+                if cancellation_check and cancellation_check():
+                    return "Operation canceled"
+
+                # STAGE 4: Execute main reconciliation
+                self.progress_tracker.update(0, "Starting reconciliation process...")
+
+                def progress_mapper(value: int) -> None:
+                    """Map progress from find_table_range to our progress_tracker."""
+                    self.progress_tracker.update(value)
+                    # Check for cancellation during long-running operations
+                    if cancellation_check and cancellation_check():
+                        raise Exception("Operation canceled by user")
+
+                # Run the main reconciliation function
+                find_table_range(
+                    new_target_file,
+                    component_name,
+                    self.logger,
+                    progress_mapper
+                )
+
+                # Perform Excel recalculation if needed
+                try:
+                    recalculate_workbook_in_excel(
+                        new_target_file, 
+                        self.logger,
+                        progress_callback=progress_mapper,
+                        retries=3
+                    )
+                except Exception as e:
+                    self.logger.warning(f"Excel recalculation failed: {e}. Results may not include all calculated values.")
+
+                return new_target_file
+
+            except Exception as e:
+                # Log the error and re-raise
+                self.logger.error(f"Error during operation: {e}", exc_info=True)
+                raise
+
+        # Queue the operation in the background worker
+        self.current_task_id = self.worker.queue_task(
+            process_operation,
+            task_name="UCO to UDO Reconciliation"
+        )
+
+    def cancel_operation(self) -> None:
         """
-        Perform the main reconciliation operation.
-        
-        Args:
-            new_target_file: Path to the target Excel file
-            component_name: Selected component name
-            
+        Cancel the current operation if one is running.
+
         Returns:
             None
         """
-        try:
-            self.logger.info("Running main reconciliation process...")
-            
-            # Run the reconciliation function
-            find_table_range(
-                new_target_file,
-                component_name,
-                self.logger,
-                lambda value: self.update_progress(value, None)
-            )
+        if not self.processing or not self.current_task_id:
+            return
 
-            # Complete
-            self.progress_bar['value'] = 100
-            self.update_progress(100, "Completed successfully!")
-            self.update_idletasks()
-            self.logger.info(f"Operations completed successfully. Output file: {os.path.basename(new_target_file)}")
-            
-            # Show completion message
-            messagebox.showinfo(
-                "Complete", 
-                f"Reconciliation completed successfully!\n\n" +
-                f"Output file: {os.path.basename(new_target_file)}"
-            )
-            
-            # Update status
-            self.update_status("Ready - Last operation completed successfully")
-            
-            # Show result file actions
-            if self.settings.get('auto_open_results', True):
-                self.logger.info("Auto-opening result file...")
-                open_excel_file(new_target_file, self.logger)
-
-        except Exception as e:
-            self.logger.error(f"Error during reconciliation: {e}", exc_info=True)
-            messagebox.showerror("Error", f"An error occurred during reconciliation: {str(e)}")
-            self.update_status("Error: Reconciliation failed")
-        finally:
-            # Reset processing state
-            self.processing = False
-            self.start_button.config(state=tk.NORMAL)
+        if messagebox.askyesno(
+            "Cancel Operation",
+            "Are you sure you want to cancel the current operation?"
+        ):
+            # Mark task for cancellation
+            self.worker.cancel_task(self.current_task_id)
+            self.update_status("Canceling operation...")
+            self.logger.info("User requested operation cancellation")
+            self.cancel_button.config(state=tk.DISABLED)  # Disable to prevent multiple clicks
+            self.progress_label.config(text="Canceling... Please wait")
 
     def update_progress(self, value: int, message: Optional[str] = None) -> None:
         """

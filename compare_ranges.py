@@ -44,13 +44,30 @@ def print_sample_comparison_rows(certification_values, uco_to_udo_values, logger
         uco_values = uco_to_udo_values[i]
         logger.info(f"Row {i+1} - Certification: {cert_values}, DO UCO to UDO: {uco_values}")
 
-def compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, logger, progress_callback, new_target_file):
-    """Compare certification and UCO to UDO ranges, and always check UCO and UDO values in component sheets."""
+def compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, logger, progress_callback, new_target_file, cancel_event=None):
+    """
+    Compare certification and UCO to UDO ranges, and always check UCO and UDO values in component sheets.
+
+    Args:
+        certification_range: Range of cells from the Certification sheet
+        uco_to_udo_range: Range of cells from the DO UCO to UDO sheet
+        target_wb: Workbook loaded with formulas preserved
+        data_wb: Workbook loaded with calculated values
+        logger: Logger instance
+        progress_callback: Function to update progress
+        new_target_file: Path to save the workbook
+        cancel_event: Optional threading.Event to check for cancellation
+    """
     try:
         logger.info("Starting comparison of Certification and DO UCO to UDO ranges.")
 
         certification_values = []
         uco_to_udo_values = []
+
+        # Check for cancellation
+        if cancel_event and cancel_event.is_set():
+            logger.info("Operation cancelled at the start of comparison.")
+            return
 
         # Step 1: Process UCO to UDO range first to collect all uco_tier_component_names
         uco_tier_component_names_set = set()
@@ -75,6 +92,11 @@ def compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, lo
             )
 
         logger.info(f"Collected {len(uco_tier_component_names_set)} unique UCO Tier Component Names from UCO to UDO range.")
+
+        # Check for cancellation
+        if cancel_event and cancel_event.is_set():
+            logger.info("Operation cancelled after processing UCO to UDO range.")
+            return
 
         # Step 2: Process Certification range
         for cert_row in certification_range[1:]:  # Skip header row
@@ -103,8 +125,8 @@ def compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, lo
             difference = difference if difference is not None else Decimal('0')
 
             # Define conditions
-            all_numeric_zero = (difference == Decimal('0') and 
-                                component_total_unfilled == Decimal('0') and 
+            all_numeric_zero = (difference == Decimal('0') and
+                                component_total_unfilled == Decimal('0') and
                                 trading_partner_total == Decimal('0'))
             tier_not_in_uco = (tier_component_name not in uco_tier_component_names_set)
 
@@ -121,12 +143,27 @@ def compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, lo
 
         logger.info(f"Total certification_values after applying conditions: {len(certification_values)}")
 
+        # Check for cancellation
+        if cancel_event and cancel_event.is_set():
+            logger.info("Operation cancelled after processing Certification range.")
+            return
+
         print_sample_comparison_rows(certification_values, uco_to_udo_values, logger)
 
         total_comparisons = len(certification_values)
         logger.info(f"Total comparisons to make: {total_comparisons}")
 
         for idx, cert_values in enumerate(certification_values):
+            # Check for cancellation periodically
+            if cancel_event and cancel_event.is_set():
+                logger.info(f"Operation cancelled during component comparison (at component {idx+1}/{total_comparisons}).")
+                return
+
+            # Update progress based on components processed
+            if total_comparisons > 0:
+                current_progress = 60 + int((idx / total_comparisons) * 40)  # Scale from 60% to 100%
+                progress_callback(current_progress)
+
             tier_component_name, component_total_unfilled, trading_partner_total, difference, cert_row = cert_values
 
             # Always check the component sheet for UCO and UDO totals
@@ -159,6 +196,11 @@ def compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, lo
                 else:
                     logger.warning(f"UCO total cell not found in component sheet {component_sheet.title} for {tier_component_name}")
 
+                # Check for cancellation between UCO and UDO processing
+                if cancel_event and cancel_event.is_set():
+                    logger.info(f"Operation cancelled during component {tier_component_name} processing (after UCO).")
+                    return
+
                 # UDO comparison
                 udo_cell = next((cell for row in component_sheet.iter_rows() for cell in row if isinstance(cell.value, str) and "UDO total reported in TIER" in cell.value), None)
                 if udo_cell:
@@ -177,6 +219,12 @@ def compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, lo
                         uco_to_udo_trading_partner_value = uco_to_udo_row_match[2]  # Column H: trading_partner_total
                         is_match = abs(data_udo_value - uco_to_udo_trading_partner_value) < Decimal('0.01')
                         add_tickmark(component_sheet, udo_cell.row + 1, 4, "i" if is_match else "X", "Wingdings", 11, is_match)
+
+                        # Check for cancellation before recon table processing
+                        if cancel_event and cancel_event.is_set():
+                            logger.info(f"Operation cancelled during component {tier_component_name} processing (before recon table).")
+                            return
+
                         # Process the recon table and pass new_target_file for saving
                         process_recon_table(component_sheet, data_wb, logger, new_target_file, udo_cell.row)  # Updated call
                         logger.info(f"UDO: {data_udo_value} compared with UCO to UDO Trading Partner Total: {uco_to_udo_trading_partner_value} - {'Match' if is_match else 'No Match'}")
@@ -185,6 +233,11 @@ def compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, lo
                         logger.warning(f"No matching UDO value found in UCO to UDO sheet for {tier_component_name}.")
                 else:
                     logger.warning(f"UDO total cell not found in component sheet {component_sheet.title} for {tier_component_name}")
+
+            # Check for cancellation before sheet match processing
+            if cancel_event and cancel_event.is_set():
+                logger.info(f"Operation cancelled during component {tier_component_name} matching.")
+                return
 
             # Handle the match between Certification and DO UCO to UDO sheets
             for uco_values in uco_to_udo_values:
@@ -207,6 +260,11 @@ def compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, lo
 
                     logger.info(f"Tickmarks added to Certification and DO UCO to UDO sheets for TIER Component Name: {tier_component_name}")
 
+        # Check for cancellation before saving
+        if cancel_event and cancel_event.is_set():
+            logger.info("Operation cancelled before saving workbook.")
+            return
+
         # After processing all comparisons, save the workbook once
         target_wb.save(new_target_file)
         logger.info(f"Workbook saved with updated comparisons and tickmarks.")
@@ -216,6 +274,7 @@ def compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, lo
 
     except Exception as e:
         logger.error(f"An error occurred during the comparison: {e}", exc_info=True)
+        raise
 
 def process_recon_table(component_sheet, data_wb, logger, new_target_file, udo_row):
     """
@@ -589,7 +648,7 @@ def find_component_sheet(workbook, tab_name, tier_component_name, trading_partne
         )
         return None
 
-def main(certification_range, uco_to_udo_range, target_wb, data_wb, logger, progress_callback, new_target_file):
+def main(certification_range, uco_to_udo_range, target_wb, data_wb, logger, progress_callback, new_target_file, cancel_event=None):
     """
     Main function to run the comparison process for UCO and UDO values.
 
@@ -601,8 +660,15 @@ def main(certification_range, uco_to_udo_range, target_wb, data_wb, logger, prog
         logger (Logger): Logger instance for logging.
         progress_callback (function): Callback function to update progress.
         new_target_file (str): Path to save the updated workbook.
+        cancel_event (threading.Event, optional): Event to check for cancellation.
     """
-    compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, logger, progress_callback, new_target_file)
+    # Check for cancellation
+    if cancel_event and cancel_event.is_set():
+        logger.info("Operation cancelled before comparison.")
+        return
+
+    # Execute the comparison
+    compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, logger, progress_callback, new_target_file, cancel_event)
 
 
 if __name__ == "__main__":

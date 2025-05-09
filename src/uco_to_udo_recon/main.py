@@ -8,6 +8,7 @@ startup, logging configuration, and the primary execution flow.
 import logging
 import os
 import sys
+import traceback
 from datetime import datetime
 from pathlib import Path
 
@@ -43,6 +44,12 @@ def setup_logging() -> logging.Logger:
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
     
+    # Set up console handler for startup messages
+    console = logging.StreamHandler()
+    console.setLevel(logging.INFO)
+    console.setFormatter(formatter)
+    logger.addHandler(console)
+    
     return logger
 
 
@@ -57,11 +64,25 @@ def main():
     logger.info("Application starting...")
     
     try:
-        # Launch the GUI
+        # Launch the GUI - the MainWindow initializes its own logger
         app = MainWindow()
         app.mainloop()
     except Exception as e:
+        # Log any uncaught exceptions
         logger.critical(f"Critical error in application: {e}", exc_info=True)
+        
+        # Show an error message to the user
+        if hasattr(sys, 'frozen'):  # Running as a bundled executable
+            import tkinter as tk
+            from tkinter import messagebox
+            
+            root = tk.Tk()
+            root.withdraw()
+            messagebox.showerror(
+                "Application Error",
+                f"A critical error occurred:\n\n{str(e)}\n\nPlease check the logs for details."
+            )
+        
         sys.exit(1)
 
 

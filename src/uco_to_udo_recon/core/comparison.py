@@ -45,7 +45,8 @@ def process_recon_table(
     data_wb: Workbook, 
     logger: logging.Logger, 
     new_target_file: str, 
-    udo_row: int
+    udo_row: int,
+    cancellation_check: Optional[Callable[[], bool]] = None
 ) -> None:
     """
     Process the recon table in the component sheet.
@@ -60,8 +61,14 @@ def process_recon_table(
         logger: Logger instance for tracking operations
         new_target_file: Path to the target file to save changes to
         udo_row: The row containing UDO data
+        cancellation_check: Optional function to check if operation should be cancelled
     """
     try:
+        # Check for cancellation
+        if cancellation_check and cancellation_check():
+            logger.info("Recon table processing cancelled.")
+            return
+            
         # Find "Contract / Agreement / Sales Order #" in Column A (Header Row)
         header_row = None
         total_row = None
@@ -75,6 +82,11 @@ def process_recon_table(
 
         # Iterate over actual Cell objects in Column A to find header and total rows
         for row in component_sheet.iter_rows(min_col=1, max_col=1):
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("Recon table processing cancelled.")
+                return
+                
             cell_value = row[0].value  # Get the value of the cell in column A
             if cell_value == "Contract / Agreement / Sales Order #":
                 header_row = row[0].row  # Get the row number of the cell
@@ -90,6 +102,11 @@ def process_recon_table(
 
         # Add additional logic for UDO-related rows in Column C
         for row in component_sheet.iter_rows(min_col=3, max_col=3):
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("Recon table processing cancelled.")
+                return
+                
             cell_value = row[0].value  # Get the value of the cell in column C
             logger.info(f"Inspecting cell in Column C, row {row[0].row}: {cell_value}")
         
@@ -111,6 +128,11 @@ def process_recon_table(
             logger.warning("Could not find the required rows in the recon table.")
             return
 
+        # Check for cancellation before making changes
+        if cancellation_check and cancellation_check():
+            logger.info("Recon table processing cancelled before making changes.")
+            return
+            
         # Insert a new column after Column J
         component_sheet.insert_cols(11)  # 11 corresponds to Column J (after J)
         logger.info(f"Inserted a new column after Column J.")
@@ -131,6 +153,11 @@ def process_recon_table(
 
         # Format the rest of the column with no fill, bold red font
         for row_idx in range(header_row + 1, component_sheet.max_row + 1):
+            # Check for cancellation periodically in long loops
+            if cancellation_check and cancellation_check() and row_idx % 50 == 0:
+                logger.info("Recon table processing cancelled during column formatting.")
+                return
+                
             comment_cell = component_sheet.cell(row=row_idx, column=11)
             comment_cell.font = Font(color="FF0000", bold=True, size=11, name="Calibri")  # Red Calibri bold font, size 11
             comment_cell.fill = PatternFill(fill_type=None)  # No fill
@@ -155,6 +182,11 @@ def process_recon_table(
 
         # Adding tickmark formulas to columns B to H
         for col, col_index in zip(columns, column_indices):
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("Recon table processing cancelled during formula addition.")
+                return
+                
             # Create the formula for each column
             formula = f"=IF(ROUND(SUM({col}${first_data_row}:{col}{last_data_row})-{col}{total_row},0)=0,\"a\",\"û\")"
             
@@ -263,8 +295,9 @@ def compare_ranges(
     target_wb: Workbook, 
     data_wb: Workbook, 
     logger: logging.Logger, 
-    progress_callback: Callable[[int], None], 
-    new_target_file: str
+    progress_callback: Callable[[int, Optional[str]], None], 
+    new_target_file: str,
+    cancellation_check: Optional[Callable[[], bool]] = None
 ) -> None:
     """
     Compare certification and UCO to UDO ranges, and always check UCO and UDO values in component sheets.
@@ -275,11 +308,18 @@ def compare_ranges(
         target_wb: The target workbook with formulas preserved
         data_wb: The data workbook with calculated values
         logger: Logger instance for tracking operations
-        progress_callback: Callback function to update progress
+        progress_callback: Callback function to update progress (value, message)
         new_target_file: Path to the target file to save changes to
+        cancellation_check: Optional function to check if operation should be cancelled
     """
     try:
+        # Check for cancellation
+        if cancellation_check and cancellation_check():
+            logger.info("Range comparison cancelled.")
+            return
+            
         logger.info("Starting comparison of Certification and DO UCO to UDO ranges.")
+        progress_callback(80, "Starting comparison of ranges")
 
         certification_values = []
         uco_to_udo_values = []
@@ -287,6 +327,11 @@ def compare_ranges(
         # Step 1: Process UCO to UDO range first to collect all uco_tier_component_names
         uco_tier_component_names_set: Set[str] = set()
         for uco_row in uco_to_udo_range:
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("Range comparison cancelled during UCO to UDO processing.")
+                return
+                
             # uco_row is a tuple of Cell objects
             uco_tier_component_name = uco_row[0].value  # Column A
             if uco_tier_component_name:
@@ -307,9 +352,15 @@ def compare_ranges(
             )
 
         logger.info(f"Collected {len(uco_tier_component_names_set)} unique UCO Tier Component Names from UCO to UDO range.")
+        progress_callback(83, "Processing certification values")
 
         # Step 2: Process Certification range
         for cert_row in certification_range[1:]:  # Skip header row
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("Range comparison cancelled during certification processing.")
+                return
+                
             # cert_row is a tuple of Cell objects
             tier_component_name = cert_row[1].value  # Column B
 
@@ -352,17 +403,39 @@ def compare_ranges(
             logger.debug(f"Row {row_number}: Added to certification_values.")
 
         logger.info(f"Total certification_values after applying conditions: {len(certification_values)}")
+        progress_callback(85, "Analyzing component data")
 
         print_sample_comparison_rows(certification_values, uco_to_udo_values, logger)
 
         total_comparisons = len(certification_values)
         logger.info(f"Total comparisons to make: {total_comparisons}")
 
+        # Calculate progress increment for each comparison
+        progress_increment = 10 / max(1, total_comparisons)  # Spread 10% progress across comparisons
+        current_progress = 85
+
         for idx, cert_values in enumerate(certification_values):
+            # Check for cancellation periodically
+            if cancellation_check and cancellation_check():
+                logger.info("Range comparison cancelled during component processing.")
+                return
+                
             tier_component_name, component_total_unfilled, trading_partner_total, difference, cert_row = cert_values
 
+            # Update progress for each component being processed
+            current_progress += progress_increment
+            progress_callback(int(current_progress), f"Processing component: {tier_component_name}")
+
             # Always check the component sheet for UCO and UDO totals
-            component_sheet = find_component_sheet(target_wb, cert_row[6].value, tier_component_name, cert_row[0].value, logger)
+            component_sheet = find_component_sheet(
+                target_wb, 
+                cert_row[6].value, 
+                tier_component_name, 
+                cert_row[0].value, 
+                logger,
+                cancellation_check
+            )
+            
             if component_sheet:
                 logger.info(f"Processing component sheet: {component_sheet.title}")
 
@@ -391,6 +464,11 @@ def compare_ranges(
                 else:
                     logger.warning(f"UCO total cell not found in component sheet {component_sheet.title} for {tier_component_name}")
 
+                # Check for cancellation before UDO processing
+                if cancellation_check and cancellation_check():
+                    logger.info("Range comparison cancelled before UDO processing.")
+                    return
+
                 # UDO comparison
                 udo_cell = next((cell for row in component_sheet.iter_rows() for cell in row if isinstance(cell.value, str) and "UDO total reported in TIER" in cell.value), None)
                 if udo_cell:
@@ -410,13 +488,18 @@ def compare_ranges(
                         is_match = abs(data_udo_value - uco_to_udo_trading_partner_value) < Decimal('0.01')
                         add_tickmark(component_sheet, udo_cell.row + 1, 4, "i" if is_match else "X", "Wingdings", 11, is_match)
                         # Process the recon table and pass new_target_file for saving
-                        process_recon_table(component_sheet, data_wb, logger, new_target_file, udo_cell.row)  # Updated call
+                        process_recon_table(component_sheet, data_wb, logger, new_target_file, udo_cell.row, cancellation_check)
                         logger.info(f"UDO: {data_udo_value} compared with UCO to UDO Trading Partner Total: {uco_to_udo_trading_partner_value} - {'Match' if is_match else 'No Match'}")
                         logger.info(f"UDO Tickmark added to component sheet {component_sheet.title} for TIER Component: {tier_component_name}")
                     else:
                         logger.warning(f"No matching UDO value found in UCO to UDO sheet for {tier_component_name}.")
                 else:
                     logger.warning(f"UDO total cell not found in component sheet {component_sheet.title} for {tier_component_name}")
+
+            # Check for cancellation before tickmark processing
+            if cancellation_check and cancellation_check():
+                logger.info("Range comparison cancelled before tickmark processing.")
+                return
 
             # Handle the match between Certification and DO UCO to UDO sheets
             for uco_values in uco_to_udo_values:
@@ -439,12 +522,18 @@ def compare_ranges(
 
                     logger.info(f"Tickmarks added to Certification and DO UCO to UDO sheets for TIER Component Name: {tier_component_name}")
 
+        # Check for cancellation before saving
+        if cancellation_check and cancellation_check():
+            logger.info("Range comparison cancelled before saving workbook.")
+            return
+
         # After processing all comparisons, save the workbook once
+        progress_callback(95, "Saving workbook with comparisons")
         target_wb.save(new_target_file)
         logger.info(f"Workbook saved with updated comparisons and tickmarks.")
 
         # Update progress to 100%
-        progress_callback(100)
+        progress_callback(97, "Comparison process completed")
 
     except Exception as e:
         logger.error(f"An error occurred during the comparison: {e}", exc_info=True)
@@ -456,8 +545,9 @@ def main(
     target_wb: Workbook, 
     data_wb: Workbook, 
     logger: logging.Logger, 
-    progress_callback: Callable[[int], None], 
-    new_target_file: str
+    progress_callback: Callable[[int, Optional[str]], None], 
+    new_target_file: str,
+    cancellation_check: Optional[Callable[[], bool]] = None
 ) -> None:
     """
     Main function to run the comparison process for UCO and UDO values.
@@ -468,7 +558,22 @@ def main(
         target_wb: The workbook loaded with data_only=False (preserving formulas)
         data_wb: The workbook loaded with data_only=True (accessing calculated values)
         logger: Logger instance for logging
-        progress_callback: Callback function to update progress
+        progress_callback: Callback function to update progress (value, message)
         new_target_file: Path to save the updated workbook
+        cancellation_check: Optional function to check if operation should be cancelled
     """
-    compare_ranges(certification_range, uco_to_udo_range, target_wb, data_wb, logger, progress_callback, new_target_file)
+    # Check for cancellation
+    if cancellation_check and cancellation_check():
+        logger.info("Comparison process cancelled before starting.")
+        return
+        
+    compare_ranges(
+        certification_range, 
+        uco_to_udo_range, 
+        target_wb, 
+        data_wb, 
+        logger, 
+        progress_callback, 
+        new_target_file,
+        cancellation_check
+    )

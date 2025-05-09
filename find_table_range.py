@@ -395,32 +395,66 @@ def process_uco_to_udo_sheet(target_wb, data_wb, component_name, logger, progres
         logger.error(f"An error occurred while processing 'DO UCO to UDO' sheet: {e}", exc_info=True)
         return None
 
-def find_table_range(new_target_file, component_name, logger, progress_callback):
-    """Main function to find table ranges, process sheets, and call comparison functions."""
+def find_table_range(new_target_file, component_name, logger, progress_callback, cancel_event=None):
+    """
+    Main function to find table ranges, process sheets, and call comparison functions.
+
+    Args:
+        new_target_file: Path to the Excel file to process
+        component_name: Name of the component to process
+        logger: Logger instance for logging
+        progress_callback: Callback function to update progress
+        cancel_event: Optional threading.Event to check for cancellation requests
+    """
     try:
+        # Check for cancellation
+        if cancel_event and cancel_event.is_set():
+            logger.info("Operation cancelled before recalculation.")
+            return
+
         # Recalculate the workbook using Excel and refresh any external links or queries.
         recalculate_workbook_in_excel(new_target_file, logger, progress_callback)
-        
+
         # Ensure a short delay to allow Excel to release the file
         time.sleep(1)
+
+        # Check for cancellation
+        if cancel_event and cancel_event.is_set():
+            logger.info("Operation cancelled after recalculation.")
+            return
 
         # Load the workbook twice
         logger.info(f"Loading workbook with data_only=False: {new_target_file}")
         target_wb = load_workbook(new_target_file, data_only=False)  # Preserves formulas
-        
+
         logger.info(f"Loading workbook with data_only=True: {new_target_file}")
         data_wb = load_workbook(new_target_file, data_only=True)     # Accesses calculated values
+
+        # Check for cancellation
+        if cancel_event and cancel_event.is_set():
+            logger.info("Operation cancelled after loading workbooks.")
+            return
 
         # Process Certification sheet
         certification_range, certification_row_data = process_certification_sheet(target_wb, data_wb, logger, progress_callback)
         if certification_range is None or certification_row_data is None:
             logger.error("Failed to process Certification sheet. Aborting operation.")
             return
-        
+
+        # Check for cancellation
+        if cancel_event and cancel_event.is_set():
+            logger.info("Operation cancelled after processing Certification sheet.")
+            return
+
         # Process UCO to UDO sheet
         uco_to_udo_range = process_uco_to_udo_sheet(target_wb, data_wb, component_name, logger, progress_callback)
         if uco_to_udo_range is None:
             logger.error("Failed to process UCO to UDO sheet. Aborting operation.")
+            return
+
+        # Check for cancellation
+        if cancel_event and cancel_event.is_set():
+            logger.info("Operation cancelled after processing UCO to UDO sheet.")
             return
 
         # Get the UCO to UDO sheet
@@ -428,6 +462,7 @@ def find_table_range(new_target_file, component_name, logger, progress_callback)
 
         # Call the updated compare_main function to compare both UCO and UDO values
         if certification_range and uco_to_udo_range:
+            # Pass cancel_event to compare_main
             compare_main(
                 certification_range,
                 uco_to_udo_range,
@@ -435,8 +470,14 @@ def find_table_range(new_target_file, component_name, logger, progress_callback)
                 data_wb,
                 logger,
                 progress_callback,
-                new_target_file
+                new_target_file,
+                cancel_event
             )
+
+        # Check for cancellation before final save
+        if cancel_event and cancel_event.is_set():
+            logger.info("Operation cancelled after comparison.")
+            return
 
         # Save the final workbook
         target_wb.save(new_target_file)
@@ -450,8 +491,10 @@ def find_table_range(new_target_file, component_name, logger, progress_callback)
 
     except InvalidFileException as e:
         logger.error(f"Invalid Excel file: {e}", exc_info=True)
+        raise
     except Exception as e:
         logger.error(f"An unexpected error occurred: {e}", exc_info=True)
+        raise
 
 if __name__ == "__main__":
     # This block can be used for testing the script independently
