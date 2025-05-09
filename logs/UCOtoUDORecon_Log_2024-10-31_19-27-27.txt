@@ -1,0 +1,71 @@
+2024-10-31 19:27:54,052 - INFO - Operation started...
+2024-10-31 19:27:54,058 - INFO - Absolute path of target file: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon.xlsx
+2024-10-31 19:27:58,487 - INFO - Opening target file: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon.xlsx
+2024-10-31 19:28:00,523 - INFO - Saving copy of target file as: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:01,341 - INFO - Created copy of target file: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:03,378 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:09,164 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:19,881 - INFO - Opening source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/TrialBalance20241011_080140AM.xlsx
+2024-10-31 19:28:21,814 - INFO - Opening target workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:23,345 - INFO - Copying sheet 'WMD Total' from source to target
+2024-10-31 19:28:23,993 - INFO - Saving changes to target workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:24,667 - INFO - Successfully copied and renamed sheet to 'DO TB' with formatting and formulas preserved
+2024-10-31 19:28:27,369 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:29,918 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:35,537 - INFO - Opening source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/UcoToUdo20241011_080246AM.xlsx
+2024-10-31 19:28:36,970 - INFO - Opening target workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:38,900 - INFO - Copying sheet 'UCO to UDO' from source to target
+2024-10-31 19:28:39,458 - INFO - Saving changes to target workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:40,255 - INFO - Successfully copied and renamed sheet to 'DO UCO to UDO' with formatting and formulas preserved
+2024-10-31 19:28:42,590 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:45,301 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:49,965 - INFO - Attempt 1: Opening Excel to recalculate and save the workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:51,713 - INFO - Workbook recalculated and saved successfully in Excel.
+2024-10-31 19:28:53,340 - INFO - Loading workbook for writing: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:54,600 - INFO - Loading workbook for reading computed values: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:55,469 - INFO - Processing 'Certification' sheet from target_wb.
+2024-10-31 19:28:55,480 - INFO - Accessing 'Certification' sheet from data_only_wb for computed values.
+2024-10-31 19:28:55,497 - INFO - Certification total found: 4696566.700000000186264514923095703125 at row 21, Column D.
+2024-10-31 19:28:55,512 - INFO - 'Tickmark' added to cell H6 with formatting applied.
+2024-10-31 19:28:55,528 - INFO - Certification Table Headers: ['Trading Partner Number', 'TIER Compent Name', 'Component', 'Component Total Unfilled Customer Orders', 'Trading Partner Total Undelivered Orders  to Component', 'Difference', 'Tab Name', 'Tickmark']
+2024-10-31 19:28:55,541 - INFO - Processing 'DO TB' sheet.
+2024-10-31 19:28:55,556 - INFO - Searching for '422100' and '422200' in Column C of the 'DO TB' sheet.
+2024-10-31 19:28:55,578 - INFO - Found '422200' in row 54, value in Column H: 4167580.69
+2024-10-31 19:28:55,587 - INFO - Value '4167580.69' added to Column N at row 54.
+2024-10-31 19:28:55,593 - INFO - Found '422100' in row 229, value in Column H: -856000
+2024-10-31 19:28:55,607 - INFO - Value '-856000' added to Column N at row 229.
+2024-10-31 19:28:55,612 - INFO - Sum formula '=N229+N54' entered in Column N at row 230.
+2024-10-31 19:28:55,629 - INFO - Auto-fitted Column N to width: 12
+2024-10-31 19:28:55,691 - INFO - Processing 'DO UCO to UDO' sheet.
+2024-10-31 19:28:55,705 - INFO - 'Tickmark' added to cell N9 with formatting applied.
+2024-10-31 19:28:55,718 - INFO - DO UCO to UDO Table Headers: ['CBP', 1042826.12, 0, 0, '=B11+C11+D11', 0, 0, '=F11+G11', '=B11+F11', '=C11+G11', 0, '=I11+J11+K11', '', None]
+2024-10-31 19:28:55,732 - INFO - UCO Total for row 11: 1042826.119999999995343387126922607421875
+2024-10-31 19:28:55,791 - INFO - UCO Total for row 12: 0
+2024-10-31 19:28:55,794 - INFO - UCO Total for row 13: 30000
+2024-10-31 19:28:55,798 - INFO - UCO Total for row 14: 563291.44999999995343387126922607421875
+2024-10-31 19:28:55,806 - INFO - UCO Total for row 15: 2996449.129999999888241291046142578125
+2024-10-31 19:28:55,809 - INFO - UCO Total for row 16: 0
+2024-10-31 19:28:55,812 - INFO - UCO Total for row 17: 0
+2024-10-31 19:28:55,819 - INFO - UCO Total for row 18: 0
+2024-10-31 19:28:55,969 - INFO - UCO Total for row 19: 64000
+2024-10-31 19:28:55,975 - INFO - UCO Total for row 20: 4696566.700000000186264514923095703125
+2024-10-31 19:28:55,999 - INFO - Starting comparison of Certification and DO UCO to UDO ranges.
+2024-10-31 19:28:56,007 - INFO - Printing first 5 rows of comparison values:
+2024-10-31 19:28:56,013 - INFO - Row 1 - Certification: ('CBP', Decimal('1042826.12'), Decimal('0'), Decimal('0'), (<Cell 'Certification'.A7>, <Cell 'Certification'.B7>, <Cell 'Certification'.C7>, <Cell 'Certification'.D7>, <Cell 'Certification'.E7>, <Cell 'Certification'.F7>, <Cell 'Certification'.G7>, <Cell 'Certification'.H7>)), DO UCO to UDO: ('CBP', None, None, None, (<Cell 'DO UCO to UDO'.A11>, <Cell 'DO UCO to UDO'.B11>, <Cell 'DO UCO to UDO'.C11>, <Cell 'DO UCO to UDO'.D11>, <Cell 'DO UCO to UDO'.E11>, <Cell 'DO UCO to UDO'.F11>, <Cell 'DO UCO to UDO'.G11>, <Cell 'DO UCO to UDO'.H11>, <Cell 'DO UCO to UDO'.I11>, <Cell 'DO UCO to UDO'.J11>, <Cell 'DO UCO to UDO'.K11>, <Cell 'DO UCO to UDO'.L11>, <Cell 'DO UCO to UDO'.M11>, <Cell 'DO UCO to UDO'.N11>))
+2024-10-31 19:28:56,023 - INFO - Row 2 - Certification: ('CG', Decimal('0'), Decimal('13333090.21'), Decimal('0'), (<Cell 'Certification'.A8>, <Cell 'Certification'.B8>, <Cell 'Certification'.C8>, <Cell 'Certification'.D8>, <Cell 'Certification'.E8>, <Cell 'Certification'.F8>, <Cell 'Certification'.G8>, <Cell 'Certification'.H8>)), DO UCO to UDO: ('CG', None, None, None, (<Cell 'DO UCO to UDO'.A12>, <Cell 'DO UCO to UDO'.B12>, <Cell 'DO UCO to UDO'.C12>, <Cell 'DO UCO to UDO'.D12>, <Cell 'DO UCO to UDO'.E12>, <Cell 'DO UCO to UDO'.F12>, <Cell 'DO UCO to UDO'.G12>, <Cell 'DO UCO to UDO'.H12>, <Cell 'DO UCO to UDO'.I12>, <Cell 'DO UCO to UDO'.J12>, <Cell 'DO UCO to UDO'.K12>, <Cell 'DO UCO to UDO'.L12>, <Cell 'DO UCO to UDO'.M12>, <Cell 'DO UCO to UDO'.N12>))
+2024-10-31 19:28:56,049 - INFO - Row 3 - Certification: ('CIS', Decimal('0'), Decimal('0'), Decimal('0'), (<Cell 'Certification'.A9>, <Cell 'Certification'.B9>, <Cell 'Certification'.C9>, <Cell 'Certification'.D9>, <Cell 'Certification'.E9>, <Cell 'Certification'.F9>, <Cell 'Certification'.G9>, <Cell 'Certification'.H9>)), DO UCO to UDO: ('FEM', None, None, None, (<Cell 'DO UCO to UDO'.A13>, <Cell 'DO UCO to UDO'.B13>, <Cell 'DO UCO to UDO'.C13>, <Cell 'DO UCO to UDO'.D13>, <Cell 'DO UCO to UDO'.E13>, <Cell 'DO UCO to UDO'.F13>, <Cell 'DO UCO to UDO'.G13>, <Cell 'DO UCO to UDO'.H13>, <Cell 'DO UCO to UDO'.I13>, <Cell 'DO UCO to UDO'.J13>, <Cell 'DO UCO to UDO'.K13>, <Cell 'DO UCO to UDO'.L13>, <Cell 'DO UCO to UDO'.M13>, <Cell 'DO UCO to UDO'.N13>))
+2024-10-31 19:28:56,077 - INFO - Row 4 - Certification: ('CYB', Decimal('0'), Decimal('0'), Decimal('0'), (<Cell 'Certification'.A10>, <Cell 'Certification'.B10>, <Cell 'Certification'.C10>, <Cell 'Certification'.D10>, <Cell 'Certification'.E10>, <Cell 'Certification'.F10>, <Cell 'Certification'.G10>, <Cell 'Certification'.H10>)), DO UCO to UDO: ('ICE', None, None, None, (<Cell 'DO UCO to UDO'.A14>, <Cell 'DO UCO to UDO'.B14>, <Cell 'DO UCO to UDO'.C14>, <Cell 'DO UCO to UDO'.D14>, <Cell 'DO UCO to UDO'.E14>, <Cell 'DO UCO to UDO'.F14>, <Cell 'DO UCO to UDO'.G14>, <Cell 'DO UCO to UDO'.H14>, <Cell 'DO UCO to UDO'.I14>, <Cell 'DO UCO to UDO'.J14>, <Cell 'DO UCO to UDO'.K14>, <Cell 'DO UCO to UDO'.L14>, <Cell 'DO UCO to UDO'.M14>, <Cell 'DO UCO to UDO'.N14>))
+2024-10-31 19:28:56,108 - INFO - Row 5 - Certification: ('FEM', Decimal('30000'), Decimal('-10485.19'), Decimal('0'), (<Cell 'Certification'.A11>, <Cell 'Certification'.B11>, <Cell 'Certification'.C11>, <Cell 'Certification'.D11>, <Cell 'Certification'.E11>, <Cell 'Certification'.F11>, <Cell 'Certification'.G11>, <Cell 'Certification'.H11>)), DO UCO to UDO: ('MGT', None, None, None, (<Cell 'DO UCO to UDO'.A15>, <Cell 'DO UCO to UDO'.B15>, <Cell 'DO UCO to UDO'.C15>, <Cell 'DO UCO to UDO'.D15>, <Cell 'DO UCO to UDO'.E15>, <Cell 'DO UCO to UDO'.F15>, <Cell 'DO UCO to UDO'.G15>, <Cell 'DO UCO to UDO'.H15>, <Cell 'DO UCO to UDO'.I15>, <Cell 'DO UCO to UDO'.J15>, <Cell 'DO UCO to UDO'.K15>, <Cell 'DO UCO to UDO'.L15>, <Cell 'DO UCO to UDO'.M15>, <Cell 'DO UCO to UDO'.N15>))
+2024-10-31 19:28:56,141 - INFO - Total comparisons to make: 14
+2024-10-31 19:28:56,157 - INFO - Found sheet 'CBP_7005 ' using tab_name pattern: CBP_7005
+2024-10-31 19:28:56,173 - INFO - Processing component sheet: CBP_7005 
+2024-10-31 19:28:56,187 - INFO - Processed UCO value from component sheet: 1042826.12
+2024-10-31 19:28:56,197 - ERROR - An error occurred during the comparison: unsupported operand type(s) for -: 'decimal.Decimal' and 'NoneType'
+Traceback (most recent call last):
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\compare_ranges.py", line 88, in compare_ranges
+    is_match = abs(uco_value - uco_to_udo_value) < Decimal('0.01')
+                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'decimal.Decimal' and 'NoneType'
+2024-10-31 19:28:56,830 - INFO - Workbook saved with updated tables and tickmark columns.
+2024-10-31 19:28:57,569 - INFO - Opened Excel file: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:28:57,925 - INFO - Operations completed successfully.

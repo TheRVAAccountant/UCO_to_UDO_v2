@@ -1,0 +1,56 @@
+2024-11-01 22:24:12,668 - INFO - Operation started...
+2024-11-01 22:24:12,677 - INFO - Created copy of target file: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:14,693 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:16,715 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:16,725 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/TrialBalance20241011_080140AM.xlsx
+2024-11-01 22:24:18,057 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:18,540 - INFO - Copying sheet 'WMD Total' from source to target
+2024-11-01 22:24:22,094 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:24,605 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:24,698 - INFO - Successfully copied and renamed sheet to 'DO TB' with formatting and formulas preserved
+2024-11-01 22:24:26,796 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:26,858 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/UcoToUdo20241011_080246AM.xlsx
+2024-11-01 22:24:26,870 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:27,423 - INFO - Copying sheet 'UCO to UDO' from source to target
+2024-11-01 22:24:27,576 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:30,015 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:30,031 - INFO - Successfully copied and renamed sheet to 'DO UCO to UDO' with formatting and formulas preserved
+2024-11-01 22:24:32,092 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:35,701 - INFO - Attempt 1: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:37,138 - INFO - Workbook recalculated and saved successfully in Excel.
+2024-11-01 22:24:38,503 - INFO - Loading workbook with data_only=False: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:39,560 - INFO - Loading workbook with data_only=True: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:40,119 - INFO - Processing 'Certification' sheet.
+2024-11-01 22:24:40,163 - INFO - Certification total found: 4696566.70 at row 21, Column D.
+2024-11-01 22:24:40,166 - INFO - 'Tickmark' added to cell H6 with formatting applied.
+2024-11-01 22:24:40,169 - INFO - Certification Table Headers: ['Trading Partner Number', 'TIER Compent Name', 'Component', 'Component Total Unfilled Customer Orders', 'Trading Partner Total Undelivered Orders  to Component', 'Difference', 'Tab Name', 'Tickmark']
+2024-11-01 22:24:40,173 - INFO - Processing 'DO TB' sheet.
+2024-11-01 22:24:40,176 - INFO - Searching for '422100' and '422200' in Column C of the 'DO TB' sheet.
+2024-11-01 22:24:40,180 - INFO - Found '422100' in row 53, value in Column H: 4167580.69
+2024-11-01 22:24:40,183 - INFO - Value '4167580.69' added to Column N at row 53.
+2024-11-01 22:24:40,186 - INFO - Found '422200' in row 54, value in Column H: 528986.01
+2024-11-01 22:24:40,189 - INFO - Value '528986.01' added to Column N at row 54.
+2024-11-01 22:24:40,194 - INFO - Sum formula '=N53+N54' entered in Column N at row 55.
+2024-11-01 22:24:40,200 - INFO - Auto-fitted Column N to width: 12
+2024-11-01 22:24:40,203 - INFO - Calculated sum directly in Python: 4696566.70
+2024-11-01 22:24:40,208 - INFO - Sums match. Tickmarks added.
+2024-11-01 22:24:40,228 - INFO - Processing 'DO UCO to UDO' sheet.
+2024-11-01 22:24:40,234 - INFO - 'Tickmark' added to cell N9 with formatting applied.
+2024-11-01 22:24:40,238 - INFO - DO UCO to UDO Table Headers: ['CBP', 1042826.12, 0, 0, '=B11+C11+D11', 0, 0, '=F11+G11', '=B11+F11', '=C11+G11', 0, '=I11+J11+K11', None, None]
+2024-11-01 22:24:40,242 - INFO - Row 11 - UCO Total: 1042826.12, Trading Partner Total: 0.00, Difference: 1042826.12
+2024-11-01 22:24:40,246 - INFO - Row 12 - UCO Total: 0.00, Trading Partner Total: 13333090.21, Difference: 13333090.21
+2024-11-01 22:24:40,250 - INFO - Row 13 - UCO Total: 30000.00, Trading Partner Total: -10485.19, Difference: 19514.81
+2024-11-01 22:24:40,255 - INFO - Row 14 - UCO Total: 563291.45, Trading Partner Total: -839200.20, Difference: -275908.75
+2024-11-01 22:24:40,259 - INFO - Row 15 - UCO Total: 2996449.13, Trading Partner Total: -111521.72, Difference: 2884927.41
+2024-11-01 22:24:40,263 - INFO - Row 16 - UCO Total: 0.00, Trading Partner Total: -55479.00, Difference: -55479.00
+2024-11-01 22:24:40,269 - INFO - Row 17 - UCO Total: 0.00, Trading Partner Total: 0.00, Difference: 0.00
+2024-11-01 22:24:40,276 - INFO - Row 18 - UCO Total: 0.00, Trading Partner Total: 0.00, Difference: 0.00
+2024-11-01 22:24:40,283 - INFO - Row 19 - UCO Total: 64000.00, Trading Partner Total: -1781526.33, Difference: -1717526.33
+2024-11-01 22:24:40,289 - INFO - Row 20 - UCO Total: 4696566.70, Trading Partner Total: 10534877.77, Difference: 15231444.47
+2024-11-01 22:24:40,303 - INFO - Starting comparison of Certification and DO UCO to UDO ranges.
+2024-11-01 22:24:40,350 - INFO - Printing first 5 rows of comparison values:
+2024-11-01 22:24:40,356 - INFO - Total comparisons to make: 0
+2024-11-01 22:24:40,790 - INFO - Workbook saved with updated comparisons and tickmarks.
+2024-11-01 22:24:41,219 - INFO - Workbook saved with updated tables and tickmark columns.
+2024-11-01 22:24:41,425 - INFO - Opened Excel file: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 22:24:41,446 - INFO - Operations completed successfully.

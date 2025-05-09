@@ -1,0 +1,15 @@
+2024-10-31 15:41:24,370 - INFO - Operation started...
+2024-10-31 15:41:32,203 - INFO - Opening target file: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon.xlsx
+2024-10-31 15:41:34,586 - INFO - Saving copy of target file as: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 15:41:34,962 - ERROR - Failed to create copy of target file: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', "Microsoft Excel cannot access the file 'C:\\//Users/Jeron.Crooks/Documents/UCO%20to%20UDO/WMD/98D38720'. There are several possible reasons:\n\n• The file name or path does not exist.\n• The file is being used by another program.\n• The workbook you are trying to save has the same name as a currently open workbook.", 'xlmain11.chm', 0, -2146827284), None)
+2024-10-31 15:41:34,983 - ERROR - Error during operation: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', "Microsoft Excel cannot access the file 'C:\\//Users/Jeron.Crooks/Documents/UCO%20to%20UDO/WMD/98D38720'. There are several possible reasons:\n\n• The file name or path does not exist.\n• The file is being used by another program.\n• The workbook you are trying to save has the same name as a currently open workbook.", 'xlmain11.chm', 0, -2146827284), None)
+Traceback (most recent call last):
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\gui_excel_tool.py", line 243, in start_operations
+    new_target_file = create_copy_of_target_file(target_file, self.logger)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\gui_excel_tool.py", line 119, in create_copy_of_target_file
+    wb.SaveAs(new_file_name)
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\_Workbook.py", line 285, in SaveAs
+    return self._oleobj_.InvokeTypes(3174, LCID, 1, (24, 0), ((12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (3, 49), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17)),Filename
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', "Microsoft Excel cannot access the file 'C:\\//Users/Jeron.Crooks/Documents/UCO%20to%20UDO/WMD/98D38720'. There are several possible reasons:\n\n• The file name or path does not exist.\n• The file is being used by another program.\n• The workbook you are trying to save has the same name as a currently open workbook.", 'xlmain11.chm', 0, -2146827284), None)

@@ -1,0 +1,6 @@
+2025-05-07 18:33:16,712 - INFO - Operation started...
+2025-05-07 18:33:16,740 - INFO - Created copy of target file: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/FY25 UCO to UDO Reconciliation Q2 Final Report - DO.xlsx
+2025-05-07 18:33:18,782 - INFO - Released file handle for: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/FY25 UCO to UDO Reconciliation Q2 Final Report - DO.xlsx
+2025-05-07 18:33:20,833 - INFO - Released file handle for: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/FY25 UCO to UDO Reconciliation Q2 Final Report - DO.xlsx
+2025-05-07 18:33:20,868 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TrialBalance20250410_024158PM.xlsx
+2025-05-07 18:33:28,024 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/FY25 UCO to UDO Reconciliation Q2 Final Report - DO.xlsx

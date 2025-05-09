@@ -1,0 +1,65 @@
+2024-10-24 00:34:12,562 - INFO - Operation started...
+2024-10-24 00:34:12,575 - INFO - Created copy of target file: C:/Users/Jeron.Crooks/Documents/UCO to UDO/CG/FY24 Q4/CG FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-24 00:34:12,579 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/CG/FY24 Q4/TrialBalance20241011_075933AM.xlsx
+2024-10-24 00:34:15,573 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/CG/FY24 Q4/CG FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-24 00:34:16,080 - INFO - Copying sheet 'CG Total' from source to target
+2024-10-24 00:34:27,681 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/CG/FY24 Q4/CG FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-24 00:34:28,296 - INFO - Successfully copied and renamed sheet to 'DO TB' with formatting and formulas preserved
+2024-10-24 00:34:28,296 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/CG/FY24 Q4/UcoToUdo20241011_080238AM.xlsx
+2024-10-24 00:34:28,312 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/CG/FY24 Q4/CG FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-24 00:34:29,293 - INFO - Copying sheet 'UCO to UDO' from source to target
+2024-10-24 00:34:29,682 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/CG/FY24 Q4/CG FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-24 00:34:31,071 - INFO - Successfully copied and renamed sheet to 'DO UCO to UDO' with formatting and formulas preserved
+2024-10-24 00:34:31,724 - INFO - Attempt 1: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/CG/FY24 Q4/CG FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-24 00:34:32,288 - ERROR - Attempt 1: An error occurred while recalculating the workbook in Excel: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+Traceback (most recent call last):
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 70, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\Workbooks.py", line 75, in Open
+    ret = self._oleobj_.InvokeTypes(1923, LCID, 1, (13, 0), ((8, 1), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17)),Filename
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+2024-10-24 00:34:32,299 - INFO - Retrying in 5 seconds... (Attempt 2)
+2024-10-24 00:34:37,303 - INFO - Attempt 2: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/CG/FY24 Q4/CG FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-24 00:34:37,382 - ERROR - Attempt 2: An error occurred while recalculating the workbook in Excel: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+Traceback (most recent call last):
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 70, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\Workbooks.py", line 75, in Open
+    ret = self._oleobj_.InvokeTypes(1923, LCID, 1, (13, 0), ((8, 1), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17)),Filename
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+2024-10-24 00:34:37,382 - INFO - Retrying in 5 seconds... (Attempt 3)
+2024-10-24 00:34:42,394 - INFO - Attempt 3: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/CG/FY24 Q4/CG FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-24 00:34:42,468 - ERROR - Attempt 3: An error occurred while recalculating the workbook in Excel: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+Traceback (most recent call last):
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 70, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\Workbooks.py", line 75, in Open
+    ret = self._oleobj_.InvokeTypes(1923, LCID, 1, (13, 0), ((8, 1), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17)),Filename
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+2024-10-24 00:34:42,469 - ERROR - Failed to recalculate the workbook after 3 attempts: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+Traceback (most recent call last):
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 70, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\Workbooks.py", line 75, in Open
+    ret = self._oleobj_.InvokeTypes(1923, LCID, 1, (13, 0), ((8, 1), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17)),Filename
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+2024-10-24 00:34:42,686 - ERROR - An unexpected error occurred: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+Traceback (most recent call last):
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 354, in find_table_range
+    recalculate_workbook_in_excel(new_target_file, logger, progress_callback)
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 70, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\Workbooks.py", line 75, in Open
+    ret = self._oleobj_.InvokeTypes(1923, LCID, 1, (13, 0), ((8, 1), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17)),Filename
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+2024-10-24 00:34:42,727 - INFO - Operations completed successfully.

@@ -1,0 +1,71 @@
+2025-05-07 19:48:11,928 - INFO - Operation started...
+2025-05-07 19:48:11,953 - INFO - Created copy of target file: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:48:13,990 - INFO - Released file handle for: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:48:16,022 - INFO - Released file handle for: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:48:16,157 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TrialBalance20250407_015712PM.xlsx
+2025-05-07 19:48:24,416 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:48:26,934 - INFO - Copying sheet 'TSA Total' from source to target
+2025-05-07 19:48:43,590 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:48:47,263 - INFO - Released file handle for: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:48:47,392 - INFO - Successfully copied and renamed sheet to 'DO TB' with formatting and formulas preserved
+2025-05-07 19:48:49,803 - INFO - Released file handle for: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:48:49,981 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/UcoToUdo20250410_021954PM.xlsx
+2025-05-07 19:48:50,111 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:48:52,889 - INFO - Copying sheet 'UCO to UDO' from source to target
+2025-05-07 19:48:53,300 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:48:56,806 - INFO - Released file handle for: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:48:56,848 - INFO - Successfully copied and renamed sheet to 'DO UCO to UDO' with formatting and formulas preserved
+2025-05-07 19:48:59,069 - INFO - Released file handle for: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:49:08,946 - INFO - Attempt 1: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:49:10,142 - ERROR - Attempt 1: An error occurred while recalculating the workbook in Excel: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+Traceback (most recent call last):
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\find_table_range.py", line 71, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\Workbooks.py", line 75, in Open
+    ret = self._oleobj_.InvokeTypes(1923, LCID, 1, (13, 0), ((8, 1), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17)),Filename
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+2025-05-07 19:49:10,177 - INFO - Retrying in 5 seconds... (Attempt 2)
+2025-05-07 19:49:15,205 - INFO - Attempt 2: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:49:15,735 - ERROR - Attempt 2: An error occurred while recalculating the workbook in Excel: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+Traceback (most recent call last):
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\find_table_range.py", line 71, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\Workbooks.py", line 75, in Open
+    ret = self._oleobj_.InvokeTypes(1923, LCID, 1, (13, 0), ((8, 1), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17)),Filename
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+2025-05-07 19:49:15,790 - INFO - Retrying in 5 seconds... (Attempt 3)
+2025-05-07 19:49:20,804 - INFO - Attempt 3: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/VSCode/UCO_to_UDO_v2.10/Inputs/TSA/TSA FY25 Q2 UCO to UDO Reconciliation - DO.xlsx
+2025-05-07 19:49:21,187 - ERROR - Attempt 3: An error occurred while recalculating the workbook in Excel: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+Traceback (most recent call last):
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\find_table_range.py", line 71, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\Workbooks.py", line 75, in Open
+    ret = self._oleobj_.InvokeTypes(1923, LCID, 1, (13, 0), ((8, 1), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17)),Filename
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+2025-05-07 19:49:21,241 - ERROR - Failed to recalculate the workbook after 3 attempts: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+Traceback (most recent call last):
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\find_table_range.py", line 71, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\Workbooks.py", line 75, in Open
+    ret = self._oleobj_.InvokeTypes(1923, LCID, 1, (13, 0), ((8, 1), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17)),Filename
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+2025-05-07 19:49:21,677 - ERROR - An unexpected error occurred: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+Traceback (most recent call last):
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\find_table_range.py", line 402, in find_table_range
+    recalculate_workbook_in_excel(new_target_file, logger, progress_callback)
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\find_table_range.py", line 71, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\Workbooks.py", line 75, in Open
+    ret = self._oleobj_.InvokeTypes(1923, LCID, 1, (13, 0), ((8, 1), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17), (12, 17)),Filename
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'Microsoft Excel', 'Open method of Workbooks class failed', 'xlmain11.chm', 0, -2146827284), None)
+2025-05-07 19:49:21,825 - INFO - Operations completed successfully.

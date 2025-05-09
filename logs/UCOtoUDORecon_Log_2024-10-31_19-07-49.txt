@@ -1,0 +1,35 @@
+2024-10-31 19:08:28,835 - INFO - Operation started...
+2024-10-31 19:08:28,837 - INFO - Absolute path of target file: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM.xlsx
+2024-10-31 19:08:33,722 - INFO - Opening target file: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM.xlsx
+2024-10-31 19:08:34,418 - INFO - Saving copy of target file as: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:08:34,649 - INFO - Created copy of target file: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:08:36,683 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:08:44,806 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:08:55,383 - INFO - Opening source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/TrialBalance20241011_080140AM.xlsx
+2024-10-31 19:08:57,660 - INFO - Opening target workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:08:58,188 - INFO - Copying sheet 'WMD Total' from source to target
+2024-10-31 19:08:58,807 - INFO - Saving changes to target workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:08:59,165 - INFO - Successfully copied and renamed sheet to 'DO TB' with formatting and formulas preserved
+2024-10-31 19:09:01,478 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:09:05,051 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:09:11,716 - INFO - Opening source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/UcoToUdo20241011_080246AM.xlsx
+2024-10-31 19:09:13,652 - INFO - Opening target workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:09:15,105 - INFO - Copying sheet 'UCO to UDO' from source to target
+2024-10-31 19:09:16,052 - INFO - Saving changes to target workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:09:16,419 - INFO - Successfully copied and renamed sheet to 'DO UCO to UDO' with formatting and formulas preserved
+2024-10-31 19:09:18,956 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:09:22,863 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:09:27,100 - INFO - Attempt 1: Opening Excel to recalculate and save the workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:09:27,971 - INFO - Workbook recalculated and saved successfully in Excel.
+2024-10-31 19:09:29,671 - INFO - Loading workbook for writing: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:09:30,532 - INFO - Loading workbook for reading computed values: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\UcoToUdo20241011_080246AM - DO.xlsx
+2024-10-31 19:09:30,725 - ERROR - An error occurred while processing the 'Certification' sheet: 'Worksheet Certification does not exist.'
+Traceback (most recent call last):
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\find_table_range.py", line 237, in process_certification_sheet
+    sheet = workbook["Certification"]
+            ~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jeron.Crooks\AppData\Local\anaconda3\Lib\site-packages\openpyxl\workbook\workbook.py", line 287, in __getitem__
+    raise KeyError("Worksheet {0} does not exist.".format(key))
+KeyError: 'Worksheet Certification does not exist.'
+2024-10-31 19:09:30,794 - ERROR - Failed to process Certification sheet. Aborting operation.
+2024-10-31 19:09:30,888 - INFO - Operations completed successfully.

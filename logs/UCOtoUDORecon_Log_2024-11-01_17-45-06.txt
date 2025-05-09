@@ -1,0 +1,71 @@
+2024-11-01 17:45:55,737 - INFO - Operation started...
+2024-11-01 17:45:55,769 - INFO - Created copy of target file: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:45:57,808 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:45:59,825 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:45:59,825 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/TrialBalance20241011_080140AM.xlsx
+2024-11-01 17:46:00,796 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:46:01,301 - INFO - Copying sheet 'WMD Total' from source to target
+2024-11-01 17:46:05,385 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:46:07,906 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:46:07,924 - INFO - Successfully copied and renamed sheet to 'DO TB' with formatting and formulas preserved
+2024-11-01 17:46:10,021 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:46:10,025 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/UcoToUdo20241011_080246AM.xlsx
+2024-11-01 17:46:10,059 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:46:10,630 - INFO - Copying sheet 'UCO to UDO' from source to target
+2024-11-01 17:46:10,756 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:46:13,308 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:46:13,418 - INFO - Successfully copied and renamed sheet to 'DO UCO to UDO' with formatting and formulas preserved
+2024-11-01 17:46:15,473 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:46:19,755 - INFO - Attempt 1: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:46:21,607 - INFO - Workbook recalculated and saved successfully in Excel.
+2024-11-01 17:46:23,113 - INFO - Loading workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:46:24,385 - INFO - Processing 'Certification' sheet.
+2024-11-01 17:46:24,402 - ERROR - Invalid value for conversion to Decimal: =SUM(D6:D20) - Error: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:24,403 - INFO - Certification total found: 0 at row 21, Column D.
+2024-11-01 17:46:24,403 - INFO - 'Tickmark' added to cell H6 with formatting applied.
+2024-11-01 17:46:24,403 - INFO - Certification Table Headers: ['Trading Partner Number', 'TIER Compent Name', 'Component', 'Component Total Unfilled Customer Orders', 'Trading Partner Total Undelivered Orders  to Component', 'Difference', 'Tab Name', 'Tickmark']
+2024-11-01 17:46:24,421 - ERROR - Invalid value for conversion to Decimal: =SUM(D6:D20) - Error: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:24,426 - INFO - Processing 'DO TB' sheet.
+2024-11-01 17:46:24,426 - INFO - Searching for '422100' and '422200' in Column C of the 'DO TB' sheet.
+2024-11-01 17:46:24,426 - INFO - Found '422100' in row 53, value in Column H: 4167580.69
+2024-11-01 17:46:24,438 - INFO - Value '4167580.69' added to Column N at row 53.
+2024-11-01 17:46:24,442 - INFO - Found '422200' in row 54, value in Column H: 528986.01
+2024-11-01 17:46:24,442 - INFO - Value '528986.01' added to Column N at row 54.
+2024-11-01 17:46:24,442 - INFO - Sum formula '=N53+N54' entered in Column N at row 55.
+2024-11-01 17:46:24,465 - INFO - Auto-fitted Column N to width: 12
+2024-11-01 17:46:24,496 - INFO - Processing 'DO UCO to UDO' sheet.
+2024-11-01 17:46:24,501 - INFO - 'Tickmark' added to cell N9 with formatting applied.
+2024-11-01 17:46:24,524 - INFO - DO UCO to UDO Table Headers: ['CBP', 1042826.12, 0, 0, '=B11+C11+D11', 0, 0, '=F11+G11', '=B11+F11', '=C11+G11', 0, '=I11+J11+K11', None, None]
+2024-11-01 17:46:24,529 - ERROR - Invalid value for conversion to Decimal: =B11+C11+D11 - Error: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:24,531 - INFO - UCO Total for row 11: 0
+2024-11-01 17:46:24,541 - ERROR - Invalid value for conversion to Decimal: =B12+C12+D12 - Error: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:24,548 - INFO - UCO Total for row 12: 0
+2024-11-01 17:46:24,552 - ERROR - Invalid value for conversion to Decimal: =B13+C13+D13 - Error: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:24,558 - INFO - UCO Total for row 13: 0
+2024-11-01 17:46:24,729 - ERROR - Invalid value for conversion to Decimal: =B14+C14+D14 - Error: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:24,736 - INFO - UCO Total for row 14: 0
+2024-11-01 17:46:24,744 - ERROR - Invalid value for conversion to Decimal: =B15+C15+D15 - Error: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:24,752 - INFO - UCO Total for row 15: 0
+2024-11-01 17:46:24,754 - ERROR - Invalid value for conversion to Decimal: =B16+C16+D16 - Error: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:24,767 - INFO - UCO Total for row 16: 0
+2024-11-01 17:46:24,775 - ERROR - Invalid value for conversion to Decimal: =B17+C17+D17 - Error: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:24,781 - INFO - UCO Total for row 17: 0
+2024-11-01 17:46:24,792 - ERROR - Invalid value for conversion to Decimal: =B18+C18+D18 - Error: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:24,800 - INFO - UCO Total for row 18: 0
+2024-11-01 17:46:24,808 - ERROR - Invalid value for conversion to Decimal: =B19+C19+D19 - Error: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:24,817 - INFO - UCO Total for row 19: 0
+2024-11-01 17:46:24,826 - ERROR - Invalid value for conversion to Decimal: =SUM(E11:E19) - Error: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:24,838 - INFO - UCO Total for row 20: 0
+2024-11-01 17:46:24,862 - INFO - Starting comparison of Certification and DO UCO to UDO ranges.
+2024-11-01 17:46:24,862 - ERROR - An error occurred during the comparison: [<class 'decimal.ConversionSyntax'>]
+Traceback (most recent call last):
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\compare_ranges.py", line 41, in compare_ranges
+    difference = convert_to_number(cert_row[5].value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\compare_ranges.py", line 15, in convert_to_number
+    return Decimal(cleaned_value)
+           ^^^^^^^^^^^^^^^^^^^^^^
+decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+2024-11-01 17:46:25,631 - INFO - Workbook saved with updated tables and tickmark columns.
+2024-11-01 17:46:25,988 - INFO - Opened Excel file: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 17:46:26,024 - INFO - Operations completed successfully.

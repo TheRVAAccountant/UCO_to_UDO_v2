@@ -1,0 +1,6 @@
+inputs/
+*.xls
+*.xlsx
+*.log
+log/*.txt
+*.bat

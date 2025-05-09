@@ -1,0 +1,754 @@
+2024-11-01 21:28:01,017 - INFO - Operation started...
+2024-11-01 21:28:01,017 - INFO - Created copy of target file: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:03,043 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:05,069 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:05,075 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/TrialBalance20241011_080140AM.xlsx
+2024-11-01 21:28:06,135 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:06,721 - INFO - Copying sheet 'WMD Total' from source to target
+2024-11-01 21:28:11,282 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:13,781 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:13,797 - INFO - Successfully copied and renamed sheet to 'DO TB' with formatting and formulas preserved
+2024-11-01 21:28:15,973 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:15,980 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/UcoToUdo20241011_080246AM.xlsx
+2024-11-01 21:28:15,980 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:16,552 - INFO - Copying sheet 'UCO to UDO' from source to target
+2024-11-01 21:28:16,741 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:19,261 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:19,302 - INFO - Successfully copied and renamed sheet to 'DO UCO to UDO' with formatting and formulas preserved
+2024-11-01 21:28:21,381 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:26,099 - INFO - Attempt 1: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:27,532 - INFO - Workbook recalculated and saved successfully in Excel.
+2024-11-01 21:28:29,013 - INFO - Loading workbook with data_only=False: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:29,532 - INFO - Loading workbook with data_only=True: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:30,052 - INFO - Processing 'Certification' sheet.
+2024-11-01 21:28:30,055 - INFO - Certification total found: 4696566.70 at row 21, Column D.
+2024-11-01 21:28:30,055 - INFO - 'Tickmark' added to cell H6 with formatting applied.
+2024-11-01 21:28:30,055 - INFO - Certification Table Headers: ['Trading Partner Number', 'TIER Compent Name', 'Component', 'Component Total Unfilled Customer Orders', 'Trading Partner Total Undelivered Orders  to Component', 'Difference', 'Tab Name', 'Tickmark']
+2024-11-01 21:28:30,072 - INFO - Processing 'DO TB' sheet.
+2024-11-01 21:28:30,072 - INFO - Searching for '422100' and '422200' in Column C of the 'DO TB' sheet.
+2024-11-01 21:28:30,072 - INFO - Found '422100' in row 53, value in Column H: 4167580.69
+2024-11-01 21:28:30,072 - INFO - Value '4167580.69' added to Column N at row 53.
+2024-11-01 21:28:30,086 - INFO - Found '422200' in row 54, value in Column H: 528986.01
+2024-11-01 21:28:30,086 - INFO - Value '528986.01' added to Column N at row 54.
+2024-11-01 21:28:30,086 - INFO - Sum formula '=N53+N54' entered in Column N at row 55.
+2024-11-01 21:28:30,102 - INFO - Auto-fitted Column N to width: 12
+2024-11-01 21:28:30,102 - INFO - Calculated sum directly in Python: 4696566.70
+2024-11-01 21:28:30,102 - INFO - Sums match. Tickmarks added.
+2024-11-01 21:28:30,137 - INFO - Processing 'DO UCO to UDO' sheet.
+2024-11-01 21:28:30,137 - INFO - 'Tickmark' added to cell N9 with formatting applied.
+2024-11-01 21:28:30,154 - INFO - DO UCO to UDO Table Headers: ['CBP', 1042826.12, 0, 0, '=B11+C11+D11', 0, 0, '=F11+G11', '=B11+F11', '=C11+G11', 0, '=I11+J11+K11', None, None]
+2024-11-01 21:28:30,154 - INFO - Row 11 - UCO Total: 1042826.12, Trading Partner Total: 0.00, Difference: 1042826.12
+2024-11-01 21:28:30,201 - INFO - Row 12 - UCO Total: 0.00, Trading Partner Total: 13333090.21, Difference: 13333090.21
+2024-11-01 21:28:30,205 - INFO - Row 13 - UCO Total: 30000.00, Trading Partner Total: -10485.19, Difference: 19514.81
+2024-11-01 21:28:30,211 - INFO - Row 14 - UCO Total: 563291.45, Trading Partner Total: -839200.20, Difference: -275908.75
+2024-11-01 21:28:30,216 - INFO - Row 15 - UCO Total: 2996449.13, Trading Partner Total: -111521.72, Difference: 2884927.41
+2024-11-01 21:28:30,219 - INFO - Row 16 - UCO Total: 0.00, Trading Partner Total: -55479.00, Difference: -55479.00
+2024-11-01 21:28:30,224 - INFO - Row 17 - UCO Total: 0.00, Trading Partner Total: 0.00, Difference: 0.00
+2024-11-01 21:28:30,229 - INFO - Row 18 - UCO Total: 0.00, Trading Partner Total: 0.00, Difference: 0.00
+2024-11-01 21:28:30,318 - INFO - Row 19 - UCO Total: 64000.00, Trading Partner Total: -1781526.33, Difference: -1717526.33
+2024-11-01 21:28:30,324 - INFO - Row 20 - UCO Total: 4696566.70, Trading Partner Total: 10534877.77, Difference: 15231444.47
+2024-11-01 21:28:30,332 - INFO - Starting comparison of Certification and DO UCO to UDO ranges.
+2024-11-01 21:28:30,336 - INFO - Printing first 5 rows of comparison values:
+2024-11-01 21:28:30,339 - INFO - Row 1 - Certification: ('CBP', Decimal('1042826.12'), Decimal('0.00'), Decimal('1042826.12'), (<Cell 'Certification'.A7>, <Cell 'Certification'.B7>, <Cell 'Certification'.C7>, <Cell 'Certification'.D7>, <Cell 'Certification'.E7>, <Cell 'Certification'.F7>, <Cell 'Certification'.G7>, <Cell 'Certification'.H7>)), DO UCO to UDO: ('CBP', Decimal('1042826.12'), Decimal('0.00'), Decimal('1042826.12'), (<Cell 'DO UCO to UDO'.A11>, <Cell 'DO UCO to UDO'.B11>, <Cell 'DO UCO to UDO'.C11>, <Cell 'DO UCO to UDO'.D11>, <Cell 'DO UCO to UDO'.E11>, <Cell 'DO UCO to UDO'.F11>, <Cell 'DO UCO to UDO'.G11>, <Cell 'DO UCO to UDO'.H11>, <Cell 'DO UCO to UDO'.I11>, <Cell 'DO UCO to UDO'.J11>, <Cell 'DO UCO to UDO'.K11>, <Cell 'DO UCO to UDO'.L11>, <Cell 'DO UCO to UDO'.M11>, <Cell 'DO UCO to UDO'.N11>))
+2024-11-01 21:28:30,350 - INFO - Row 2 - Certification: ('CG', Decimal('0.00'), Decimal('13333090.21'), Decimal('13333090.21'), (<Cell 'Certification'.A8>, <Cell 'Certification'.B8>, <Cell 'Certification'.C8>, <Cell 'Certification'.D8>, <Cell 'Certification'.E8>, <Cell 'Certification'.F8>, <Cell 'Certification'.G8>, <Cell 'Certification'.H8>)), DO UCO to UDO: ('CG', Decimal('0.00'), Decimal('13333090.21'), Decimal('13333090.21'), (<Cell 'DO UCO to UDO'.A12>, <Cell 'DO UCO to UDO'.B12>, <Cell 'DO UCO to UDO'.C12>, <Cell 'DO UCO to UDO'.D12>, <Cell 'DO UCO to UDO'.E12>, <Cell 'DO UCO to UDO'.F12>, <Cell 'DO UCO to UDO'.G12>, <Cell 'DO UCO to UDO'.H12>, <Cell 'DO UCO to UDO'.I12>, <Cell 'DO UCO to UDO'.J12>, <Cell 'DO UCO to UDO'.K12>, <Cell 'DO UCO to UDO'.L12>, <Cell 'DO UCO to UDO'.M12>, <Cell 'DO UCO to UDO'.N12>))
+2024-11-01 21:28:30,353 - INFO - Row 3 - Certification: ('FEM', Decimal('30000.00'), Decimal('-10485.19'), Decimal('19514.81'), (<Cell 'Certification'.A11>, <Cell 'Certification'.B11>, <Cell 'Certification'.C11>, <Cell 'Certification'.D11>, <Cell 'Certification'.E11>, <Cell 'Certification'.F11>, <Cell 'Certification'.G11>, <Cell 'Certification'.H11>)), DO UCO to UDO: ('FEM', Decimal('30000.00'), Decimal('-10485.19'), Decimal('19514.81'), (<Cell 'DO UCO to UDO'.A13>, <Cell 'DO UCO to UDO'.B13>, <Cell 'DO UCO to UDO'.C13>, <Cell 'DO UCO to UDO'.D13>, <Cell 'DO UCO to UDO'.E13>, <Cell 'DO UCO to UDO'.F13>, <Cell 'DO UCO to UDO'.G13>, <Cell 'DO UCO to UDO'.H13>, <Cell 'DO UCO to UDO'.I13>, <Cell 'DO UCO to UDO'.J13>, <Cell 'DO UCO to UDO'.K13>, <Cell 'DO UCO to UDO'.L13>, <Cell 'DO UCO to UDO'.M13>, <Cell 'DO UCO to UDO'.N13>))
+2024-11-01 21:28:30,353 - INFO - Row 4 - Certification: ('ICE', Decimal('563291.45'), Decimal('-839200.20'), Decimal('-275908.75'), (<Cell 'Certification'.A13>, <Cell 'Certification'.B13>, <Cell 'Certification'.C13>, <Cell 'Certification'.D13>, <Cell 'Certification'.E13>, <Cell 'Certification'.F13>, <Cell 'Certification'.G13>, <Cell 'Certification'.H13>)), DO UCO to UDO: ('ICE', Decimal('563291.45'), Decimal('-839200.20'), Decimal('-275908.75'), (<Cell 'DO UCO to UDO'.A14>, <Cell 'DO UCO to UDO'.B14>, <Cell 'DO UCO to UDO'.C14>, <Cell 'DO UCO to UDO'.D14>, <Cell 'DO UCO to UDO'.E14>, <Cell 'DO UCO to UDO'.F14>, <Cell 'DO UCO to UDO'.G14>, <Cell 'DO UCO to UDO'.H14>, <Cell 'DO UCO to UDO'.I14>, <Cell 'DO UCO to UDO'.J14>, <Cell 'DO UCO to UDO'.K14>, <Cell 'DO UCO to UDO'.L14>, <Cell 'DO UCO to UDO'.M14>, <Cell 'DO UCO to UDO'.N14>))
+2024-11-01 21:28:30,370 - INFO - Row 5 - Certification: ('MGT', Decimal('2996449.13'), Decimal('-111521.72'), Decimal('2884927.41'), (<Cell 'Certification'.A15>, <Cell 'Certification'.B15>, <Cell 'Certification'.C15>, <Cell 'Certification'.D15>, <Cell 'Certification'.E15>, <Cell 'Certification'.F15>, <Cell 'Certification'.G15>, <Cell 'Certification'.H15>)), DO UCO to UDO: ('MGT', Decimal('2996449.13'), Decimal('-111521.72'), Decimal('2884927.41'), (<Cell 'DO UCO to UDO'.A15>, <Cell 'DO UCO to UDO'.B15>, <Cell 'DO UCO to UDO'.C15>, <Cell 'DO UCO to UDO'.D15>, <Cell 'DO UCO to UDO'.E15>, <Cell 'DO UCO to UDO'.F15>, <Cell 'DO UCO to UDO'.G15>, <Cell 'DO UCO to UDO'.H15>, <Cell 'DO UCO to UDO'.I15>, <Cell 'DO UCO to UDO'.J15>, <Cell 'DO UCO to UDO'.K15>, <Cell 'DO UCO to UDO'.L15>, <Cell 'DO UCO to UDO'.M15>, <Cell 'DO UCO to UDO'.N15>))
+2024-11-01 21:28:30,370 - INFO - Total comparisons to make: 7
+2024-11-01 21:28:30,387 - INFO - Found sheet 'CBP_7005 ' using tab_name pattern: CBP_7005
+2024-11-01 21:28:30,387 - INFO - Processing component sheet: CBP_7005 
+2024-11-01 21:28:30,399 - DEBUG - UCO cell found at row 48, column 2 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:30,402 - DEBUG - Raw UCO cell value: None
+2024-11-01 21:28:30,402 - INFO - Processed UCO value from component sheet: 0
+2024-11-01 21:28:30,402 - INFO - UCO: 0 compared with UCO to UDO: 1042826.12 - No Match
+2024-11-01 21:28:30,402 - INFO - Tickmark added to component sheet CBP_7005  for TIER Component: CBP
+2024-11-01 21:28:30,417 - DEBUG - UDO cell found at row 48, column 4 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:30,417 - DEBUG - Raw UDO cell value: None
+2024-11-01 21:28:30,426 - INFO - Processed UDO value from component sheet: 0
+2024-11-01 21:28:30,433 - INFO - Found 'Contract / Agreement / Sales Order #' in Column A at row 15
+2024-11-01 21:28:30,434 - INFO - Found 'Providing Bureau UCO Total via their system records:' in Column A at row 45
+2024-11-01 21:28:30,434 - INFO - Found 'Difference between: System of Record vs TIER' in Column A at row 52
+2024-11-01 21:28:30,434 - INFO - Inspecting cell in Column C, row 1: None
+2024-11-01 21:28:30,447 - INFO - Inspecting cell in Column C, row 2: None
+2024-11-01 21:28:30,447 - INFO - Inspecting cell in Column C, row 3: None
+2024-11-01 21:28:30,447 - INFO - Inspecting cell in Column C, row 4: None
+2024-11-01 21:28:30,447 - INFO - Inspecting cell in Column C, row 5: None
+2024-11-01 21:28:30,462 - INFO - Inspecting cell in Column C, row 6: None
+2024-11-01 21:28:30,462 - INFO - Inspecting cell in Column C, row 7: None
+2024-11-01 21:28:30,462 - INFO - Inspecting cell in Column C, row 8: None
+2024-11-01 21:28:30,478 - INFO - Inspecting cell in Column C, row 9: CBP-UCO-UDO Public Mailbox
+2024-11-01 21:28:30,478 - INFO - Inspecting cell in Column C, row 10: cbpucoudo@cbp.dhs.gov
+2024-11-01 21:28:30,478 - INFO - Inspecting cell in Column C, row 11: None
+2024-11-01 21:28:30,478 - INFO - Inspecting cell in Column C, row 12: None
+2024-11-01 21:28:30,494 - INFO - Inspecting cell in Column C, row 13: Receiver fills in this column except for Contract/Agreement/Obligation # which should be entered by Provider (when possible) and confirmed by Receiver
+2024-11-01 21:28:30,494 - INFO - Inspecting cell in Column C, row 14: Receiving Component SGLs 4801/4871/4881/4802/4872/4882
+2024-11-01 21:28:30,494 - INFO - Inspecting cell in Column C, row 15: Contract / Agreement / Obligation #   
+2024-11-01 21:28:30,509 - INFO - Inspecting cell in Column C, row 16:  70B03C21K00000027
+2024-11-01 21:28:30,517 - INFO - Inspecting cell in Column C, row 17: None
+2024-11-01 21:28:30,526 - INFO - Inspecting cell in Column C, row 18: None
+2024-11-01 21:28:30,526 - INFO - Inspecting cell in Column C, row 19: None
+2024-11-01 21:28:30,526 - INFO - Inspecting cell in Column C, row 20: None
+2024-11-01 21:28:30,526 - INFO - Inspecting cell in Column C, row 21: None
+2024-11-01 21:28:30,581 - INFO - Inspecting cell in Column C, row 22: None
+2024-11-01 21:28:30,584 - INFO - Inspecting cell in Column C, row 23: None
+2024-11-01 21:28:30,586 - INFO - Inspecting cell in Column C, row 24: None
+2024-11-01 21:28:30,590 - INFO - Inspecting cell in Column C, row 25: None
+2024-11-01 21:28:30,593 - INFO - Inspecting cell in Column C, row 26: None
+2024-11-01 21:28:30,595 - INFO - Inspecting cell in Column C, row 27: None
+2024-11-01 21:28:30,601 - INFO - Inspecting cell in Column C, row 28: None
+2024-11-01 21:28:30,603 - INFO - Inspecting cell in Column C, row 29: None
+2024-11-01 21:28:30,607 - INFO - Inspecting cell in Column C, row 30: None
+2024-11-01 21:28:30,610 - INFO - Inspecting cell in Column C, row 31: None
+2024-11-01 21:28:30,791 - INFO - Inspecting cell in Column C, row 32: None
+2024-11-01 21:28:30,791 - INFO - Inspecting cell in Column C, row 33: None
+2024-11-01 21:28:30,807 - INFO - Inspecting cell in Column C, row 34: None
+2024-11-01 21:28:30,809 - INFO - Inspecting cell in Column C, row 35: None
+2024-11-01 21:28:30,819 - INFO - Inspecting cell in Column C, row 36: None
+2024-11-01 21:28:30,823 - INFO - Inspecting cell in Column C, row 37: None
+2024-11-01 21:28:30,823 - INFO - Inspecting cell in Column C, row 38: None
+2024-11-01 21:28:30,823 - INFO - Inspecting cell in Column C, row 39: None
+2024-11-01 21:28:30,839 - INFO - Inspecting cell in Column C, row 40: None
+2024-11-01 21:28:30,847 - INFO - Inspecting cell in Column C, row 41: None
+2024-11-01 21:28:30,847 - INFO - Inspecting cell in Column C, row 42: None
+2024-11-01 21:28:30,855 - INFO - Inspecting cell in Column C, row 43: None
+2024-11-01 21:28:30,855 - INFO - Inspecting cell in Column C, row 44: None
+2024-11-01 21:28:30,855 - INFO - Inspecting cell in Column C, row 45: Receiving Bureau UDO Total via their system records:
+2024-11-01 21:28:30,871 - INFO - Inspecting cell in Column C, row 46: None
+2024-11-01 21:28:30,871 - INFO - Inspecting cell in Column C, row 47: Receiving Agency:
+2024-11-01 21:28:30,871 - INFO - Inspecting cell in Column C, row 48: Please enter UDO total reported in TIER:
+2024-11-01 21:28:30,887 - INFO - Inspecting cell in Column C, row 49: None
+2024-11-01 21:28:30,887 - INFO - Inspecting cell in Column C, row 50: If UDO amount reported (regardless of materiality) via your agency's system records is NOT what is reported in TIER, please explain below how your system records total amount is tied to the TIER amount reported:
+2024-11-01 21:28:30,901 - INFO - Inspecting cell in Column C, row 51: None
+2024-11-01 21:28:30,901 - INFO - Inspecting cell in Column C, row 52: Difference between: System of Record vs TIER
+2024-11-01 21:28:30,912 - INFO - Inspecting cell in Column C, row 53: None
+2024-11-01 21:28:30,918 - INFO - Inspecting cell in Column C, row 54: UDO total via system records
+2024-11-01 21:28:30,919 - INFO - Found 'UDO total via system records' in Column C at row 54
+2024-11-01 21:28:30,919 - INFO - Inspecting cell in Column C, row 55:  
+2024-11-01 21:28:30,933 - INFO - Inspecting cell in Column C, row 56:  
+2024-11-01 21:28:30,941 - INFO - Inspecting cell in Column C, row 57: None
+2024-11-01 21:28:30,945 - INFO - Inspecting cell in Column C, row 58: UDO after high level adjustments
+2024-11-01 21:28:30,950 - INFO - Found 'UDO after high level adjustments' in Column C at row 58
+2024-11-01 21:28:30,950 - INFO - Inspecting cell in Column C, row 59: None
+2024-11-01 21:28:30,961 - INFO - Inspecting cell in Column C, row 60: None
+2024-11-01 21:28:30,965 - INFO - Inspecting cell in Column C, row 61: Difference between: System of Record (after adjustments) vs TIER 
+2024-11-01 21:28:30,965 - INFO - Found 'Difference between: System of Record (after adjustments) vs TIER' in Column C at row 61
+2024-11-01 21:28:30,965 - INFO - Inspecting cell in Column C, row 62: None
+2024-11-01 21:28:30,965 - INFO - Inspecting cell in Column C, row 63: None
+2024-11-01 21:28:30,965 - INFO - Inserted a new column after Column J.
+2024-11-01 21:28:30,983 - INFO - Set the width of column K to 45.
+2024-11-01 21:28:30,992 - INFO - Added 'DO Comments' header to the new column at row 15 and applied formatting.
+2024-11-01 21:28:30,997 - INFO - Formatted the new 'DO Comments' column with red bold text.
+2024-11-01 21:28:30,997 - INFO - Recon Table Data range: Rows 16 to 44
+2024-11-01 21:28:31,013 - INFO - Tickmark row is 46
+2024-11-01 21:28:31,019 - INFO - Tickmark formula added to row 46, Column B with formula: =IF(ROUND(SUM(B$16:B44)-B45,0)=0,"a","û")
+2024-11-01 21:28:31,019 - INFO - Tickmark formula added to row 46, Column D with formula: =IF(ROUND(SUM(D$16:D44)-D45,0)=0,"a","û")
+2024-11-01 21:28:31,028 - INFO - Tickmark formula added to row 46, Column E with formula: =IF(ROUND(SUM(E$16:E44)-E45,0)=0,"a","û")
+2024-11-01 21:28:31,028 - INFO - Tickmark formula added to row 46, Column F with formula: =IF(ROUND(SUM(F$16:F44)-F45,0)=0,"a","û")
+2024-11-01 21:28:31,028 - INFO - Tickmark formula added to row 46, Column G with formula: =IF(ROUND(SUM(G$16:G44)-G45,0)=0,"a","û")
+2024-11-01 21:28:31,044 - INFO - Tickmark formula added to row 46, Column H with formula: =IF(ROUND(SUM(H$16:H44)-H45,0)=0,"a","û")
+2024-11-01 21:28:31,084 - INFO - Tickmark formula added to row 46, Column I with formula: =IF(AND((ROUND(SUM(E45:G45)-H45,0)=0),ROUND((+B45+D45)-E45,0)=0),"b","û")
+2024-11-01 21:28:31,092 - INFO - System of Record vs TIER tickmark formulas added to row 53, Columns B and D
+2024-11-01 21:28:31,099 - INFO - UDO After High Level Adjustments tickmark formula added to row 59, Column D with formula: =IF(ROUND(SUM(D54:D57)-D58,0)=0,"a","û")
+2024-11-01 21:28:31,111 - INFO - Difference After Adjustments tickmark formula added to row 62, Column D with formula: =IF(ROUND(+D48-D58+D61,0)=0,"a","û")
+2024-11-01 21:28:31,884 - INFO - UDO: 0 compared with UCO to UDO Trading Partner Total: 0.00 - Match
+2024-11-01 21:28:31,899 - INFO - UDO Tickmark added to component sheet CBP_7005  for TIER Component: CBP
+2024-11-01 21:28:31,915 - INFO - Match found for TIER Component Name: CBP
+2024-11-01 21:28:31,919 - INFO - Tickmarks added to Certification and DO UCO to UDO sheets for TIER Component Name: CBP
+2024-11-01 21:28:31,919 - INFO - Found sheet 'CG_7006' using tab_name pattern: CG_7006
+2024-11-01 21:28:31,919 - INFO - Processing component sheet: CG_7006
+2024-11-01 21:28:31,934 - DEBUG - UCO cell found at row 48, column 2 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:31,934 - DEBUG - Raw UCO cell value: None
+2024-11-01 21:28:31,934 - INFO - Processed UCO value from component sheet: 0
+2024-11-01 21:28:31,934 - INFO - UCO: 0 compared with UCO to UDO: 0.00 - Match
+2024-11-01 21:28:31,948 - INFO - Tickmark added to component sheet CG_7006 for TIER Component: CG
+2024-11-01 21:28:31,948 - DEBUG - UDO cell found at row 48, column 4 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:31,948 - DEBUG - Raw UDO cell value: None
+2024-11-01 21:28:31,948 - INFO - Processed UDO value from component sheet: 0
+2024-11-01 21:28:31,964 - INFO - Found 'Contract / Agreement / Sales Order #' in Column A at row 15
+2024-11-01 21:28:31,965 - INFO - Found 'Providing Bureau UCO Total via their system records:' in Column A at row 45
+2024-11-01 21:28:31,965 - INFO - Found 'Difference between: System of Record vs TIER' in Column A at row 52
+2024-11-01 21:28:31,965 - INFO - Inspecting cell in Column C, row 1: None
+2024-11-01 21:28:31,965 - INFO - Inspecting cell in Column C, row 2: None
+2024-11-01 21:28:31,982 - INFO - Inspecting cell in Column C, row 3: None
+2024-11-01 21:28:31,982 - INFO - Inspecting cell in Column C, row 4: None
+2024-11-01 21:28:31,982 - INFO - Inspecting cell in Column C, row 5: None
+2024-11-01 21:28:31,982 - INFO - Inspecting cell in Column C, row 6: None
+2024-11-01 21:28:32,031 - INFO - Inspecting cell in Column C, row 7: None
+2024-11-01 21:28:32,039 - INFO - Inspecting cell in Column C, row 8: None
+2024-11-01 21:28:32,045 - INFO - Inspecting cell in Column C, row 9: None
+2024-11-01 21:28:32,055 - INFO - Inspecting cell in Column C, row 10: None
+2024-11-01 21:28:32,061 - INFO - Inspecting cell in Column C, row 11: None
+2024-11-01 21:28:32,070 - INFO - Inspecting cell in Column C, row 12: None
+2024-11-01 21:28:32,078 - INFO - Inspecting cell in Column C, row 13: Receiver fills in this column except for Contract/Agreement/Obligation # which should be entered by Provider (when possible) and confirmed by Receiver
+2024-11-01 21:28:32,172 - INFO - Inspecting cell in Column C, row 14: Receiving Component SGLs 4801/4871/4881/4802/4872/4882
+2024-11-01 21:28:32,176 - INFO - Inspecting cell in Column C, row 15: Contract / Agreement / Obligation #   
+2024-11-01 21:28:32,179 - INFO - Inspecting cell in Column C, row 16: None
+2024-11-01 21:28:32,184 - INFO - Inspecting cell in Column C, row 17: None
+2024-11-01 21:28:32,187 - INFO - Inspecting cell in Column C, row 18: None
+2024-11-01 21:28:32,191 - INFO - Inspecting cell in Column C, row 19: None
+2024-11-01 21:28:32,195 - INFO - Inspecting cell in Column C, row 20: None
+2024-11-01 21:28:32,200 - INFO - Inspecting cell in Column C, row 21: None
+2024-11-01 21:28:32,205 - INFO - Inspecting cell in Column C, row 22: None
+2024-11-01 21:28:32,211 - INFO - Inspecting cell in Column C, row 23: None
+2024-11-01 21:28:32,215 - INFO - Inspecting cell in Column C, row 24: None
+2024-11-01 21:28:32,220 - INFO - Inspecting cell in Column C, row 25: None
+2024-11-01 21:28:32,222 - INFO - Inspecting cell in Column C, row 26: None
+2024-11-01 21:28:32,222 - INFO - Inspecting cell in Column C, row 27: None
+2024-11-01 21:28:32,222 - INFO - Inspecting cell in Column C, row 28: None
+2024-11-01 21:28:32,234 - INFO - Inspecting cell in Column C, row 29: None
+2024-11-01 21:28:32,235 - INFO - Inspecting cell in Column C, row 30: None
+2024-11-01 21:28:32,235 - INFO - Inspecting cell in Column C, row 31: None
+2024-11-01 21:28:32,235 - INFO - Inspecting cell in Column C, row 32: None
+2024-11-01 21:28:32,235 - INFO - Inspecting cell in Column C, row 33: None
+2024-11-01 21:28:32,235 - INFO - Inspecting cell in Column C, row 34: None
+2024-11-01 21:28:32,249 - INFO - Inspecting cell in Column C, row 35: None
+2024-11-01 21:28:32,251 - INFO - Inspecting cell in Column C, row 36: None
+2024-11-01 21:28:32,251 - INFO - Inspecting cell in Column C, row 37: None
+2024-11-01 21:28:32,251 - INFO - Inspecting cell in Column C, row 38: None
+2024-11-01 21:28:32,264 - INFO - Inspecting cell in Column C, row 39: None
+2024-11-01 21:28:32,265 - INFO - Inspecting cell in Column C, row 40: None
+2024-11-01 21:28:32,270 - INFO - Inspecting cell in Column C, row 41: None
+2024-11-01 21:28:32,274 - INFO - Inspecting cell in Column C, row 42: None
+2024-11-01 21:28:32,274 - INFO - Inspecting cell in Column C, row 43: None
+2024-11-01 21:28:32,274 - INFO - Inspecting cell in Column C, row 44: None
+2024-11-01 21:28:32,281 - INFO - Inspecting cell in Column C, row 45: Receiving Bureau UDO Total via their system records:
+2024-11-01 21:28:32,283 - INFO - Inspecting cell in Column C, row 46: None
+2024-11-01 21:28:32,289 - INFO - Inspecting cell in Column C, row 47: Receiving Agency:
+2024-11-01 21:28:32,293 - INFO - Inspecting cell in Column C, row 48: Please enter UDO total reported in TIER:
+2024-11-01 21:28:32,298 - INFO - Inspecting cell in Column C, row 49: None
+2024-11-01 21:28:32,299 - INFO - Inspecting cell in Column C, row 50: If UDO amount reported (regardless of materiality) via your agency's system records is NOT what is reported in TIER, please explain below how your system records total amount is tied to the TIER amount reported:
+2024-11-01 21:28:32,304 - INFO - Inspecting cell in Column C, row 51: None
+2024-11-01 21:28:32,311 - INFO - Inspecting cell in Column C, row 52: Difference between: System of Record vs TIER
+2024-11-01 21:28:32,317 - INFO - Inspecting cell in Column C, row 53: None
+2024-11-01 21:28:32,321 - INFO - Inspecting cell in Column C, row 54: UDO total via system records
+2024-11-01 21:28:32,328 - INFO - Found 'UDO total via system records' in Column C at row 54
+2024-11-01 21:28:32,333 - INFO - Inspecting cell in Column C, row 55: None
+2024-11-01 21:28:32,333 - INFO - Inspecting cell in Column C, row 56: None
+2024-11-01 21:28:32,345 - INFO - Inspecting cell in Column C, row 57: None
+2024-11-01 21:28:32,345 - INFO - Inspecting cell in Column C, row 58: UDO after high level adjustments
+2024-11-01 21:28:32,345 - INFO - Found 'UDO after high level adjustments' in Column C at row 58
+2024-11-01 21:28:32,345 - INFO - Inspecting cell in Column C, row 59: None
+2024-11-01 21:28:32,362 - INFO - Inspecting cell in Column C, row 60: None
+2024-11-01 21:28:32,362 - INFO - Inspecting cell in Column C, row 61: Difference between: System of Record (after adjustments) vs TIER 
+2024-11-01 21:28:32,362 - INFO - Found 'Difference between: System of Record (after adjustments) vs TIER' in Column C at row 61
+2024-11-01 21:28:32,378 - INFO - Inspecting cell in Column C, row 62: None
+2024-11-01 21:28:32,378 - INFO - Inspecting cell in Column C, row 63: None
+2024-11-01 21:28:32,378 - INFO - Inserted a new column after Column J.
+2024-11-01 21:28:32,378 - INFO - Set the width of column K to 45.
+2024-11-01 21:28:32,392 - INFO - Added 'DO Comments' header to the new column at row 15 and applied formatting.
+2024-11-01 21:28:32,409 - INFO - Formatted the new 'DO Comments' column with red bold text.
+2024-11-01 21:28:32,409 - INFO - Recon Table Data range: Rows 16 to 44
+2024-11-01 21:28:32,424 - INFO - Tickmark row is 46
+2024-11-01 21:28:32,424 - INFO - Tickmark formula added to row 46, Column B with formula: =IF(ROUND(SUM(B$16:B44)-B45,0)=0,"a","û")
+2024-11-01 21:28:32,445 - INFO - Tickmark formula added to row 46, Column D with formula: =IF(ROUND(SUM(D$16:D44)-D45,0)=0,"a","û")
+2024-11-01 21:28:32,449 - INFO - Tickmark formula added to row 46, Column E with formula: =IF(ROUND(SUM(E$16:E44)-E45,0)=0,"a","û")
+2024-11-01 21:28:32,454 - INFO - Tickmark formula added to row 46, Column F with formula: =IF(ROUND(SUM(F$16:F44)-F45,0)=0,"a","û")
+2024-11-01 21:28:32,461 - INFO - Tickmark formula added to row 46, Column G with formula: =IF(ROUND(SUM(G$16:G44)-G45,0)=0,"a","û")
+2024-11-01 21:28:32,466 - INFO - Tickmark formula added to row 46, Column H with formula: =IF(ROUND(SUM(H$16:H44)-H45,0)=0,"a","û")
+2024-11-01 21:28:32,473 - INFO - Tickmark formula added to row 46, Column I with formula: =IF(AND((ROUND(SUM(E45:G45)-H45,0)=0),ROUND((+B45+D45)-E45,0)=0),"b","û")
+2024-11-01 21:28:32,479 - INFO - System of Record vs TIER tickmark formulas added to row 53, Columns B and D
+2024-11-01 21:28:32,488 - INFO - UDO After High Level Adjustments tickmark formula added to row 59, Column D with formula: =IF(ROUND(SUM(D54:D57)-D58,0)=0,"a","û")
+2024-11-01 21:28:32,495 - INFO - Difference After Adjustments tickmark formula added to row 62, Column D with formula: =IF(ROUND(+D48-D58+D61,0)=0,"a","û")
+2024-11-01 21:28:33,617 - INFO - UDO: 0 compared with UCO to UDO Trading Partner Total: 13333090.21 - No Match
+2024-11-01 21:28:33,636 - INFO - UDO Tickmark added to component sheet CG_7006 for TIER Component: CG
+2024-11-01 21:28:33,645 - INFO - Match found for TIER Component Name: CG
+2024-11-01 21:28:33,655 - INFO - Tickmarks added to Certification and DO UCO to UDO sheets for TIER Component Name: CG
+2024-11-01 21:28:33,664 - INFO - Found sheet 'FEMA_7007' using tab_name pattern: FEMA_7007
+2024-11-01 21:28:33,672 - INFO - Processing component sheet: FEMA_7007
+2024-11-01 21:28:33,685 - DEBUG - UCO cell found at row 48, column 2 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:33,694 - DEBUG - Raw UCO cell value: None
+2024-11-01 21:28:33,700 - INFO - Processed UCO value from component sheet: 0
+2024-11-01 21:28:33,707 - INFO - UCO: 0 compared with UCO to UDO: 30000.00 - No Match
+2024-11-01 21:28:33,716 - INFO - Tickmark added to component sheet FEMA_7007 for TIER Component: FEM
+2024-11-01 21:28:33,725 - DEBUG - UDO cell found at row 48, column 4 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:33,733 - DEBUG - Raw UDO cell value: None
+2024-11-01 21:28:33,773 - INFO - Processed UDO value from component sheet: 0
+2024-11-01 21:28:33,780 - INFO - Found 'Contract / Agreement / Sales Order #' in Column A at row 15
+2024-11-01 21:28:33,787 - INFO - Found 'Providing Bureau UCO Total via their system records:' in Column A at row 45
+2024-11-01 21:28:33,794 - INFO - Found 'Difference between: System of Record vs TIER' in Column A at row 52
+2024-11-01 21:28:33,803 - INFO - Inspecting cell in Column C, row 1: None
+2024-11-01 21:28:33,813 - INFO - Inspecting cell in Column C, row 2: None
+2024-11-01 21:28:33,824 - INFO - Inspecting cell in Column C, row 3: None
+2024-11-01 21:28:33,832 - INFO - Inspecting cell in Column C, row 4: None
+2024-11-01 21:28:33,839 - INFO - Inspecting cell in Column C, row 5: None
+2024-11-01 21:28:34,042 - INFO - Inspecting cell in Column C, row 6: None
+2024-11-01 21:28:34,055 - INFO - Inspecting cell in Column C, row 7: None
+2024-11-01 21:28:34,055 - INFO - Inspecting cell in Column C, row 8: None
+2024-11-01 21:28:34,072 - INFO - Inspecting cell in Column C, row 9: april.surface@fems.dhs.gov
+2024-11-01 21:28:34,072 - INFO - Inspecting cell in Column C, row 10: anita.bennett@fema.dhs.gov
+2024-11-01 21:28:34,087 - INFO - Inspecting cell in Column C, row 11: None
+2024-11-01 21:28:34,087 - INFO - Inspecting cell in Column C, row 12: None
+2024-11-01 21:28:34,104 - INFO - Inspecting cell in Column C, row 13: Receiver fills in this column except for Contract/Agreement/Obligation # which should be entered by Provider (when possible) and confirmed by Receiver
+2024-11-01 21:28:34,121 - INFO - Inspecting cell in Column C, row 14: Receiving Component SGLs 4801/4871/4881/4802/4872/4882
+2024-11-01 21:28:34,125 - INFO - Inspecting cell in Column C, row 15: Contract / Agreement / Obligation #   
+2024-11-01 21:28:34,134 - INFO - Inspecting cell in Column C, row 16:  
+2024-11-01 21:28:34,134 - INFO - Inspecting cell in Column C, row 17: 4673DR-FL-DHS-CWMD-01
+2024-11-01 21:28:34,150 - INFO - Inspecting cell in Column C, row 18: None
+2024-11-01 21:28:34,150 - INFO - Inspecting cell in Column C, row 19: None
+2024-11-01 21:28:34,165 - INFO - Inspecting cell in Column C, row 20: None
+2024-11-01 21:28:34,173 - INFO - Inspecting cell in Column C, row 21: None
+2024-11-01 21:28:34,182 - INFO - Inspecting cell in Column C, row 22: None
+2024-11-01 21:28:34,182 - INFO - Inspecting cell in Column C, row 23: None
+2024-11-01 21:28:34,197 - INFO - Inspecting cell in Column C, row 24: None
+2024-11-01 21:28:34,197 - INFO - Inspecting cell in Column C, row 25: None
+2024-11-01 21:28:34,215 - INFO - Inspecting cell in Column C, row 26: None
+2024-11-01 21:28:34,221 - INFO - Inspecting cell in Column C, row 27: None
+2024-11-01 21:28:34,229 - INFO - Inspecting cell in Column C, row 28: None
+2024-11-01 21:28:34,229 - INFO - Inspecting cell in Column C, row 29: None
+2024-11-01 21:28:34,249 - INFO - Inspecting cell in Column C, row 30: None
+2024-11-01 21:28:34,257 - INFO - Inspecting cell in Column C, row 31: None
+2024-11-01 21:28:34,265 - INFO - Inspecting cell in Column C, row 32: None
+2024-11-01 21:28:34,267 - INFO - Inspecting cell in Column C, row 33: None
+2024-11-01 21:28:34,278 - INFO - Inspecting cell in Column C, row 34: None
+2024-11-01 21:28:34,278 - INFO - Inspecting cell in Column C, row 35: None
+2024-11-01 21:28:34,278 - INFO - Inspecting cell in Column C, row 36: None
+2024-11-01 21:28:34,292 - INFO - Inspecting cell in Column C, row 37: None
+2024-11-01 21:28:34,302 - INFO - Inspecting cell in Column C, row 38: None
+2024-11-01 21:28:34,318 - INFO - Inspecting cell in Column C, row 39: None
+2024-11-01 21:28:34,327 - INFO - Inspecting cell in Column C, row 40: None
+2024-11-01 21:28:34,342 - INFO - Inspecting cell in Column C, row 41: None
+2024-11-01 21:28:34,350 - INFO - Inspecting cell in Column C, row 42: None
+2024-11-01 21:28:34,360 - INFO - Inspecting cell in Column C, row 43: None
+2024-11-01 21:28:34,369 - INFO - Inspecting cell in Column C, row 44: None
+2024-11-01 21:28:34,379 - INFO - Inspecting cell in Column C, row 45: Receiving Bureau UDO Total via their system records:
+2024-11-01 21:28:34,387 - INFO - Inspecting cell in Column C, row 46: None
+2024-11-01 21:28:34,394 - INFO - Inspecting cell in Column C, row 47: Receiving Agency:
+2024-11-01 21:28:34,396 - INFO - Inspecting cell in Column C, row 48: Please enter UDO total reported in TIER:
+2024-11-01 21:28:34,404 - INFO - Inspecting cell in Column C, row 49: None
+2024-11-01 21:28:34,404 - INFO - Inspecting cell in Column C, row 50: If UDO amount reported (regardless of materiality) via your agency's system records is NOT what is reported in TIER, please explain below how your system records total amount is tied to the TIER amount reported:
+2024-11-01 21:28:34,419 - INFO - Inspecting cell in Column C, row 51: None
+2024-11-01 21:28:34,441 - INFO - Inspecting cell in Column C, row 52: Difference between: System of Record vs TIER
+2024-11-01 21:28:34,450 - INFO - Inspecting cell in Column C, row 53: None
+2024-11-01 21:28:34,450 - INFO - Inspecting cell in Column C, row 54: UDO total via system records
+2024-11-01 21:28:34,468 - INFO - Found 'UDO total via system records' in Column C at row 54
+2024-11-01 21:28:34,475 - INFO - Inspecting cell in Column C, row 55: None
+2024-11-01 21:28:34,482 - INFO - Inspecting cell in Column C, row 56: None
+2024-11-01 21:28:34,482 - INFO - Inspecting cell in Column C, row 57: None
+2024-11-01 21:28:34,498 - INFO - Inspecting cell in Column C, row 58: UDO after high level adjustments
+2024-11-01 21:28:34,510 - INFO - Found 'UDO after high level adjustments' in Column C at row 58
+2024-11-01 21:28:34,522 - INFO - Inspecting cell in Column C, row 59: None
+2024-11-01 21:28:34,530 - INFO - Inspecting cell in Column C, row 60: None
+2024-11-01 21:28:34,553 - INFO - Inspecting cell in Column C, row 61: Difference between: System of Record (after adjustments) vs TIER 
+2024-11-01 21:28:34,560 - INFO - Found 'Difference between: System of Record (after adjustments) vs TIER' in Column C at row 61
+2024-11-01 21:28:34,580 - INFO - Inspecting cell in Column C, row 62: None
+2024-11-01 21:28:34,588 - INFO - Inspecting cell in Column C, row 63: None
+2024-11-01 21:28:34,736 - INFO - Inserted a new column after Column J.
+2024-11-01 21:28:34,736 - INFO - Set the width of column K to 45.
+2024-11-01 21:28:34,751 - INFO - Added 'DO Comments' header to the new column at row 15 and applied formatting.
+2024-11-01 21:28:34,781 - INFO - Formatted the new 'DO Comments' column with red bold text.
+2024-11-01 21:28:34,784 - INFO - Recon Table Data range: Rows 16 to 44
+2024-11-01 21:28:34,798 - INFO - Tickmark row is 46
+2024-11-01 21:28:34,798 - INFO - Tickmark formula added to row 46, Column B with formula: =IF(ROUND(SUM(B$16:B44)-B45,0)=0,"a","û")
+2024-11-01 21:28:34,814 - INFO - Tickmark formula added to row 46, Column D with formula: =IF(ROUND(SUM(D$16:D44)-D45,0)=0,"a","û")
+2024-11-01 21:28:34,823 - INFO - Tickmark formula added to row 46, Column E with formula: =IF(ROUND(SUM(E$16:E44)-E45,0)=0,"a","û")
+2024-11-01 21:28:34,830 - INFO - Tickmark formula added to row 46, Column F with formula: =IF(ROUND(SUM(F$16:F44)-F45,0)=0,"a","û")
+2024-11-01 21:28:34,830 - INFO - Tickmark formula added to row 46, Column G with formula: =IF(ROUND(SUM(G$16:G44)-G45,0)=0,"a","û")
+2024-11-01 21:28:34,864 - INFO - Tickmark formula added to row 46, Column H with formula: =IF(ROUND(SUM(H$16:H44)-H45,0)=0,"a","û")
+2024-11-01 21:28:34,914 - INFO - Tickmark formula added to row 46, Column I with formula: =IF(AND((ROUND(SUM(E45:G45)-H45,0)=0),ROUND((+B45+D45)-E45,0)=0),"b","û")
+2024-11-01 21:28:34,949 - INFO - System of Record vs TIER tickmark formulas added to row 53, Columns B and D
+2024-11-01 21:28:34,975 - INFO - UDO After High Level Adjustments tickmark formula added to row 59, Column D with formula: =IF(ROUND(SUM(D54:D57)-D58,0)=0,"a","û")
+2024-11-01 21:28:34,988 - INFO - Difference After Adjustments tickmark formula added to row 62, Column D with formula: =IF(ROUND(+D48-D58+D61,0)=0,"a","û")
+2024-11-01 21:28:36,427 - INFO - UDO: 0 compared with UCO to UDO Trading Partner Total: -10485.19 - No Match
+2024-11-01 21:28:36,443 - INFO - UDO Tickmark added to component sheet FEMA_7007 for TIER Component: FEM
+2024-11-01 21:28:36,443 - INFO - Match found for TIER Component Name: FEM
+2024-11-01 21:28:36,462 - INFO - Tickmarks added to Certification and DO UCO to UDO sheets for TIER Component Name: FEM
+2024-11-01 21:28:36,462 - INFO - Found sheet 'ICE_7019' using tab_name pattern: ICE_7019
+2024-11-01 21:28:36,481 - INFO - Processing component sheet: ICE_7019
+2024-11-01 21:28:36,489 - DEBUG - UCO cell found at row 48, column 2 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:36,493 - DEBUG - Raw UCO cell value: None
+2024-11-01 21:28:36,529 - INFO - Processed UCO value from component sheet: 0
+2024-11-01 21:28:36,538 - INFO - UCO: 0 compared with UCO to UDO: 563291.45 - No Match
+2024-11-01 21:28:36,546 - INFO - Tickmark added to component sheet ICE_7019 for TIER Component: ICE
+2024-11-01 21:28:36,558 - DEBUG - UDO cell found at row 48, column 4 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:36,567 - DEBUG - Raw UDO cell value: None
+2024-11-01 21:28:36,721 - INFO - Processed UDO value from component sheet: 0
+2024-11-01 21:28:36,728 - INFO - Found 'Contract / Agreement / Sales Order #' in Column A at row 15
+2024-11-01 21:28:36,732 - INFO - Found 'Providing Bureau UCO Total via their system records:' in Column A at row 45
+2024-11-01 21:28:36,737 - INFO - Found 'Difference between: System of Record vs TIER' in Column A at row 52
+2024-11-01 21:28:36,744 - INFO - Inspecting cell in Column C, row 1: None
+2024-11-01 21:28:36,749 - INFO - Inspecting cell in Column C, row 2: None
+2024-11-01 21:28:36,757 - INFO - Inspecting cell in Column C, row 3: None
+2024-11-01 21:28:36,761 - INFO - Inspecting cell in Column C, row 4: None
+2024-11-01 21:28:36,766 - INFO - Inspecting cell in Column C, row 5: None
+2024-11-01 21:28:36,771 - INFO - Inspecting cell in Column C, row 6: None
+2024-11-01 21:28:36,777 - INFO - Inspecting cell in Column C, row 7: None
+2024-11-01 21:28:36,786 - INFO - Inspecting cell in Column C, row 8: None
+2024-11-01 21:28:36,790 - INFO - Inspecting cell in Column C, row 9: Daniel.J.Tarracciano@ice.dhs.gov
+2024-11-01 21:28:36,796 - INFO - Inspecting cell in Column C, row 10: ICE-UCO-UDO@ice.dhs.gov
+2024-11-01 21:28:36,802 - INFO - Inspecting cell in Column C, row 11: None
+2024-11-01 21:28:36,807 - INFO - Inspecting cell in Column C, row 12: None
+2024-11-01 21:28:36,811 - INFO - Inspecting cell in Column C, row 13: Receiver fills in this column except for Contract/Agreement/Obligation # which should be entered by Provider (when possible) and confirmed by Receiver
+2024-11-01 21:28:36,819 - INFO - Inspecting cell in Column C, row 14: Receiving Component SGLs 4801/4871/4881/4802/4872/4882
+2024-11-01 21:28:36,824 - INFO - Inspecting cell in Column C, row 15: Contract / Agreement / Obligation #   
+2024-11-01 21:28:36,831 - INFO - Inspecting cell in Column C, row 16: 196922HSI00009
+2024-11-01 21:28:36,834 - INFO - Inspecting cell in Column C, row 17: 196921HSI00009
+2024-11-01 21:28:36,834 - INFO - Inspecting cell in Column C, row 18: 196920HSI00009
+2024-11-01 21:28:36,834 - INFO - Inspecting cell in Column C, row 19: None
+2024-11-01 21:28:36,851 - INFO - Inspecting cell in Column C, row 20: None
+2024-11-01 21:28:36,851 - INFO - Inspecting cell in Column C, row 21: None
+2024-11-01 21:28:36,863 - INFO - Inspecting cell in Column C, row 22: None
+2024-11-01 21:28:36,863 - INFO - Inspecting cell in Column C, row 23: None
+2024-11-01 21:28:36,863 - INFO - Inspecting cell in Column C, row 24: None
+2024-11-01 21:28:36,863 - INFO - Inspecting cell in Column C, row 25: None
+2024-11-01 21:28:36,878 - INFO - Inspecting cell in Column C, row 26: None
+2024-11-01 21:28:36,878 - INFO - Inspecting cell in Column C, row 27: None
+2024-11-01 21:28:36,878 - INFO - Inspecting cell in Column C, row 28: None
+2024-11-01 21:28:36,890 - INFO - Inspecting cell in Column C, row 29: None
+2024-11-01 21:28:36,896 - INFO - Inspecting cell in Column C, row 30: None
+2024-11-01 21:28:36,896 - INFO - Inspecting cell in Column C, row 31: None
+2024-11-01 21:28:36,903 - INFO - Inspecting cell in Column C, row 32: None
+2024-11-01 21:28:36,910 - INFO - Inspecting cell in Column C, row 33: None
+2024-11-01 21:28:36,910 - INFO - Inspecting cell in Column C, row 34: None
+2024-11-01 21:28:36,910 - INFO - Inspecting cell in Column C, row 35: None
+2024-11-01 21:28:36,910 - INFO - Inspecting cell in Column C, row 36: None
+2024-11-01 21:28:36,928 - INFO - Inspecting cell in Column C, row 37: None
+2024-11-01 21:28:36,928 - INFO - Inspecting cell in Column C, row 38: None
+2024-11-01 21:28:36,928 - INFO - Inspecting cell in Column C, row 39: None
+2024-11-01 21:28:36,942 - INFO - Inspecting cell in Column C, row 40: None
+2024-11-01 21:28:36,942 - INFO - Inspecting cell in Column C, row 41: None
+2024-11-01 21:28:36,942 - INFO - Inspecting cell in Column C, row 42: None
+2024-11-01 21:28:37,006 - INFO - Inspecting cell in Column C, row 43: None
+2024-11-01 21:28:37,006 - INFO - Inspecting cell in Column C, row 44: None
+2024-11-01 21:28:37,006 - INFO - Inspecting cell in Column C, row 45: Receiving Bureau UDO Total via their system records:
+2024-11-01 21:28:37,006 - INFO - Inspecting cell in Column C, row 46: None
+2024-11-01 21:28:37,022 - INFO - Inspecting cell in Column C, row 47: Receiving Agency:
+2024-11-01 21:28:37,024 - INFO - Inspecting cell in Column C, row 48: Please enter UDO total reported in TIER:
+2024-11-01 21:28:37,024 - INFO - Inspecting cell in Column C, row 49: None
+2024-11-01 21:28:37,199 - INFO - Inspecting cell in Column C, row 50: If UDO amount reported (regardless of materiality) via your agency's system records is NOT what is reported in TIER, please explain below how your system records total amount is tied to the TIER amount reported:
+2024-11-01 21:28:37,200 - INFO - Inspecting cell in Column C, row 51: None
+2024-11-01 21:28:37,200 - INFO - Inspecting cell in Column C, row 52: Difference between: System of Record vs TIER
+2024-11-01 21:28:37,214 - INFO - Inspecting cell in Column C, row 53: None
+2024-11-01 21:28:37,219 - INFO - Inspecting cell in Column C, row 54: UDO total via system records
+2024-11-01 21:28:37,230 - INFO - Found 'UDO total via system records' in Column C at row 54
+2024-11-01 21:28:37,236 - INFO - Inspecting cell in Column C, row 55: None
+2024-11-01 21:28:37,243 - INFO - Inspecting cell in Column C, row 56: None
+2024-11-01 21:28:37,245 - INFO - Inspecting cell in Column C, row 57: None
+2024-11-01 21:28:37,245 - INFO - Inspecting cell in Column C, row 58: UDO after high level adjustments
+2024-11-01 21:28:37,261 - INFO - Found 'UDO after high level adjustments' in Column C at row 58
+2024-11-01 21:28:37,261 - INFO - Inspecting cell in Column C, row 59: None
+2024-11-01 21:28:37,274 - INFO - Inspecting cell in Column C, row 60: None
+2024-11-01 21:28:37,274 - INFO - Inspecting cell in Column C, row 61: Difference between: System of Record (after adjustments) vs TIER 
+2024-11-01 21:28:37,274 - INFO - Found 'Difference between: System of Record (after adjustments) vs TIER' in Column C at row 61
+2024-11-01 21:28:37,289 - INFO - Inspecting cell in Column C, row 62: None
+2024-11-01 21:28:37,295 - INFO - Inspecting cell in Column C, row 63: None
+2024-11-01 21:28:37,300 - INFO - Inserted a new column after Column J.
+2024-11-01 21:28:37,306 - INFO - Set the width of column K to 45.
+2024-11-01 21:28:37,306 - INFO - Added 'DO Comments' header to the new column at row 15 and applied formatting.
+2024-11-01 21:28:37,325 - INFO - Formatted the new 'DO Comments' column with red bold text.
+2024-11-01 21:28:37,338 - INFO - Recon Table Data range: Rows 16 to 44
+2024-11-01 21:28:37,338 - INFO - Tickmark row is 46
+2024-11-01 21:28:37,338 - INFO - Tickmark formula added to row 46, Column B with formula: =IF(ROUND(SUM(B$16:B44)-B45,0)=0,"a","û")
+2024-11-01 21:28:37,338 - INFO - Tickmark formula added to row 46, Column D with formula: =IF(ROUND(SUM(D$16:D44)-D45,0)=0,"a","û")
+2024-11-01 21:28:37,356 - INFO - Tickmark formula added to row 46, Column E with formula: =IF(ROUND(SUM(E$16:E44)-E45,0)=0,"a","û")
+2024-11-01 21:28:37,368 - INFO - Tickmark formula added to row 46, Column F with formula: =IF(ROUND(SUM(F$16:F44)-F45,0)=0,"a","û")
+2024-11-01 21:28:37,370 - INFO - Tickmark formula added to row 46, Column G with formula: =IF(ROUND(SUM(G$16:G44)-G45,0)=0,"a","û")
+2024-11-01 21:28:37,370 - INFO - Tickmark formula added to row 46, Column H with formula: =IF(ROUND(SUM(H$16:H44)-H45,0)=0,"a","û")
+2024-11-01 21:28:37,384 - INFO - Tickmark formula added to row 46, Column I with formula: =IF(AND((ROUND(SUM(E45:G45)-H45,0)=0),ROUND((+B45+D45)-E45,0)=0),"b","û")
+2024-11-01 21:28:37,384 - INFO - System of Record vs TIER tickmark formulas added to row 53, Columns B and D
+2024-11-01 21:28:37,402 - INFO - UDO After High Level Adjustments tickmark formula added to row 59, Column D with formula: =IF(ROUND(SUM(D54:D57)-D58,0)=0,"a","û")
+2024-11-01 21:28:37,416 - INFO - Difference After Adjustments tickmark formula added to row 62, Column D with formula: =IF(ROUND(+D48-D58+D61,0)=0,"a","û")
+2024-11-01 21:28:38,635 - INFO - UDO: 0 compared with UCO to UDO Trading Partner Total: -839200.20 - No Match
+2024-11-01 21:28:38,654 - INFO - UDO Tickmark added to component sheet ICE_7019 for TIER Component: ICE
+2024-11-01 21:28:38,667 - INFO - Match found for TIER Component Name: ICE
+2024-11-01 21:28:38,667 - INFO - Tickmarks added to Certification and DO UCO to UDO sheets for TIER Component Name: ICE
+2024-11-01 21:28:38,678 - INFO - Found sheet 'MGT_7003' using tab_name pattern: MGT_7003
+2024-11-01 21:28:38,689 - INFO - Processing component sheet: MGT_7003
+2024-11-01 21:28:38,701 - DEBUG - UCO cell found at row 48, column 2 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:38,732 - DEBUG - Raw UCO cell value: None
+2024-11-01 21:28:38,750 - INFO - Processed UCO value from component sheet: 0
+2024-11-01 21:28:38,758 - INFO - UCO: 0 compared with UCO to UDO: 2996449.13 - No Match
+2024-11-01 21:28:38,758 - INFO - Tickmark added to component sheet MGT_7003 for TIER Component: MGT
+2024-11-01 21:28:38,775 - DEBUG - UDO cell found at row 48, column 4 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:38,775 - DEBUG - Raw UDO cell value: None
+2024-11-01 21:28:38,793 - INFO - Processed UDO value from component sheet: 0
+2024-11-01 21:28:38,793 - INFO - Found 'Contract / Agreement / Sales Order #' in Column A at row 15
+2024-11-01 21:28:38,808 - INFO - Found 'Providing Bureau UCO Total via their system records:' in Column A at row 45
+2024-11-01 21:28:38,822 - INFO - Found 'Difference between: System of Record vs TIER' in Column A at row 52
+2024-11-01 21:28:38,826 - INFO - Inspecting cell in Column C, row 1: None
+2024-11-01 21:28:38,840 - INFO - Inspecting cell in Column C, row 2: None
+2024-11-01 21:28:38,845 - INFO - Inspecting cell in Column C, row 3: None
+2024-11-01 21:28:38,854 - INFO - Inspecting cell in Column C, row 4: None
+2024-11-01 21:28:38,854 - INFO - Inspecting cell in Column C, row 5: None
+2024-11-01 21:28:38,868 - INFO - Inspecting cell in Column C, row 6: None
+2024-11-01 21:28:38,874 - INFO - Inspecting cell in Column C, row 7: None
+2024-11-01 21:28:38,874 - INFO - Inspecting cell in Column C, row 8: None
+2024-11-01 21:28:38,884 - INFO - Inspecting cell in Column C, row 9: justina.mitchell@hq.dhs.gov
+2024-11-01 21:28:38,903 - INFO - Inspecting cell in Column C, row 10: christopher.Riley@hq.dhs.gov
+2024-11-01 21:28:38,903 - INFO - Inspecting cell in Column C, row 11: None
+2024-11-01 21:28:38,917 - INFO - Inspecting cell in Column C, row 12: None
+2024-11-01 21:28:38,928 - INFO - Inspecting cell in Column C, row 13: Receiver fills in this column except for Contract/Agreement/Obligation # which should be entered by Provider (when possible) and confirmed by Receiver
+2024-11-01 21:28:38,932 - INFO - Inspecting cell in Column C, row 14: Receiving Component SGLs 4801/4871/4881/4802/4872/4882
+2024-11-01 21:28:38,947 - INFO - Inspecting cell in Column C, row 15: Contract / Agreement / Obligation #   
+2024-11-01 21:28:38,959 - INFO - Inspecting cell in Column C, row 16: None
+2024-11-01 21:28:38,968 - INFO - Inspecting cell in Column C, row 17: 70RDAD21K00000001
+2024-11-01 21:28:38,974 - INFO - Inspecting cell in Column C, row 18: 70RDAD23K00000001
+2024-11-01 21:28:38,987 - INFO - Inspecting cell in Column C, row 19:  
+2024-11-01 21:28:38,995 - INFO - Inspecting cell in Column C, row 20: 70RDAD23K00000015
+2024-11-01 21:28:39,000 - INFO - Inspecting cell in Column C, row 21: None
+2024-11-01 21:28:39,000 - INFO - Inspecting cell in Column C, row 22: None
+2024-11-01 21:28:39,012 - INFO - Inspecting cell in Column C, row 23: None
+2024-11-01 21:28:39,024 - INFO - Inspecting cell in Column C, row 24: None
+2024-11-01 21:28:39,028 - INFO - Inspecting cell in Column C, row 25: None
+2024-11-01 21:28:39,038 - INFO - Inspecting cell in Column C, row 26: None
+2024-11-01 21:28:39,044 - INFO - Inspecting cell in Column C, row 27: None
+2024-11-01 21:28:39,044 - INFO - Inspecting cell in Column C, row 28: None
+2024-11-01 21:28:39,044 - INFO - Inspecting cell in Column C, row 29: None
+2024-11-01 21:28:39,061 - INFO - Inspecting cell in Column C, row 30: None
+2024-11-01 21:28:39,061 - INFO - Inspecting cell in Column C, row 31: None
+2024-11-01 21:28:39,061 - INFO - Inspecting cell in Column C, row 32: None
+2024-11-01 21:28:39,070 - INFO - Inspecting cell in Column C, row 33: None
+2024-11-01 21:28:39,075 - INFO - Inspecting cell in Column C, row 34: None
+2024-11-01 21:28:39,075 - INFO - Inspecting cell in Column C, row 35: None
+2024-11-01 21:28:39,084 - INFO - Inspecting cell in Column C, row 36: None
+2024-11-01 21:28:39,092 - INFO - Inspecting cell in Column C, row 37: None
+2024-11-01 21:28:39,092 - INFO - Inspecting cell in Column C, row 38: None
+2024-11-01 21:28:39,092 - INFO - Inspecting cell in Column C, row 39: None
+2024-11-01 21:28:39,092 - INFO - Inspecting cell in Column C, row 40: None
+2024-11-01 21:28:39,106 - INFO - Inspecting cell in Column C, row 41: None
+2024-11-01 21:28:39,106 - INFO - Inspecting cell in Column C, row 42: None
+2024-11-01 21:28:39,117 - INFO - Inspecting cell in Column C, row 43: None
+2024-11-01 21:28:39,122 - INFO - Inspecting cell in Column C, row 44: None
+2024-11-01 21:28:39,126 - INFO - Inspecting cell in Column C, row 45: Receiving Bureau UDO Total via their system records:
+2024-11-01 21:28:39,126 - INFO - Inspecting cell in Column C, row 46: None
+2024-11-01 21:28:39,138 - INFO - Inspecting cell in Column C, row 47: Receiving Agency:
+2024-11-01 21:28:39,141 - INFO - Inspecting cell in Column C, row 48: Please enter UDO total reported in TIER:
+2024-11-01 21:28:39,141 - INFO - Inspecting cell in Column C, row 49: None
+2024-11-01 21:28:39,154 - INFO - Inspecting cell in Column C, row 50: If UDO amount reported (regardless of materiality) via your agency's system records is NOT what is reported in TIER, please explain below how your system records total amount is tied to the TIER amount reported:
+2024-11-01 21:28:39,154 - INFO - Inspecting cell in Column C, row 51: None
+2024-11-01 21:28:39,169 - INFO - Inspecting cell in Column C, row 52: Difference between: System of Record vs TIER
+2024-11-01 21:28:39,169 - INFO - Inspecting cell in Column C, row 53: None
+2024-11-01 21:28:39,169 - INFO - Inspecting cell in Column C, row 54: UDO total via system records
+2024-11-01 21:28:39,186 - INFO - Found 'UDO total via system records' in Column C at row 54
+2024-11-01 21:28:39,186 - INFO - Inspecting cell in Column C, row 55:  
+2024-11-01 21:28:39,201 - INFO - Inspecting cell in Column C, row 56: None
+2024-11-01 21:28:39,201 - INFO - Inspecting cell in Column C, row 57: None
+2024-11-01 21:28:39,220 - INFO - Inspecting cell in Column C, row 58: UDO after high level adjustments
+2024-11-01 21:28:39,226 - INFO - Found 'UDO after high level adjustments' in Column C at row 58
+2024-11-01 21:28:39,232 - INFO - Inspecting cell in Column C, row 59: None
+2024-11-01 21:28:39,232 - INFO - Inspecting cell in Column C, row 60: None
+2024-11-01 21:28:39,232 - INFO - Inspecting cell in Column C, row 61: Difference between: System of Record (after adjustments) vs TIER 
+2024-11-01 21:28:39,251 - INFO - Found 'Difference between: System of Record (after adjustments) vs TIER' in Column C at row 61
+2024-11-01 21:28:39,261 - INFO - Inspecting cell in Column C, row 62: None
+2024-11-01 21:28:39,267 - INFO - Inspecting cell in Column C, row 63: None
+2024-11-01 21:28:39,269 - INFO - Inserted a new column after Column J.
+2024-11-01 21:28:39,272 - INFO - Set the width of column K to 45.
+2024-11-01 21:28:39,280 - INFO - Added 'DO Comments' header to the new column at row 15 and applied formatting.
+2024-11-01 21:28:39,287 - INFO - Formatted the new 'DO Comments' column with red bold text.
+2024-11-01 21:28:39,287 - INFO - Recon Table Data range: Rows 16 to 44
+2024-11-01 21:28:39,300 - INFO - Tickmark row is 46
+2024-11-01 21:28:39,300 - INFO - Tickmark formula added to row 46, Column B with formula: =IF(ROUND(SUM(B$16:B44)-B45,0)=0,"a","û")
+2024-11-01 21:28:39,314 - INFO - Tickmark formula added to row 46, Column D with formula: =IF(ROUND(SUM(D$16:D44)-D45,0)=0,"a","û")
+2024-11-01 21:28:39,318 - INFO - Tickmark formula added to row 46, Column E with formula: =IF(ROUND(SUM(E$16:E44)-E45,0)=0,"a","û")
+2024-11-01 21:28:39,326 - INFO - Tickmark formula added to row 46, Column F with formula: =IF(ROUND(SUM(F$16:F44)-F45,0)=0,"a","û")
+2024-11-01 21:28:39,328 - INFO - Tickmark formula added to row 46, Column G with formula: =IF(ROUND(SUM(G$16:G44)-G45,0)=0,"a","û")
+2024-11-01 21:28:39,328 - INFO - Tickmark formula added to row 46, Column H with formula: =IF(ROUND(SUM(H$16:H44)-H45,0)=0,"a","û")
+2024-11-01 21:28:39,353 - INFO - Tickmark formula added to row 46, Column I with formula: =IF(AND((ROUND(SUM(E45:G45)-H45,0)=0),ROUND((+B45+D45)-E45,0)=0),"b","û")
+2024-11-01 21:28:39,360 - INFO - System of Record vs TIER tickmark formulas added to row 53, Columns B and D
+2024-11-01 21:28:39,370 - INFO - UDO After High Level Adjustments tickmark formula added to row 59, Column D with formula: =IF(ROUND(SUM(D54:D57)-D58,0)=0,"a","û")
+2024-11-01 21:28:39,377 - INFO - Difference After Adjustments tickmark formula added to row 62, Column D with formula: =IF(ROUND(+D48-D58+D61,0)=0,"a","û")
+2024-11-01 21:28:40,528 - INFO - UDO: 0 compared with UCO to UDO Trading Partner Total: -111521.72 - No Match
+2024-11-01 21:28:40,528 - INFO - UDO Tickmark added to component sheet MGT_7003 for TIER Component: MGT
+2024-11-01 21:28:40,542 - INFO - Match found for TIER Component Name: MGT
+2024-11-01 21:28:40,553 - INFO - Tickmarks added to Certification and DO UCO to UDO sheets for TIER Component Name: MGT
+2024-11-01 21:28:40,568 - INFO - Found sheet 'SS_7004' using tab_name pattern: SS_7004
+2024-11-01 21:28:40,574 - INFO - Processing component sheet: SS_7004
+2024-11-01 21:28:40,574 - DEBUG - UCO cell found at row 48, column 2 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:40,590 - DEBUG - Raw UCO cell value: None
+2024-11-01 21:28:40,640 - INFO - Processed UCO value from component sheet: 0
+2024-11-01 21:28:40,649 - INFO - UCO: 0 compared with UCO to UDO: 0.00 - Match
+2024-11-01 21:28:40,656 - INFO - Tickmark added to component sheet SS_7004 for TIER Component: SS
+2024-11-01 21:28:40,663 - DEBUG - UDO cell found at row 48, column 4 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:40,669 - DEBUG - Raw UDO cell value: None
+2024-11-01 21:28:40,814 - INFO - Processed UDO value from component sheet: 0
+2024-11-01 21:28:40,825 - INFO - Found 'Contract / Agreement / Sales Order #' in Column A at row 15
+2024-11-01 21:28:40,837 - INFO - Found 'Providing Bureau UCO Total via their system records:' in Column A at row 45
+2024-11-01 21:28:40,847 - INFO - Found 'Difference between: System of Record vs TIER' in Column A at row 52
+2024-11-01 21:28:40,862 - INFO - Inspecting cell in Column C, row 1: None
+2024-11-01 21:28:40,869 - INFO - Inspecting cell in Column C, row 2: None
+2024-11-01 21:28:40,876 - INFO - Inspecting cell in Column C, row 3: None
+2024-11-01 21:28:40,884 - INFO - Inspecting cell in Column C, row 4: None
+2024-11-01 21:28:40,888 - INFO - Inspecting cell in Column C, row 5: None
+2024-11-01 21:28:40,896 - INFO - Inspecting cell in Column C, row 6: None
+2024-11-01 21:28:40,904 - INFO - Inspecting cell in Column C, row 7: None
+2024-11-01 21:28:40,904 - INFO - Inspecting cell in Column C, row 8: None
+2024-11-01 21:28:40,915 - INFO - Inspecting cell in Column C, row 9: Crystal.Wills@associates.usss.dhs.gov
+2024-11-01 21:28:40,915 - INFO - Inspecting cell in Column C, row 10: monique.tarver@usss.dhs.gov
+2024-11-01 21:28:40,928 - INFO - Inspecting cell in Column C, row 11: None
+2024-11-01 21:28:40,934 - INFO - Inspecting cell in Column C, row 12: None
+2024-11-01 21:28:40,934 - INFO - Inspecting cell in Column C, row 13: Receiver fills in this column except for Contract/Agreement/Obligation # which should be entered by Provider (when possible) and confirmed by Receiver
+2024-11-01 21:28:40,955 - INFO - Inspecting cell in Column C, row 14: Receiving Component SGLs 4801/4871/4881/4802/4872/4882
+2024-11-01 21:28:40,964 - INFO - Inspecting cell in Column C, row 15: Contract / Agreement / Obligation #   
+2024-11-01 21:28:40,964 - INFO - Inspecting cell in Column C, row 16: None
+2024-11-01 21:28:40,979 - INFO - Inspecting cell in Column C, row 17: None
+2024-11-01 21:28:40,979 - INFO - Inspecting cell in Column C, row 18: None
+2024-11-01 21:28:40,979 - INFO - Inspecting cell in Column C, row 19: None
+2024-11-01 21:28:40,996 - INFO - Inspecting cell in Column C, row 20: None
+2024-11-01 21:28:40,996 - INFO - Inspecting cell in Column C, row 21: None
+2024-11-01 21:28:41,011 - INFO - Inspecting cell in Column C, row 22: None
+2024-11-01 21:28:41,020 - INFO - Inspecting cell in Column C, row 23: None
+2024-11-01 21:28:41,028 - INFO - Inspecting cell in Column C, row 24: None
+2024-11-01 21:28:41,028 - INFO - Inspecting cell in Column C, row 25: None
+2024-11-01 21:28:41,043 - INFO - Inspecting cell in Column C, row 26: None
+2024-11-01 21:28:41,043 - INFO - Inspecting cell in Column C, row 27: None
+2024-11-01 21:28:41,043 - INFO - Inspecting cell in Column C, row 28: None
+2024-11-01 21:28:41,043 - INFO - Inspecting cell in Column C, row 29: None
+2024-11-01 21:28:41,058 - INFO - Inspecting cell in Column C, row 30: None
+2024-11-01 21:28:41,058 - INFO - Inspecting cell in Column C, row 31: None
+2024-11-01 21:28:41,074 - INFO - Inspecting cell in Column C, row 32: None
+2024-11-01 21:28:41,074 - INFO - Inspecting cell in Column C, row 33: None
+2024-11-01 21:28:41,074 - INFO - Inspecting cell in Column C, row 34: None
+2024-11-01 21:28:41,074 - INFO - Inspecting cell in Column C, row 35: None
+2024-11-01 21:28:41,090 - INFO - Inspecting cell in Column C, row 36: None
+2024-11-01 21:28:41,090 - INFO - Inspecting cell in Column C, row 37: None
+2024-11-01 21:28:41,090 - INFO - Inspecting cell in Column C, row 38: None
+2024-11-01 21:28:41,105 - INFO - Inspecting cell in Column C, row 39: None
+2024-11-01 21:28:41,105 - INFO - Inspecting cell in Column C, row 40: None
+2024-11-01 21:28:41,105 - INFO - Inspecting cell in Column C, row 41: None
+2024-11-01 21:28:41,121 - INFO - Inspecting cell in Column C, row 42: None
+2024-11-01 21:28:41,121 - INFO - Inspecting cell in Column C, row 43: None
+2024-11-01 21:28:41,128 - INFO - Inspecting cell in Column C, row 44: None
+2024-11-01 21:28:41,128 - INFO - Inspecting cell in Column C, row 45: Receiving Bureau UDO Total via their system records:
+2024-11-01 21:28:41,138 - INFO - Inspecting cell in Column C, row 46: None
+2024-11-01 21:28:41,138 - INFO - Inspecting cell in Column C, row 47: Receiving Agency:
+2024-11-01 21:28:41,205 - INFO - Inspecting cell in Column C, row 48: Please enter UDO total reported in TIER:
+2024-11-01 21:28:41,214 - INFO - Inspecting cell in Column C, row 49: None
+2024-11-01 21:28:41,218 - INFO - Inspecting cell in Column C, row 50: If UDO amount reported (regardless of materiality) via your agency's system records is NOT what is reported in TIER, please explain below how your system records total amount is tied to the TIER amount reported:
+2024-11-01 21:28:41,237 - INFO - Inspecting cell in Column C, row 51: None
+2024-11-01 21:28:41,404 - INFO - Inspecting cell in Column C, row 52: Difference between: System of Record vs TIER
+2024-11-01 21:28:41,451 - INFO - Inspecting cell in Column C, row 53: None
+2024-11-01 21:28:41,483 - INFO - Inspecting cell in Column C, row 54: UDO total via system records
+2024-11-01 21:28:41,494 - INFO - Found 'UDO total via system records' in Column C at row 54
+2024-11-01 21:28:41,502 - INFO - Inspecting cell in Column C, row 55: None
+2024-11-01 21:28:41,514 - INFO - Inspecting cell in Column C, row 56: None
+2024-11-01 21:28:41,523 - INFO - Inspecting cell in Column C, row 57: None
+2024-11-01 21:28:41,562 - INFO - Inspecting cell in Column C, row 58: UDO after high level adjustments
+2024-11-01 21:28:41,597 - INFO - Found 'UDO after high level adjustments' in Column C at row 58
+2024-11-01 21:28:41,608 - INFO - Inspecting cell in Column C, row 59: None
+2024-11-01 21:28:41,630 - INFO - Inspecting cell in Column C, row 60: None
+2024-11-01 21:28:41,633 - INFO - Inspecting cell in Column C, row 61: Difference between: System of Record (after adjustments) vs TIER 
+2024-11-01 21:28:41,704 - INFO - Found 'Difference between: System of Record (after adjustments) vs TIER' in Column C at row 61
+2024-11-01 21:28:41,731 - INFO - Inspecting cell in Column C, row 62: None
+2024-11-01 21:28:41,736 - INFO - Inspecting cell in Column C, row 63: None
+2024-11-01 21:28:41,755 - INFO - Inserted a new column after Column J.
+2024-11-01 21:28:41,762 - INFO - Set the width of column K to 45.
+2024-11-01 21:28:41,824 - INFO - Added 'DO Comments' header to the new column at row 15 and applied formatting.
+2024-11-01 21:28:41,863 - INFO - Formatted the new 'DO Comments' column with red bold text.
+2024-11-01 21:28:41,918 - INFO - Recon Table Data range: Rows 16 to 44
+2024-11-01 21:28:41,929 - INFO - Tickmark row is 46
+2024-11-01 21:28:41,935 - INFO - Tickmark formula added to row 46, Column B with formula: =IF(ROUND(SUM(B$16:B44)-B45,0)=0,"a","û")
+2024-11-01 21:28:41,954 - INFO - Tickmark formula added to row 46, Column D with formula: =IF(ROUND(SUM(D$16:D44)-D45,0)=0,"a","û")
+2024-11-01 21:28:42,133 - INFO - Tickmark formula added to row 46, Column E with formula: =IF(ROUND(SUM(E$16:E44)-E45,0)=0,"a","û")
+2024-11-01 21:28:42,152 - INFO - Tickmark formula added to row 46, Column F with formula: =IF(ROUND(SUM(F$16:F44)-F45,0)=0,"a","û")
+2024-11-01 21:28:42,170 - INFO - Tickmark formula added to row 46, Column G with formula: =IF(ROUND(SUM(G$16:G44)-G45,0)=0,"a","û")
+2024-11-01 21:28:42,180 - INFO - Tickmark formula added to row 46, Column H with formula: =IF(ROUND(SUM(H$16:H44)-H45,0)=0,"a","û")
+2024-11-01 21:28:42,193 - INFO - Tickmark formula added to row 46, Column I with formula: =IF(AND((ROUND(SUM(E45:G45)-H45,0)=0),ROUND((+B45+D45)-E45,0)=0),"b","û")
+2024-11-01 21:28:42,202 - INFO - System of Record vs TIER tickmark formulas added to row 53, Columns B and D
+2024-11-01 21:28:42,220 - INFO - UDO After High Level Adjustments tickmark formula added to row 59, Column D with formula: =IF(ROUND(SUM(D54:D57)-D58,0)=0,"a","û")
+2024-11-01 21:28:42,230 - INFO - Difference After Adjustments tickmark formula added to row 62, Column D with formula: =IF(ROUND(+D48-D58+D61,0)=0,"a","û")
+2024-11-01 21:28:43,565 - INFO - UDO: 0 compared with UCO to UDO Trading Partner Total: -55479.00 - No Match
+2024-11-01 21:28:43,595 - INFO - UDO Tickmark added to component sheet SS_7004 for TIER Component: SS
+2024-11-01 21:28:43,595 - INFO - Match found for TIER Component Name: SS
+2024-11-01 21:28:43,608 - INFO - Tickmarks added to Certification and DO UCO to UDO sheets for TIER Component Name: SS
+2024-11-01 21:28:43,608 - INFO - Found sheet 'CWMD_7023' using tab_name pattern: CWMD_7023
+2024-11-01 21:28:43,608 - INFO - Processing component sheet: CWMD_7023
+2024-11-01 21:28:43,624 - DEBUG - UCO cell found at row 48, column 2 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:43,636 - DEBUG - Raw UCO cell value: None
+2024-11-01 21:28:43,638 - INFO - Processed UCO value from component sheet: 0
+2024-11-01 21:28:43,649 - INFO - UCO: 0 compared with UCO to UDO: 64000.00 - No Match
+2024-11-01 21:28:43,653 - INFO - Tickmark added to component sheet CWMD_7023 for TIER Component: WMD
+2024-11-01 21:28:43,670 - DEBUG - UDO cell found at row 48, column 4 in 'DO UCO to UDO' sheet.
+2024-11-01 21:28:43,675 - DEBUG - Raw UDO cell value: None
+2024-11-01 21:28:43,675 - INFO - Processed UDO value from component sheet: 0
+2024-11-01 21:28:43,699 - INFO - Found 'Contract / Agreement / Sales Order #' in Column A at row 15
+2024-11-01 21:28:43,707 - INFO - Found 'Providing Bureau UCO Total via their system records:' in Column A at row 45
+2024-11-01 21:28:43,720 - INFO - Found 'Difference between: System of Record vs TIER' in Column A at row 52
+2024-11-01 21:28:43,720 - INFO - Inspecting cell in Column C, row 1: None
+2024-11-01 21:28:43,720 - INFO - Inspecting cell in Column C, row 2: None
+2024-11-01 21:28:43,733 - INFO - Inspecting cell in Column C, row 3: None
+2024-11-01 21:28:43,737 - INFO - Inspecting cell in Column C, row 4: None
+2024-11-01 21:28:43,742 - INFO - Inspecting cell in Column C, row 5: None
+2024-11-01 21:28:43,749 - INFO - Inspecting cell in Column C, row 6: None
+2024-11-01 21:28:43,749 - INFO - Inspecting cell in Column C, row 7: None
+2024-11-01 21:28:43,749 - INFO - Inspecting cell in Column C, row 8: None
+2024-11-01 21:28:43,793 - INFO - Inspecting cell in Column C, row 9: None
+2024-11-01 21:28:43,796 - INFO - Inspecting cell in Column C, row 10: None
+2024-11-01 21:28:43,802 - INFO - Inspecting cell in Column C, row 11: None
+2024-11-01 21:28:43,805 - INFO - Inspecting cell in Column C, row 12: None
+2024-11-01 21:28:43,811 - INFO - Inspecting cell in Column C, row 13: Receiver fills in this column except for Contract/Agreement/Obligation # which should be entered by Provider (when possible) and confirmed by Receiver
+2024-11-01 21:28:43,819 - INFO - Inspecting cell in Column C, row 14: Receiving Component SGLs 4801/4871/4881/4802/4872/4882
+2024-11-01 21:28:43,826 - INFO - Inspecting cell in Column C, row 15: Contract / Agreement / Obligation #   
+2024-11-01 21:28:43,963 - INFO - Inspecting cell in Column C, row 16: None
+2024-11-01 21:28:43,966 - INFO - Inspecting cell in Column C, row 17: None
+2024-11-01 21:28:43,971 - INFO - Inspecting cell in Column C, row 18: None
+2024-11-01 21:28:43,971 - INFO - Inspecting cell in Column C, row 19: None
+2024-11-01 21:28:43,987 - INFO - Inspecting cell in Column C, row 20: None
+2024-11-01 21:28:43,987 - INFO - Inspecting cell in Column C, row 21: None
+2024-11-01 21:28:43,987 - INFO - Inspecting cell in Column C, row 22: None
+2024-11-01 21:28:43,999 - INFO - Inspecting cell in Column C, row 23: None
+2024-11-01 21:28:44,001 - INFO - Inspecting cell in Column C, row 24: None
+2024-11-01 21:28:44,001 - INFO - Inspecting cell in Column C, row 25: None
+2024-11-01 21:28:44,017 - INFO - Inspecting cell in Column C, row 26: None
+2024-11-01 21:28:44,017 - INFO - Inspecting cell in Column C, row 27: None
+2024-11-01 21:28:44,034 - INFO - Inspecting cell in Column C, row 28: None
+2024-11-01 21:28:44,034 - INFO - Inspecting cell in Column C, row 29: None
+2024-11-01 21:28:44,034 - INFO - Inspecting cell in Column C, row 30: None
+2024-11-01 21:28:44,034 - INFO - Inspecting cell in Column C, row 31: None
+2024-11-01 21:28:44,049 - INFO - Inspecting cell in Column C, row 32: None
+2024-11-01 21:28:44,049 - INFO - Inspecting cell in Column C, row 33: None
+2024-11-01 21:28:44,049 - INFO - Inspecting cell in Column C, row 34: None
+2024-11-01 21:28:44,068 - INFO - Inspecting cell in Column C, row 35: None
+2024-11-01 21:28:44,076 - INFO - Inspecting cell in Column C, row 36: None
+2024-11-01 21:28:44,076 - INFO - Inspecting cell in Column C, row 37: None
+2024-11-01 21:28:44,081 - INFO - Inspecting cell in Column C, row 38: None
+2024-11-01 21:28:44,081 - INFO - Inspecting cell in Column C, row 39: None
+2024-11-01 21:28:44,098 - INFO - Inspecting cell in Column C, row 40: None
+2024-11-01 21:28:44,098 - INFO - Inspecting cell in Column C, row 41: None
+2024-11-01 21:28:44,098 - INFO - Inspecting cell in Column C, row 42: None
+2024-11-01 21:28:44,098 - INFO - Inspecting cell in Column C, row 43: None
+2024-11-01 21:28:44,112 - INFO - Inspecting cell in Column C, row 44: None
+2024-11-01 21:28:44,112 - INFO - Inspecting cell in Column C, row 45: Receiving Bureau UDO Total via their system records:
+2024-11-01 21:28:44,128 - INFO - Inspecting cell in Column C, row 46: None
+2024-11-01 21:28:44,130 - INFO - Inspecting cell in Column C, row 47: Receiving Agency:
+2024-11-01 21:28:44,130 - INFO - Inspecting cell in Column C, row 48: Please enter UDO total reported in TIER:
+2024-11-01 21:28:44,144 - INFO - Inspecting cell in Column C, row 49: None
+2024-11-01 21:28:44,144 - INFO - Inspecting cell in Column C, row 50: If UDO amount reported (regardless of materiality) via your agency's system records is NOT what is reported in TIER, please explain below how your system records total amount is tied to the TIER amount reported:
+2024-11-01 21:28:44,160 - INFO - Inspecting cell in Column C, row 51: None
+2024-11-01 21:28:44,160 - INFO - Inspecting cell in Column C, row 52: Difference between: System of Record vs TIER
+2024-11-01 21:28:44,175 - INFO - Inspecting cell in Column C, row 53: None
+2024-11-01 21:28:44,175 - INFO - Inspecting cell in Column C, row 54: UDO total via system records
+2024-11-01 21:28:44,191 - INFO - Found 'UDO total via system records' in Column C at row 54
+2024-11-01 21:28:44,191 - INFO - Inspecting cell in Column C, row 55: None
+2024-11-01 21:28:44,191 - INFO - Inspecting cell in Column C, row 56: None
+2024-11-01 21:28:44,206 - INFO - Inspecting cell in Column C, row 57: None
+2024-11-01 21:28:44,206 - INFO - Inspecting cell in Column C, row 58: UDO after high level adjustments
+2024-11-01 21:28:44,222 - INFO - Found 'UDO after high level adjustments' in Column C at row 58
+2024-11-01 21:28:44,222 - INFO - Inspecting cell in Column C, row 59: None
+2024-11-01 21:28:44,231 - INFO - Inspecting cell in Column C, row 60: None
+2024-11-01 21:28:44,238 - INFO - Inspecting cell in Column C, row 61: Difference between: System of Record (after adjustments) vs TIER 
+2024-11-01 21:28:44,273 - INFO - Found 'Difference between: System of Record (after adjustments) vs TIER' in Column C at row 61
+2024-11-01 21:28:44,278 - INFO - Inspecting cell in Column C, row 62: None
+2024-11-01 21:28:44,282 - INFO - Inspecting cell in Column C, row 63: None
+2024-11-01 21:28:44,290 - INFO - Inserted a new column after Column J.
+2024-11-01 21:28:44,295 - INFO - Set the width of column K to 45.
+2024-11-01 21:28:44,301 - INFO - Added 'DO Comments' header to the new column at row 15 and applied formatting.
+2024-11-01 21:28:44,324 - INFO - Formatted the new 'DO Comments' column with red bold text.
+2024-11-01 21:28:44,445 - INFO - Recon Table Data range: Rows 16 to 44
+2024-11-01 21:28:44,474 - INFO - Tickmark row is 46
+2024-11-01 21:28:44,489 - INFO - Tickmark formula added to row 46, Column B with formula: =IF(ROUND(SUM(B$16:B44)-B45,0)=0,"a","û")
+2024-11-01 21:28:44,516 - INFO - Tickmark formula added to row 46, Column D with formula: =IF(ROUND(SUM(D$16:D44)-D45,0)=0,"a","û")
+2024-11-01 21:28:44,548 - INFO - Tickmark formula added to row 46, Column E with formula: =IF(ROUND(SUM(E$16:E44)-E45,0)=0,"a","û")
+2024-11-01 21:28:44,598 - INFO - Tickmark formula added to row 46, Column F with formula: =IF(ROUND(SUM(F$16:F44)-F45,0)=0,"a","û")
+2024-11-01 21:28:44,626 - INFO - Tickmark formula added to row 46, Column G with formula: =IF(ROUND(SUM(G$16:G44)-G45,0)=0,"a","û")
+2024-11-01 21:28:44,668 - INFO - Tickmark formula added to row 46, Column H with formula: =IF(ROUND(SUM(H$16:H44)-H45,0)=0,"a","û")
+2024-11-01 21:28:44,741 - INFO - Tickmark formula added to row 46, Column I with formula: =IF(AND((ROUND(SUM(E45:G45)-H45,0)=0),ROUND((+B45+D45)-E45,0)=0),"b","û")
+2024-11-01 21:28:44,821 - INFO - System of Record vs TIER tickmark formulas added to row 53, Columns B and D
+2024-11-01 21:28:44,851 - INFO - UDO After High Level Adjustments tickmark formula added to row 59, Column D with formula: =IF(ROUND(SUM(D54:D57)-D58,0)=0,"a","û")
+2024-11-01 21:28:45,031 - INFO - Difference After Adjustments tickmark formula added to row 62, Column D with formula: =IF(ROUND(+D48-D58+D61,0)=0,"a","û")
+2024-11-01 21:28:46,632 - INFO - UDO: 0 compared with UCO to UDO Trading Partner Total: -1781526.33 - No Match
+2024-11-01 21:28:46,651 - INFO - UDO Tickmark added to component sheet CWMD_7023 for TIER Component: WMD
+2024-11-01 21:28:46,651 - INFO - Match found for TIER Component Name: WMD
+2024-11-01 21:28:46,667 - INFO - Tickmarks added to Certification and DO UCO to UDO sheets for TIER Component Name: WMD
+2024-11-01 21:28:48,056 - INFO - Workbook saved with updated comparisons and tickmarks.
+2024-11-01 21:28:49,217 - INFO - Workbook saved with updated tables and tickmark columns.
+2024-11-01 21:28:49,585 - INFO - Opened Excel file: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 21:28:49,611 - INFO - Operations completed successfully.

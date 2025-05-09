@@ -1,0 +1,63 @@
+2024-10-31 19:36:09,554 - INFO - Operation started...
+2024-10-31 19:36:09,558 - INFO - Absolute path of target file: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon.xlsx
+2024-10-31 19:36:15,062 - INFO - Opening target file: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon.xlsx
+2024-10-31 19:36:16,628 - INFO - Saving copy of target file as: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:36:17,787 - INFO - Created copy of target file: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:36:19,831 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:36:26,512 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:36:36,448 - INFO - Opening source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/TrialBalance20241011_080140AM.xlsx
+2024-10-31 19:36:39,452 - INFO - Opening target workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:36:41,765 - INFO - Copying sheet 'WMD Total' from source to target
+2024-10-31 19:36:42,196 - INFO - Saving changes to target workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:36:42,626 - INFO - Successfully copied and renamed sheet to 'DO TB' with formatting and formulas preserved
+2024-10-31 19:36:45,049 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:36:47,968 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:36:53,479 - INFO - Opening source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/UcoToUdo20241011_080246AM.xlsx
+2024-10-31 19:36:54,640 - INFO - Opening target workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:36:56,175 - INFO - Copying sheet 'UCO to UDO' from source to target
+2024-10-31 19:36:56,595 - INFO - Saving changes to target workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:36:57,180 - INFO - Successfully copied and renamed sheet to 'DO UCO to UDO' with formatting and formulas preserved
+2024-10-31 19:36:59,333 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:37:04,112 - INFO - Released file handle for: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:37:17,202 - INFO - Attempt 1: Opening Excel to recalculate and save the workbook: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:37:19,616 - INFO - Workbook recalculated and saved successfully in Excel.
+2024-10-31 19:37:21,606 - INFO - Loading workbook for writing: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:37:24,471 - INFO - Loading workbook for reading computed values: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:37:25,801 - INFO - Processing 'Certification' sheet.
+2024-10-31 19:37:25,813 - INFO - Certification total found: 4696566.70 at row 21, Column D.
+2024-10-31 19:37:25,819 - INFO - 'Tickmark' added to cell H6 with formatting applied.
+2024-10-31 19:37:25,829 - INFO - Certification Table Headers: ['Trading Partner Number', 'TIER Compent Name', 'Component', 'Component Total Unfilled Customer Orders', 'Trading Partner Total Undelivered Orders  to Component', 'Difference', 'Tab Name', 'Tickmark']
+2024-10-31 19:37:25,836 - INFO - Processing 'DO TB' sheet.
+2024-10-31 19:37:25,843 - INFO - Searching for '422100' and '422200' in Column C of the 'DO TB' sheet.
+2024-10-31 19:37:25,852 - INFO - Found '422200' in row 54, value in Column H: 4167580.69
+2024-10-31 19:37:26,013 - INFO - Value '4167580.69' added to Column N at row 54.
+2024-10-31 19:37:26,034 - INFO - Found '422100' in row 229, value in Column H: -856000
+2024-10-31 19:37:26,051 - INFO - Value '-856000' added to Column N at row 229.
+2024-10-31 19:37:26,068 - INFO - Sum formula '=N229+N54' entered in Column N at row 230.
+2024-10-31 19:37:26,088 - INFO - Auto-fitted Column N to width: 12
+2024-10-31 19:37:26,160 - INFO - Processing 'DO UCO to UDO' sheet.
+2024-10-31 19:37:26,177 - INFO - 'Tickmark' added to cell N9 with formatting applied.
+2024-10-31 19:37:26,302 - INFO - DO UCO to UDO Table Headers: ['CBP', 1042826.12, 0, 0, '=B11+C11+D11', 0, 0, '=F11+G11', '=B11+F11', '=C11+G11', 0, '=I11+J11+K11', '', None]
+2024-10-31 19:37:26,312 - INFO - UCO Total for row 11: 1042826.12
+2024-10-31 19:37:26,326 - INFO - UCO Total for row 12: 0.00
+2024-10-31 19:37:26,333 - INFO - UCO Total for row 13: 30000.00
+2024-10-31 19:37:26,344 - INFO - UCO Total for row 14: 563291.45
+2024-10-31 19:37:26,350 - INFO - UCO Total for row 15: 2996449.13
+2024-10-31 19:37:26,353 - INFO - UCO Total for row 16: 0.00
+2024-10-31 19:37:26,362 - INFO - UCO Total for row 17: 0.00
+2024-10-31 19:37:26,367 - INFO - UCO Total for row 18: 0.00
+2024-10-31 19:37:26,379 - INFO - UCO Total for row 19: 64000.00
+2024-10-31 19:37:26,383 - INFO - UCO Total for row 20: 4696566.70
+2024-10-31 19:37:26,411 - INFO - Starting comparison of Certification and DO UCO to UDO ranges.
+2024-10-31 19:37:26,422 - ERROR - An error occurred during the comparison: [<class 'decimal.ConversionSyntax'>]
+Traceback (most recent call last):
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\compare_ranges.py", line 40, in compare_ranges
+    difference = convert_to_number(cert_row[5].value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\compare_ranges.py", line 14, in convert_to_number
+    return Decimal(cleaned_value)
+           ^^^^^^^^^^^^^^^^^^^^^^
+decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+2024-10-31 19:37:27,135 - INFO - Workbook saved with updated tables and tickmark columns.
+2024-10-31 19:37:27,986 - INFO - Opened Excel file: C:\Users\Jeron.Crooks\Documents\UCO to UDO\WMD\WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 19:37:28,552 - INFO - Operations completed successfully.

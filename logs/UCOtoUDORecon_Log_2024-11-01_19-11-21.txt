@@ -1,0 +1,59 @@
+2024-11-01 19:11:48,515 - INFO - Operation started...
+2024-11-01 19:11:48,520 - INFO - Created copy of target file: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:11:50,533 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:11:52,554 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:11:52,555 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/TrialBalance20241011_080140AM.xlsx
+2024-11-01 19:11:53,490 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:11:54,059 - INFO - Copying sheet 'WMD Total' from source to target
+2024-11-01 19:11:57,696 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:12:00,198 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:12:00,309 - INFO - Successfully copied and renamed sheet to 'DO TB' with formatting and formulas preserved
+2024-11-01 19:12:02,397 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:12:02,409 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/UcoToUdo20241011_080246AM.xlsx
+2024-11-01 19:12:02,427 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:12:02,921 - INFO - Copying sheet 'UCO to UDO' from source to target
+2024-11-01 19:12:03,032 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:12:05,498 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:12:05,520 - INFO - Successfully copied and renamed sheet to 'DO UCO to UDO' with formatting and formulas preserved
+2024-11-01 19:12:07,750 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:12:12,072 - INFO - Attempt 1: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:12:13,569 - INFO - Workbook recalculated and saved successfully in Excel.
+2024-11-01 19:12:15,045 - INFO - Loading workbook with data_only=False: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:12:15,772 - INFO - Loading workbook with data_only=True: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:12:16,385 - INFO - Processing 'Certification' sheet.
+2024-11-01 19:12:16,387 - INFO - Certification total found: 4696566.70 at row 21, Column D.
+2024-11-01 19:12:16,387 - INFO - 'Tickmark' added to cell H6 with formatting applied.
+2024-11-01 19:12:16,402 - INFO - Certification Table Headers: ['Trading Partner Number', 'TIER Compent Name', 'Component', 'Component Total Unfilled Customer Orders', 'Trading Partner Total Undelivered Orders  to Component', 'Difference', 'Tab Name', 'Tickmark']
+2024-11-01 19:12:16,403 - INFO - Processing 'DO TB' sheet.
+2024-11-01 19:12:16,403 - INFO - Searching for '422100' and '422200' in Column C of the 'DO TB' sheet.
+2024-11-01 19:12:16,403 - INFO - Found '422100' in row 53, value in Column H: 4167580.69
+2024-11-01 19:12:16,417 - INFO - Value '4167580.69' added to Column N at row 53.
+2024-11-01 19:12:16,422 - INFO - Found '422200' in row 54, value in Column H: 528986.01
+2024-11-01 19:12:16,424 - INFO - Value '528986.01' added to Column N at row 54.
+2024-11-01 19:12:16,427 - INFO - Sum formula '=N53+N54' entered in Column N at row 55.
+2024-11-01 19:12:16,433 - INFO - Auto-fitted Column N to width: 12
+2024-11-01 19:12:16,433 - INFO - Calculated sum directly in Python: 4696566.70
+2024-11-01 19:12:16,433 - INFO - Sums match. Tickmarks added.
+2024-11-01 19:12:16,451 - INFO - Processing 'DO UCO to UDO' sheet.
+2024-11-01 19:12:16,462 - INFO - 'Tickmark' added to cell N9 with formatting applied.
+2024-11-01 19:12:16,468 - INFO - DO UCO to UDO Table Headers: ['CBP', 1042826.12, 0, 0, '=B11+C11+D11', 0, 0, '=F11+G11', '=B11+F11', '=C11+G11', 0, '=I11+J11+K11', None, None]
+2024-11-01 19:12:16,473 - INFO - Row 11 - UCO Total: 1042826.12, Trading Partner Total: 0.00, Difference: 1042826.12
+2024-11-01 19:12:16,477 - INFO - Row 12 - UCO Total: 0.00, Trading Partner Total: 13333090.21, Difference: 13333090.21
+2024-11-01 19:12:16,483 - INFO - Row 13 - UCO Total: 30000.00, Trading Partner Total: -10485.19, Difference: 19514.81
+2024-11-01 19:12:16,526 - INFO - Row 14 - UCO Total: 563291.45, Trading Partner Total: -839200.20, Difference: -275908.75
+2024-11-01 19:12:16,534 - INFO - Row 15 - UCO Total: 2996449.13, Trading Partner Total: -111521.72, Difference: 2884927.41
+2024-11-01 19:12:16,538 - INFO - Row 16 - UCO Total: 0.00, Trading Partner Total: -55479.00, Difference: -55479.00
+2024-11-01 19:12:16,541 - INFO - Row 17 - UCO Total: 0.00, Trading Partner Total: 0.00, Difference: 0.00
+2024-11-01 19:12:16,545 - INFO - Row 18 - UCO Total: 0.00, Trading Partner Total: 0.00, Difference: 0.00
+2024-11-01 19:12:16,549 - INFO - Row 19 - UCO Total: 64000.00, Trading Partner Total: -1781526.33, Difference: -1717526.33
+2024-11-01 19:12:16,552 - INFO - Row 20 - UCO Total: 4696566.70, Trading Partner Total: 10534877.77, Difference: 15231444.47
+2024-11-01 19:12:16,672 - INFO - Starting comparison of Certification and DO UCO to UDO ranges.
+2024-11-01 19:12:16,675 - ERROR - An error occurred during the comparison: 'tuple' object has no attribute 'row'
+Traceback (most recent call last):
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\compare_ranges.py", line 59, in compare_ranges
+    component_total_unfilled = safe_convert_to_decimal(data_wb["Certification"].cell(row=cert_row.row, column=4).value, logger)
+                                                                                         ^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'row'
+2024-11-01 19:12:17,108 - INFO - Workbook saved with updated tables and tickmark columns.
+2024-11-01 19:12:17,321 - INFO - Opened Excel file: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-11-01 19:12:17,394 - INFO - Operations completed successfully.

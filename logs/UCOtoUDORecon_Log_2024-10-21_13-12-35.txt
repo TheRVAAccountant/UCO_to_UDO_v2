@@ -1,0 +1,94 @@
+2024-10-21 15:57:33,683 - INFO - Operation started...
+2024-10-21 15:57:33,709 - INFO - Created copy of target file: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-21 15:57:33,715 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/TrialBalance20241011_080140AM.xlsx
+2024-10-21 15:57:35,772 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-21 15:57:36,836 - INFO - Copying sheet 'WMD Total' from source to target
+2024-10-21 15:57:43,413 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-21 15:57:43,995 - INFO - Successfully copied and renamed sheet to 'DO TB' with formatting and formulas preserved
+2024-10-21 15:57:43,997 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/UcoToUdo20241011_080246AM.xlsx
+2024-10-21 15:57:44,014 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-21 15:57:44,825 - INFO - Copying sheet 'UCO to UDO' from source to target
+2024-10-21 15:57:45,075 - INFO - Saving changes to target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-21 15:57:45,941 - INFO - Successfully copied and renamed sheet to 'DO UCO to UDO' with formatting and formulas preserved
+2024-10-21 15:57:53,517 - INFO - Attempt 1: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-21 15:58:25,139 - ERROR - Attempt 1: An error occurred while recalculating the workbook in Excel: (-2147023170, 'The remote procedure call failed.', None, None)
+Traceback (most recent call last):
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 85, in recalculate_workbook_in_excel
+    wb.Save()
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\_Workbook.py", line 280, in Save
+    return self._oleobj_.InvokeTypes(283, LCID, 1, (24, 0), (),)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147023170, 'The remote procedure call failed.', None, None)
+2024-10-21 15:58:25,154 - INFO - Retrying in 5 seconds... (Attempt 2)
+2024-10-21 15:58:30,161 - ERROR - Error closing workbook: (-2147023174, 'The RPC server is unavailable.', None, None)
+Traceback (most recent call last):
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 100, in recalculate_workbook_in_excel
+    wb.Close(SaveChanges=False)
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\_Workbook.py", line 70, in Close
+    return self._oleobj_.InvokeTypes(277, LCID, 1, (24, 0), ((12, 17), (12, 17), (12, 17)),SaveChanges
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147023174, 'The RPC server is unavailable.', None, None)
+2024-10-21 15:58:30,173 - INFO - Attempt 2: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-21 15:58:30,178 - ERROR - Attempt 2: An error occurred while recalculating the workbook in Excel: (-2147023174, 'The RPC server is unavailable.', None, None)
+Traceback (most recent call last):
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 70, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^
+  File "C:\Users\Jeron.Crooks\AppData\Local\anaconda3\Lib\site-packages\win32com\client\__init__.py", line 583, in __getattr__
+    return self._ApplyTypes_(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jeron.Crooks\AppData\Local\anaconda3\Lib\site-packages\win32com\client\__init__.py", line 572, in _ApplyTypes_
+    self._oleobj_.InvokeTypes(dispid, 0, wFlags, retType, argTypes, *args),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147023174, 'The RPC server is unavailable.', None, None)
+2024-10-21 15:58:30,187 - INFO - Retrying in 5 seconds... (Attempt 3)
+2024-10-21 15:58:35,192 - INFO - Attempt 3: Opening Excel to recalculate and save the workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-21 15:58:35,195 - ERROR - Attempt 3: An error occurred while recalculating the workbook in Excel: (-2147023174, 'The RPC server is unavailable.', None, None)
+Traceback (most recent call last):
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 70, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^
+  File "C:\Users\Jeron.Crooks\AppData\Local\anaconda3\Lib\site-packages\win32com\client\__init__.py", line 583, in __getattr__
+    return self._ApplyTypes_(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jeron.Crooks\AppData\Local\anaconda3\Lib\site-packages\win32com\client\__init__.py", line 572, in _ApplyTypes_
+    self._oleobj_.InvokeTypes(dispid, 0, wFlags, retType, argTypes, *args),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147023174, 'The RPC server is unavailable.', None, None)
+2024-10-21 15:58:35,206 - ERROR - Failed to recalculate the workbook after 3 attempts: (-2147023174, 'The RPC server is unavailable.', None, None)
+Traceback (most recent call last):
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 70, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^
+  File "C:\Users\Jeron.Crooks\AppData\Local\anaconda3\Lib\site-packages\win32com\client\__init__.py", line 583, in __getattr__
+    return self._ApplyTypes_(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jeron.Crooks\AppData\Local\anaconda3\Lib\site-packages\win32com\client\__init__.py", line 572, in _ApplyTypes_
+    self._oleobj_.InvokeTypes(dispid, 0, wFlags, retType, argTypes, *args),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147023174, 'The RPC server is unavailable.', None, None)
+2024-10-21 15:58:35,216 - ERROR - An unexpected error occurred: (-2147023174, 'The RPC server is unavailable.', None, None)
+Traceback (most recent call last):
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 70, in recalculate_workbook_in_excel
+    wb = excel.Workbooks.Open(
+         ^^^^^^^^^^^^^^^
+  File "C:\Users\Jeron.Crooks\AppData\Local\anaconda3\Lib\site-packages\win32com\client\__init__.py", line 583, in __getattr__
+    return self._ApplyTypes_(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jeron.Crooks\AppData\Local\anaconda3\Lib\site-packages\win32com\client\__init__.py", line 572, in _ApplyTypes_
+    self._oleobj_.InvokeTypes(dispid, 0, wFlags, retType, argTypes, *args),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147023174, 'The RPC server is unavailable.', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 354, in find_table_range
+    recalculate_workbook_in_excel(new_target_file, logger, progress_callback)
+  File "C:\Users\Jeron.Crooks\OneDrive - Department of Homeland Security\Desktop\Python Automation\UCO_to_UDO\find_table_range.py", line 109, in recalculate_workbook_in_excel
+    excel.Quit()
+  File "C:\Users\JERON~1.CRO\AppData\Local\Temp\1\gen_py\3.12\00020813-0000-0000-C000-000000000046x0x1x9\_Application.py", line 338, in Quit
+    return self._oleobj_.InvokeTypes(302, LCID, 1, (24, 0), (),)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147023174, 'The RPC server is unavailable.', None, None)
+2024-10-21 15:58:35,236 - INFO - Operations completed successfully.

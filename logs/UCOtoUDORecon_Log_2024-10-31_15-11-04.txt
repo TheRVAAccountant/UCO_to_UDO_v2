@@ -1,0 +1,16 @@
+2024-10-31 15:12:10,478 - INFO - Operation started...
+2024-10-31 15:12:10,483 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon.xlsx
+2024-10-31 15:12:27,041 - INFO - Saving new workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 15:12:27,765 - INFO - Created copy of target file: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 15:12:29,910 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 15:12:32,022 - INFO - Released file handle for: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 15:12:32,046 - INFO - Loading source workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/TrialBalance20241011_080140AM.xlsx
+2024-10-31 15:12:34,230 - INFO - Loading target workbook: C:/Users/Jeron.Crooks/Documents/UCO to UDO/WMD/WMD FY24 Q4 UCO to UDO Recon - DO.xlsx
+2024-10-31 15:12:34,874 - INFO - Copying sheet 'WMD Total' from source to target
+2024-10-31 15:12:34,964 - ERROR - An error occurred while copying sheet: 'Cell' object has no attribute 'formula'
+Traceback (most recent call last):
+  File "c:\Users\Jeron.Crooks\VSCode\UCO_to_UDO_v2\gui_excel_tool.py", line 79, in copy_and_rename_sheet
+    target_cell.value = cell.formula  # Use the cell's formula attribute to maintain the formula
+                        ^^^^^^^^^^^^
+AttributeError: 'Cell' object has no attribute 'formula'
+2024-10-31 15:12:35,278 - ERROR - Failed to copy sheet 'WMD Total'.
